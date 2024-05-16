@@ -12,7 +12,16 @@ function index() {
       });
     }, []);
 
-  return <div>{message}</div>
+  const handleLogin = () => {
+    window.location.href = 'http://localhost:8080/login';
+  }
+
+  return (
+    <>
+      <p>{message}</p>
+      <button onClick={handleLogin}>Login with Spotify</button>
+    </>
+  );
 }
 
 export default index

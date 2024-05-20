@@ -5,7 +5,7 @@ from requests import get, post
 
 app = Flask(__name__)
 app.secret_key = 'lol'
-CORS(app)
+CORS(app, supports_credentials=True)
 
 @app.get('/')
 def index():
@@ -23,7 +23,7 @@ def callback():
     auth_code = request.args.get('code')
     token = spotify_repo.get_token(auth_code)
     session['token'] = token
-    return redirect('/profile')
+    return redirect('http://localhost:3000/profile')
 
 @app.get('/profile')
 def profile():

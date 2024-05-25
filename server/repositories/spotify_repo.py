@@ -39,7 +39,7 @@ def get_auth_url() -> str:
         'client_id': client_id,
         'response_type': 'code',
         'redirect_uri': redirect_uri,
-        'scope': 'user-read-private user-read-email'
+        'scope': 'user-read-private user-read-email user-top-read'
     }
     return f'{auth_url}?{urlencode(query_params)}'
 

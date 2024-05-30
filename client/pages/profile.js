@@ -1,4 +1,6 @@
 import React, { useEffect,useState } from 'react'
+import styles from "../styles/login_page.module.css";
+
 
 function profile() {
     const [profile, setProfile] = useState(null);
@@ -48,13 +50,13 @@ function profile() {
 
     return (
         <>
-            <h1>User Profile</h1>
+            <h1 >User Profile</h1>
             <h2>Name: {profile.display_name}</h2>
             <p>Email: {profile.email}</p>
             <p>Followers: {profile.followers.total}</p>
             <img src={profile.images[1].url} alt='spotify profile picture'></img>
 
-            <h2>Top Tracks</h2>
+            <h2 className={styles.backshot}>Top Tracks</h2>
             <ul>
             {/* Inside jsonify, track refers to 'album': track.name == album.name */}
             {topTracks.map((track, index) => (

@@ -1,4 +1,5 @@
 import React, { useEffect,useState } from 'react'
+import styles from "../styles/apt.module.css"
 
 function profile() {
     const [profile, setProfile] = useState(null);
@@ -55,6 +56,16 @@ function profile() {
             <p>Email: {profile.email}</p>
             <p>Followers: {profile.followers.total}</p>
             <img src={profile.images[1].url} alt='spotify profile picture'></img>
+
+            <div className={styles.parent}>
+                <img className={styles.image1} src='/images/apt01_base.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_windows.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_kitchen.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_entrance.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_office.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_livingroom.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_bedroom.png' alt='apt_image'></img>
+            </div>
 
             <h2>Audio Feature Averages</h2>
             <div>

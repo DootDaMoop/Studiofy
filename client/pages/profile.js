@@ -64,7 +64,7 @@ function profile() {
                     <p>{track.name} by {track.artists.map(artist => artist.name).join(', ')}</p>
                     <img src={track.album.images[2].url} alt='album icon'></img>
                     {audioFeatures[index] && (
-                        <div>
+                        <div className={styles.cunts}>
                             <p>Danceability: {audioFeatures[index].danceability}</p>
                             <p>Acousticness: {audioFeatures[index].acousticness}</p>
                             <p>Energy: {audioFeatures[index].energy}</p>

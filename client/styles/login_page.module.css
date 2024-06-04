@@ -1,5 +1,68 @@
-.backshot {
-    background-color: red;
-    color: red;
-    
-}
+/** 
+
+CSS Notes 
+==================================
+Priority: ID -> Class -> Elements
+
+h1 = selects element
+.class = selects class
+#main-text = selects id
+
+=============================
+# To select multiple
+        h1, h2 {
+            /styles here
+        }
+=============================
+# To select Inside 
+    ** Meaning select h2 inside h1**
+        h1 h2 {
+            /styles here
+        }
+=============================
+Color Vs Layout
+
+Colors: background colors etc
+        1) Background-colors are applied to padding and content
+            but not border and margin
+
+Layouts: Content -> Padding -> Border -> Margin (inside to outside)
+        **width, height, padding, border, margin**
+        1) Width and height are best set as percentages of parent container
+        2) Padding can be set manually ex.
+            padding: 10px 20px 30px 40px;
+            padding: top, right, bottom, left (clockwise)
+                or
+            padding: 10px 20px -> padding: top/bottom , left/right
+                or
+            padding 10px -> padding: all sides
+
+
+**/
+
+
+.loginPage {
+    background-image: url('./images/loginpage.png'); /* Adjust the path to your image */
+    background-size: 100vw 100vh; /* Ensure the image covers the entire element */
+    height: 98vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  .button {
+    margin-left: 1000px;
+    margin-top: 200px;
+    display:flex;
+    background-color: white; /* Spotify green */
+    color: black; /* Text Color */
+    border: none; /* Border around Padding*/ 
+    padding: 15px 30px; /* Button Size*/
+    font-size: 1.5em; /* */
+    border-radius: 25px; /* Rounding Button*/
+
+  }
+  
+  .button:hover {
+    background-color: #1AA34A; /* Darker green on hover */
+  }

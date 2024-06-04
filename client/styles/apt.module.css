@@ -1,0 +1,15 @@
+.parent {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.image1 {
+    position: relative;
+}
+
+.image2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}

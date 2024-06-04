@@ -1,11 +1,11 @@
 import React, { useEffect,useState } from 'react'
-import styles from "../styles/login_page.module.css";
-
+import styles from "../styles/apt.module.css"
 
 function profile() {
     const [profile, setProfile] = useState(null);
     const [topTracks, setTopTracks] = useState([]);
     const [audioFeatures, setAudioFeatures] = useState([]);
+    const [featureAverages, setFeatureAverages] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -38,6 +38,7 @@ function profile() {
         .then((data) => {
             setTopTracks(data.top_tracks.items);
             setAudioFeatures(data.audio_features.audio_features);
+            setFeatureAverages(data.feature_averages);
         })
         .catch((error) => {
             console.log(error);
@@ -56,7 +57,28 @@ function profile() {
             <p>Followers: {profile.followers.total}</p>
             <img src={profile.images[1].url} alt='spotify profile picture'></img>
 
-            <h2 className={styles.backshot}>Top Tracks</h2>
+            <div className={styles.parent}>
+                <img className={styles.image1} src='/images/apt01_base.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_windows.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_kitchen.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_entrance.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_office.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_livingroom.png' alt='apt_image'></img>
+                <img className={styles.image2} src='/images/apt01_bedroom.png' alt='apt_image'></img>
+            </div>
+
+            <h2>Audio Feature Averages</h2>
+            <div>
+                <p>Danceability: {featureAverages.danceability}</p>
+                <p>Acousticness: {featureAverages.acousticness}</p>
+                <p>Energy: {featureAverages.energy}</p>
+                <p>Instrumentalness: {featureAverages.instrumentalness}</p>
+                <p>Liveness: {featureAverages.liveness}</p>
+                <p>Speechiness: {featureAverages.speechiness}</p>
+                <p>Valence: {featureAverages.valence}</p>
+            </div>
+            
+            <h2>Top Tracks</h2>
             <ul>
             {/* Inside jsonify, track refers to 'album': track.name == album.name */}
             {topTracks.map((track, index) => (
@@ -72,7 +94,6 @@ function profile() {
                             <p>Liveness: {audioFeatures[index].liveness}</p>
                             <p>Speechiness: {audioFeatures[index].speechiness}</p>
                             <p>Valence: {audioFeatures[index].valence}</p>
-                            <p>Loudness: {audioFeatures[index].loudness}</p>
                         </div>
                     )}
                 </li>

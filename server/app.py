@@ -44,14 +44,41 @@ def get_user_top_tracks():
         return redirect('/login')
     
     headers = spotify_repo.get_auth_header(token)
-    top_tracks = get('https://api.spotify.com/v1/me/top/tracks?limit=50', headers=headers).json()
+    top_tracks_json = get('https://api.spotify.com/v1/me/top/tracks?limit=50', headers=headers).json()
 
-    track_ids = [track['id'] for track in top_tracks['items']]
-    audio_features = get(f'https://api.spotify.com/v1/audio-features/?ids={",".join(track_ids)}', headers=headers).json()
+    track_ids = [track['id'] for track in top_tracks_json['items']]
+    audio_features_json = get(f'https://api.spotify.com/v1/audio-features/?ids={",".join(track_ids)}', headers=headers).json()
+
+    audio_features = audio_features_json['audio_features']
+
+    feature_dict = {
+        'danceability': 0,
+        'acousticness': 0,
+        'energy': 0,
+        'instrumentalness': 0,
+        'liveness': 0,
+        'speechiness': 0,
+        'valence': 0
+    }
+
+    for feature in audio_features:
+        feature_dict['danceability'] += feature['danceability']
+        feature_dict['acousticness'] += feature['acousticness']
+        feature_dict['energy'] += feature['energy']
+        feature_dict['instrumentalness'] += feature['instrumentalness']
+        feature_dict['liveness'] += feature['liveness']
+        feature_dict['speechiness'] += feature['speechiness']
+        feature_dict['valence'] += feature['valence']
+
+    feature_averages_json = {}
+
+    for k,v in feature_dict.items():
+        feature_averages_json[k] = v / len(feature_dict)
 
     return jsonify({
-        'top_tracks': top_tracks,
-        'audio_features': audio_features
+        'top_tracks': top_tracks_json,
+        'audio_features': audio_features_json,
+        'feature_averages': feature_averages_json
         })
 
 if __name__ == '__main__':

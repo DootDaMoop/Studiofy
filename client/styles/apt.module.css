@@ -13,3 +13,35 @@
     top: 0;
     bottom: 0;
 }
+
+.homebg {
+    background-color: 739E73;
+    background-size: 100vw 100vh;
+}
+
+.background {
+    background-size: 100vw 100vh;
+    background-color: #D38B5D;
+    margin: auto;
+}
+
+.page1bg {
+   background-color: #739E82;
+    margin: 0%;
+}
+
+.test123 {
+    background-color: black;
+    color: white;
+    display: none;
+}
+
+.navbar {
+    display:flex ;
+    align-items: center;
+    
+}
+
+.dropdown {
+    display: active;
+}

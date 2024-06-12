@@ -7,9 +7,15 @@ function index() {
   }
 
   return (
+    <div className={styles.container}>
       <main className={styles.loginPage}> 
-        <button className={styles.button} onClick={handleLogin}>Login with Spotify</button>
+      <button className={styles.button} onClick={handleLogin}>Login with Spotify</button>
       </main>
+    
+      <footer className={styles.footer}>
+        <p>This is the main content area.</p>
+      </footer>
+    </div>
     
   );
 }

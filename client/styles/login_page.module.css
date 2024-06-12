@@ -42,7 +42,7 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
 
 
 .loginPage {
-    background-image: url('./images/loginpage.png'); /* Adjust the path to your image */
+    background-image: url('./images/finaldormify.jpg'); /* Adjust the path to your image */
     background-size: 100vw 100vh; /* Ensure the image covers the entire element */
     height: 98vh; /* Full viewport height */
     display: flex;
@@ -66,3 +66,11 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
   .button:hover {
     background-color: #1AA34A; /* Darker green on hover */
   }
+
+  .footer {
+    background-color: black;
+    width: 100%;
+    padding: 70px 30px 20px;
+  }
+
+ 

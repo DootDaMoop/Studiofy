@@ -51,11 +51,53 @@ function profile() {
 
     return (
         <>
-            <h1 >User Profile</h1>
+        <nav className={styles.navbar}>
+        <div>
+            <div>
+                <span>
+                    Ben
+                    <i></i>
+                </span>  
+            </div>
+                <ul className={styles.dropdown}>
+                    <li >
+                    <a href="#">
+                        <i></i>
+                        About Us
+                    </a>
+                    </li>
+
+                    <li >
+                    <a href="#">
+                        <i></i>
+                        Privacy
+                    </a>
+                    </li>
+
+                    <li >
+                    <a href="#">
+                        <i></i>
+                        Share with Friends
+                    </a>
+                    </li>
+
+                    <li >
+                    <a href="#">
+                        <i></i>
+                        Logout
+                    </a>
+                    </li>
+                </ul>
+
+        </div>
+        </nav>
+
+        <div className={styles.page1bg}>
+            <h1>User Profile</h1>
             <h2>Name: {profile.display_name}</h2>
             <p>Email: {profile.email}</p>
             <p>Followers: {profile.followers.total}</p>
-            <img src={profile.images[1].url} alt='spotify profile picture'></img>
+            <img src={profile.images[1].url} alt='spotify profile picture'></img> *
 
             <div className={styles.parent}>
                 <img className={styles.image1} src='/images/apt01_base.png' alt='apt_image'></img>
@@ -66,7 +108,9 @@ function profile() {
                 <img className={styles.image2} src='/images/apt01_livingroom.png' alt='apt_image'></img>
                 <img className={styles.image2} src='/images/apt01_bedroom.png' alt='apt_image'></img>
             </div>
+        </div>
 
+        <body className={styles.background}>
             <h2>Audio Feature Averages</h2>
             <div>
                 <p>Danceability: {featureAverages.danceability}</p>
@@ -79,6 +123,7 @@ function profile() {
             </div>
             
             <h2>Top Tracks</h2>
+           
             <ul>
             {/* Inside jsonify, track refers to 'album': track.name == album.name */}
             {topTracks.map((track, index) => (
@@ -98,7 +143,8 @@ function profile() {
                     )}
                 </li>
             ))}
-            </ul>
+            </ul> 
+        </body>
 
         </>
     );

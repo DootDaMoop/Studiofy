@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import styles from "../styles/apt.module.css"
+import styles from "../styles/Apt.module.css"
 
 function profile() {
     const [profile, setProfile] = useState(null);
@@ -61,7 +61,7 @@ function profile() {
             </div>
                 <ul className={styles.dropdown}>
                     <li >
-                    <a href="#">
+                    <a href="http://localhost:3000/about">
                         <i></i>
                         About Us
                     </a>
@@ -97,7 +97,7 @@ function profile() {
             <h2>Name: {profile.display_name}</h2>
             <p>Email: {profile.email}</p>
             <p>Followers: {profile.followers.total}</p>
-            <img src={profile.images[1].url} alt='spotify profile picture'></img> *
+            <img src={profile.images[1].url} alt='spotify profile picture'></img>
 
             <div className={styles.parent}>
                 <img className={styles.image1} src='/images/apt01_base.png' alt='apt_image'></img>

@@ -1,11 +1,31 @@
 import React, { useEffect,useState } from 'react'
 import styles from "../styles/apt.module.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faAngleDown, faCircle} from '@fortawesome/free-solid-svg-icons';
+
 
 function profile() {
     const [profile, setProfile] = useState(null);
     const [topTracks, setTopTracks] = useState([]);
     const [audioFeatures, setAudioFeatures] = useState([]);
     const [featureAverages, setFeatureAverages] = useState([]);
+    const [toggle, setToggle] = useState(false);
+
+    const handleAbout = () => {
+        window.location.href = '';
+      }
+
+    const handlePrivacy = () => {
+        window.location.href = '';
+      }
+    
+    const handleLogOut = () => {
+        window.location.href = 'http://localhost:3000/';
+      }
+
+    const handleShare = () => {
+        window.location.href = '';
+      }
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -50,54 +70,59 @@ function profile() {
     }
 
     return (
-        <>
+        <>                    
         <nav className={styles.navbar}>
-        <div>
             <div>
-                <span>
-                    Ben
-                    <i></i>
-                </span>  
+                <button onClick={() => setToggle(!toggle)} className={styles.button}>
+                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}>
+                        <i></i>
+                    </div>
+
+                    <span>
+                        {profile.display_name}   
+                        <i><FontAwesomeIcon icon={faAngleDown} /></i>
+                    </span>  
+                </button>
+            
+                {toggle && <ul className={styles.dropdown}>
+                    <li>
+                        <a onClick={handleAbout}>
+                            <i></i>
+                            About Us        
+                        </a>
+                    </li>
+
+                    <li >
+                        <a onClick={handlePrivacy}>
+                            <i></i>
+                            Privacy
+                        </a>
+                    </li>
+
+                    <li >
+                        <a onClick={handleShare}>
+                            <i></i>
+                            Share
+                        </a>
+                    </li>
+
+                    <li >
+                        <a onClick={handleLogOut}>
+                            <i></i>
+                            Logout
+                        </a>  
+                    </li>
+                </ul> }
+
             </div>
-                <ul className={styles.dropdown}>
-                    <li >
-                    <a href="#">
-                        <i></i>
-                        About Us
-                    </a>
-                    </li>
-
-                    <li >
-                    <a href="#">
-                        <i></i>
-                        Privacy
-                    </a>
-                    </li>
-
-                    <li >
-                    <a href="#">
-                        <i></i>
-                        Share with Friends
-                    </a>
-                    </li>
-
-                    <li >
-                    <a href="#">
-                        <i></i>
-                        Logout
-                    </a>
-                    </li>
-                </ul>
-
-        </div>
         </nav>
 
-        <div className={styles.page1bg}>
+        <div className={styles.background}>
             <h1>User Profile</h1>
             <h2>Name: {profile.display_name}</h2>
             <p>Email: {profile.email}</p>
             <p>Followers: {profile.followers.total}</p>
-            <img src={profile.images[1].url} alt='spotify profile picture'></img> *
+            <img src={profile.images[1].url} alt='spotify profile picture'></img> 
 
             <div className={styles.parent}>
                 <img className={styles.image1} src='/images/apt01_base.png' alt='apt_image'></img>

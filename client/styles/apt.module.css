@@ -14,34 +14,56 @@
     bottom: 0;
 }
 
-.homebg {
-    background-color: 739E73;
-    background-size: 100vw 100vh;
-}
-
 .background {
-    background-size: 100vw 100vh;
     background-color: #D38B5D;
     margin: auto;
 }
 
-.page1bg {
-   background-color: #739E82;
-    margin: 0%;
-}
-
-.test123 {
-    background-color: black;
-    color: white;
-    display: none;
-}
-
 .navbar {
-    display:flex ;
-    align-items: center;
-    
+    position: flex;
+}
+
+.profileimg {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.button {
+    position: absolute;
+    align-items:center;
+    border-radius: 40px;
+    border: 1px solid;
+    display:flex;
+    top: 5%;
+    right: 10%;
+    padding: 1rem;
+    width: 150px;
+    height: 60px;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 1rem;
+    user-select: none;
+    transition: background-color 0.3s;
+  }
+
+.button:hover {
+    background-color: grey;
 }
 
 .dropdown {
-    display: active;
+    position: absolute;
+    top: 10%;
+    width: 130px;
+    right: 10%;
+    border-radius: 10px;
+    box-shadow:var(--shadow);
+    padding: 0.5rem 0 0.5rem 1rem;
+    background-color: white;
+    cursor: pointer;
+    
 }
+
+
+

@@ -11,21 +11,7 @@ function profile() {
     const [featureAverages, setFeatureAverages] = useState([]);
     const [toggle, setToggle] = useState(false);
 
-    const handleAbout = () => {
-        window.location.href = '';
-      }
-
-    const handlePrivacy = () => {
-        window.location.href = '';
-      }
     
-    const handleLogOut = () => {
-        window.location.href = 'http://localhost:3000/';
-      }
-
-    const handleShare = () => {
-        window.location.href = '';
-      }
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -70,107 +56,107 @@ function profile() {
     }
 
     return (
-        <>                    
-        <nav className={styles.navbar}>
-            <div>
+        <>
+            <header>
                 <button onClick={() => setToggle(!toggle)} className={styles.button}>
-                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}>
-                        <i></i>
+                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
+                    <p className={styles.font} >Menu</p>  
+                    <i><FontAwesomeIcon icon={faAngleDown} /></i>
+                </button>
+                
+                {toggle && 
+                        <ul className={styles.dropdown}>
+                            <li>
+                                <a className={styles.font}  href='/about'>
+                                    <p>Privacy </p>     
+                                </a>
+                            </li>
+
+                            <li >
+                                <a className={styles.font}  href='/privacy'>
+                                    <p>About</p>
+                                </a>
+                            </li>
+
+                            <li >
+                                <a className={styles.font}  href='http://localhost:3000/'>
+                                    <p>Logout</p>
+                                </a>  
+                            </li>
+                        </ul> }
+            </header>
+
+            <section className={styles.sections}>
+                <div>   
+                    <div className={styles.parent}>
+                        <div className={styles.pixelborder}></div>
+                        <img className={styles.pixel} src='/images/apt01_base.png' alt='apt_image'></img>
+                        <img className={styles.pixel} src='/images/apt01_windows.png' alt='apt_image'></img>
+                        <img className={styles.pixel} src='/images/apt01_kitchen.png' alt='apt_image'></img>
+                        <img className={styles.pixel} src='/images/apt01_entrance.png' alt='apt_image'></img>
+                        <img className={styles.pixel} src='/images/apt01_office.png' alt='apt_image'></img>
+                        <img className={styles.pixel} src='/images/apt01_livingroom.png' alt='apt_image'></img>
+                        <img className={styles.pixel} src='/images/apt01_bedroom.png' alt='apt_image'></img>
+                        <div className={styles.pixelfooter}>
+                            <p className={styles.font1}>BOMBOCLAT</p>
+                        </div>
+
+                    </div> 
+                    
+                    <div className={styles.parent1}></div>
+
+                    <h1>User Profile</h1>
+                    <h2>Name: {profile.display_name}</h2>
+                    <p>Email: {profile.email}</p>
+                    <p>Followers: {profile.followers.total}</p>
+                    <img src={profile.images[1].url} alt='spotify profile picture'></img>
+                     
+                </div>
+
+                <body className={styles.fadein}>
+                    <div className={styles.container}>
+                        <div className={styles.item1}></div>
+                        <div className={styles.item2}></div>
+                        <div className={styles.item3}></div>
                     </div>
 
-                    <span>
-                        {profile.display_name}   
-                        <i><FontAwesomeIcon icon={faAngleDown} /></i>
-                    </span>  
-                </button>
-            
-                {toggle && <ul className={styles.dropdown}>
-                    <li>
-                        <a onClick={handleAbout}>
-                            <i></i>
-                            About Us        
-                        </a>
-                    </li>
-
-                    <li >
-                        <a onClick={handlePrivacy}>
-                            <i></i>
-                            Privacy
-                        </a>
-                    </li>
-
-                    <li >
-                        <a onClick={handleShare}>
-                            <i></i>
-                            Share
-                        </a>
-                    </li>
-
-                    <li >
-                        <a onClick={handleLogOut}>
-                            <i></i>
-                            Logout
-                        </a>  
-                    </li>
-                </ul> }
-
-            </div>
-        </nav>
-
-        <div className={styles.background}>
-            <h1>User Profile</h1>
-            <h2>Name: {profile.display_name}</h2>
-            <p>Email: {profile.email}</p>
-            <p>Followers: {profile.followers.total}</p>
-            <img src={profile.images[1].url} alt='spotify profile picture'></img> 
-
-            <div className={styles.parent}>
-                <img className={styles.image1} src='/images/apt01_base.png' alt='apt_image'></img>
-                <img className={styles.image2} src='/images/apt01_windows.png' alt='apt_image'></img>
-                <img className={styles.image2} src='/images/apt01_kitchen.png' alt='apt_image'></img>
-                <img className={styles.image2} src='/images/apt01_entrance.png' alt='apt_image'></img>
-                <img className={styles.image2} src='/images/apt01_office.png' alt='apt_image'></img>
-                <img className={styles.image2} src='/images/apt01_livingroom.png' alt='apt_image'></img>
-                <img className={styles.image2} src='/images/apt01_bedroom.png' alt='apt_image'></img>
-            </div>
-        </div>
-
-        <body className={styles.background}>
-            <h2>Audio Feature Averages</h2>
-            <div>
-                <p>Danceability: {featureAverages.danceability}</p>
-                <p>Acousticness: {featureAverages.acousticness}</p>
-                <p>Energy: {featureAverages.energy}</p>
-                <p>Instrumentalness: {featureAverages.instrumentalness}</p>
-                <p>Liveness: {featureAverages.liveness}</p>
-                <p>Speechiness: {featureAverages.speechiness}</p>
-                <p>Valence: {featureAverages.valence}</p>
-            </div>
-            
-            <h2>Top Tracks</h2>
-           
-            <ul>
-            {/* Inside jsonify, track refers to 'album': track.name == album.name */}
-            {topTracks.map((track, index) => (
-                <li key={track.id}>
-                    <p>{track.name} by {track.artists.map(artist => artist.name).join(', ')}</p>
-                    <img src={track.album.images[2].url} alt='album icon'></img>
-                    {audioFeatures[index] && (
-                        <div className={styles.cunts}>
-                            <p>Danceability: {audioFeatures[index].danceability}</p>
-                            <p>Acousticness: {audioFeatures[index].acousticness}</p>
-                            <p>Energy: {audioFeatures[index].energy}</p>
-                            <p>Instrumentalness: {audioFeatures[index].instrumentalness}</p>
-                            <p>Liveness: {audioFeatures[index].liveness}</p>
-                            <p>Speechiness: {audioFeatures[index].speechiness}</p>
-                            <p>Valence: {audioFeatures[index].valence}</p>
-                        </div>
-                    )}
-                </li>
-            ))}
-            </ul> 
-        </body>
-
+                    <h2>Audio Feature Averages</h2>
+                    <div>
+                        <p>Danceability: {featureAverages.danceability}</p>
+                        <p>Acousticness: {featureAverages.acousticness}</p>
+                        <p>Energy: {featureAverages.energy}</p>
+                        <p>Instrumentalness: {featureAverages.instrumentalness}</p>
+                        <p>Liveness: {featureAverages.liveness}</p>
+                        <p>Speechiness: {featureAverages.speechiness}</p>
+                        <p>Valence: {featureAverages.valence}</p>
+                    </div>
+                    
+                    <h2>Top Tracks</h2>
+                
+                    <ul>
+                    
+                    {/* Inside jsonify, track refers to 'album': track.name == album.name */}
+                    {/* 
+                    {topTracks.map((track, index) => (
+                        <li key={track.id}>
+                            <p>{track.name} by {track.artists.map(artist => artist.name).join(', ')}</p>
+                            <img src={track.album.images[2].url} alt='album icon'></img>
+                            {audioFeatures[index] && (
+                                <div className={styles.cunts}>
+                                    <p>Danceability: {audioFeatures[index].danceability}</p>
+                                    <p>Acousticness: {audioFeatures[index].acousticness}</p>
+                                    <p>Energy: {audioFeatures[index].energy}</p>
+                                    <p>Instrumentalness: {audioFeatures[index].instrumentalness}</p>
+                                    <p>Liveness: {audioFeatures[index].liveness}</p>
+                                    <p>Speechiness: {audioFeatures[index].speechiness}</p>
+                                    <p>Valence: {audioFeatures[index].valence}</p>
+                                </div>
+                            )}
+                        </li>
+                    ))}*/}
+                    </ul> 
+                </body>
+            </section>
         </>
     );
 }

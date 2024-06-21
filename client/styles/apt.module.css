@@ -1,69 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Sora:wght@100..800&display=swap');
+
+
 .parent {
-    position: relative;
-    width: 200px;
-    height: 200px;
+    position: initial;
+    background-size: 100vw 100vh; /* Ensure the image covers the entire element */
+    height: 98vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #739E82;
 }
 
-.image1 {
-    position: relative;
-}
-
-.image2 {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-}
-
-.background {
-    background-color: #D38B5D;
-    margin: auto;
-}
-
-.navbar {
-    position: flex;
+.sections {
+    background-color:#D38B5D;
 }
 
 .profileimg {
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background-size: cover;
 }
 
 .button {
     position: absolute;
-    align-items:center;
-    border-radius: 40px;
-    border: 1px solid;
-    display:flex;
+    align-items: center;
+    border-radius: 60px;
+    display: flex;
     top: 5%;
-    right: 10%;
+    right: 5%;
     padding: 1rem;
     width: 150px;
-    height: 60px;
-    justify-content: space-between;
-    gap: 8px;
-    font-size: 1rem;
+    height: 45px;
+    justify-content: space-around;
+    gap: 1px;
+    font-size: 1.1rem;
     user-select: none;
     transition: background-color 0.3s;
+    background-color:#F6F3E0;
+    border-style: none;
+    z-index: 3;
   }
 
+.spans {
+    position: initial;
+}
+
 .button:hover {
-    background-color: grey;
+    background-color: white;
 }
 
 .dropdown {
     position: absolute;
-    top: 10%;
+    top: 9.5%;
     width: 130px;
-    right: 10%;
+    right: 5%;
     border-radius: 10px;
-    box-shadow:var(--shadow);
+    box-shadow: var(--shadow);
     padding: 0.5rem 0 0.5rem 1rem;
     background-color: white;
     cursor: pointer;
-    
+    background-color: #F6F3E0;
+    list-style-type: none;
+    z-index: 3;
 }
 
+.font {
+    font-family: "Sora", sans-serif;
+    font-weight: 500;
+    font-style: bold;
+    font: size 100px;
+    text-decoration: none;
+    color: black;
+}
 
+.font1 {
+    font-size: 75px;
+ 
+}
 
+.pixel {
+    position: absolute;
+    top: 18%;
+    width: 500px;
+    height: 500px;
+    z-index: 0;
+} /* ADD MEDIA TAG SO THIS ADJUSTS TO SCREEN SIZE*/
+
+.pixelborder {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6F3E0;
+    top: 20%;
+    height: 450px;
+    width: 650px;
+    border-radius: 50px;
+    z-index: 0;
+}
+
+.pixelfooter {
+    height: 18vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    background-color: #F6F3E0;
+    z-index: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    background-color: red;
+    width: 500px;
+    height: 500px;
+    justify-content: space-around;
+    gap: 0;
+    flex-direction: column;
+}
+
+.item1 {
+    position: inherit;
+    background-color: yellow;
+    width: 200px;
+    height: 150px;
+}
+
+.item2 {
+    position: inherit;
+    background-color: purple;
+    width: 200px;
+    height: 150px;
+}
+
+.item3 {
+    position: inherit;
+    background-color: blue;
+    width: 200px;
+    height: 150px;
+}
+
+.fadein {
+    animation: fade-in 1s ease-out;
+    animation-timeline: view();
+
+}
+
+@keyframes fade-in {
+    from {scale: .5; opacity:0;}
+    to {scale: 1.2; opacity: 1;}
+}
+/*add @media tag to change login button/background img size depending on width/height (px wise) of browser like obscurify's*/
+/*gen guideline for breakout points for media tags: 600px, 601px+, 768px, 992px, 1200px */

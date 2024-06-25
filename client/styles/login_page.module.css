@@ -51,15 +51,18 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
   }
   
   .button {
-    margin-left: 1000px;
-    margin-top: 200px;
-    display:flex;
+    position: absolute;
+    right: 10%;
+    margin-top: 10%;
+    display: flex;
     background-color: white; /* Spotify green */
     color: black; /* Text Color */
+    background-color: #E5E5E5;
     border: none; /* Border around Padding*/ 
     padding: 15px 30px; /* Button Size*/
     font-size: 1.5em; /* */
     border-radius: 25px; /* Rounding Button*/
+    flex-direction: row; /* Change this to row if you want horizontal flex */
 
   }
   
@@ -72,5 +75,7 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     width: 100%;
     padding: 70px 30px 20px;
   }
+
+
 
  

@@ -63,6 +63,7 @@
     background-color: #F6F3E0;
     list-style-type: none;
     z-index: 3;
+    font-size: large
 }
 
 .font {
@@ -76,7 +77,9 @@
 
 .font1 {
     font-size: 75px;
- 
+    color: #739E82;
+    font-style: bold;
+    font-weight: 700;
 }
 
 .pixel {
@@ -113,37 +116,38 @@
 
 .container {
     display: flex;
+    height: 1920px;
+    width: 100%;
     background-color: red;
-    width: 500px;
-    height: 500px;
-    justify-content: space-around;
-    gap: 0;
     flex-direction: column;
+    justify-content: baseline; /*vertically*/
+    align-items: left; /*horizontally*/
+    
 }
 
 .item1 {
     position: inherit;
     background-color: yellow;
-    width: 200px;
-    height: 150px;
+    width: 50%;
+    height: 350px;
 }
 
 .item2 {
     position: inherit;
     background-color: purple;
-    width: 200px;
-    height: 150px;
+    width: 50%;
+    height: 350px;
 }
 
 .item3 {
     position: inherit;
     background-color: blue;
-    width: 200px;
-    height: 150px;
+    width: 50%;
+    height: 350px;
 }
 
-.fadein {
-    animation: fade-in 1s ease-out;
+/*.fadein {
+    animation: fade-in 1s forwards;
     animation-timeline: view();
 
 }

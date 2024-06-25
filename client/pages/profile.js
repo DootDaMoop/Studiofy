@@ -10,7 +10,11 @@ function profile() {
     const [audioFeatures, setAudioFeatures] = useState([]);
     const [featureAverages, setFeatureAverages] = useState([]);
     const [toggle, setToggle] = useState(false);
+    const targetEnergyLevel = 0.7; /** TESTING VAR */
 
+    const filteredTracks = topTracks.filter((track, index) =>     /**FILTER THROUGH topTracks by track and index && Checks if audio index & a variable (energy) is existent and chooses those tracks above energyLV */
+        audioFeatures[index] && audioFeatures[index].energy >= targetEnergyLevel
+        );
     
 
     useEffect(() => {
@@ -86,8 +90,8 @@ function profile() {
                         </ul> }
             </header>
 
-            <section className={styles.sections}>
-                <div>   
+            <body className={styles.sections}>
+                <section>   
                     <div className={styles.parent}>
                         <div className={styles.pixelborder}></div>
                         <img className={styles.pixel} src='/images/apt01_base.png' alt='apt_image'></img>
@@ -98,28 +102,36 @@ function profile() {
                         <img className={styles.pixel} src='/images/apt01_livingroom.png' alt='apt_image'></img>
                         <img className={styles.pixel} src='/images/apt01_bedroom.png' alt='apt_image'></img>
                         <div className={styles.pixelfooter}>
-                            <p className={styles.font1}>BOMBOCLAT</p>
+                            <p className={styles.font1}>Lets See Your Breakdown...</p>
                         </div>
 
                     </div> 
-                    
-                    <div className={styles.parent1}></div>
+                </section>
 
+                <main className={styles.fadein}>
+                    <h1> Your Bedroom Stats... </h1>
+                    <section className={styles.container}>
+                            <div className={styles.item1}>
+                                <p>Avg Energy: {featureAverages.energy}</p>
+
+                            </div>
+
+                            <div className={styles.item2}>
+
+                            </div>
+
+                            <div className={styles.item3}>
+
+                            </div>
+                    </section>
+
+                    {/** 
                     <h1>User Profile</h1>
                     <h2>Name: {profile.display_name}</h2>
                     <p>Email: {profile.email}</p>
                     <p>Followers: {profile.followers.total}</p>
                     <img src={profile.images[1].url} alt='spotify profile picture'></img>
-                     
-                </div>
-
-                <body className={styles.fadein}>
-                    <div className={styles.container}>
-                        <div className={styles.item1}></div>
-                        <div className={styles.item2}></div>
-                        <div className={styles.item3}></div>
-                    </div>
-
+                 
                     <h2>Audio Feature Averages</h2>
                     <div>
                         <p>Danceability: {featureAverages.danceability}</p>
@@ -132,17 +144,15 @@ function profile() {
                     </div>
                     
                     <h2>Top Tracks</h2>
-                
-                    <ul>
                     
-                    {/* Inside jsonify, track refers to 'album': track.name == album.name */}
-                    {/* 
+                    <ul>
+                    // Inside jsonify, track refers to 'album': track.name == album.name 
                     {topTracks.map((track, index) => (
                         <li key={track.id}>
                             <p>{track.name} by {track.artists.map(artist => artist.name).join(', ')}</p>
                             <img src={track.album.images[2].url} alt='album icon'></img>
                             {audioFeatures[index] && (
-                                <div className={styles.cunts}>
+                                <div>
                                     <p>Danceability: {audioFeatures[index].danceability}</p>
                                     <p>Acousticness: {audioFeatures[index].acousticness}</p>
                                     <p>Energy: {audioFeatures[index].energy}</p>
@@ -153,10 +163,23 @@ function profile() {
                                 </div>
                             )}
                         </li>
-                    ))}*/}
-                    </ul> 
-                </body>
-            </section>
+                    ))}
+                    */}
+                    
+                    <h2>Filtered Tracks by Energy Level</h2>
+                        {filteredTracks.map((track, index) => (
+                            <li key={track.id}>
+                                <p>{track.name} by {track.artists.map(artist => artist.name).join(', ')}</p>
+                                <img src={track.album.images[2].url} alt='album icon'></img>
+                                <div>                               
+                                    <p>Energy: {audioFeatures[topTracks.indexOf(track)].energy}</p>
+                                </div>
+                            </li>
+                        ))}
+                        
+                    {/*</ul>*/}
+                </main>
+            </body>
         </>
     );
 }

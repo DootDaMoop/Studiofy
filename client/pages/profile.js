@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import styles from "../styles/apt.module.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faAngleDown, faCircle} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faAngleDown, faCircle} from '@fortawesome/free-solid-svg-icons'
 
 
 function profile() {

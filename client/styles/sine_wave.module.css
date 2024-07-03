@@ -1,0 +1,28 @@
+.wave-container {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    right: -15%;
+    width: 100%;
+    height: 150%;
+    transform-origin: center;
+}
+
+.wave1 {
+    animation: waveAnimation 10s linear infinite alternate;
+}
+
+@keyframes waveAnimation {
+    0% {
+        transform: translateY(0%) rotate(-90deg);
+    }
+    100% {
+        transform: translateY(-45%) rotate(-90deg);
+    }
+}

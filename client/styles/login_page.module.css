@@ -40,14 +40,35 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
 
 **/
 
+  .pixelborder {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6F3E0;
+    top: 20%;
+    left: 12%;
+    height: 450px;
+    width: 650px;
+    border-radius: 50px;
+    z-index: 0;
+  }
+  
+  .pixel {
+    position: absolute;
+    top: 20%;
+    left: 17%;
+    width: 500px;
+    height: 500px;
+    z-index: 0;
+  }
 
-.loginPage {
-    background-image: url('./images/finaldormify.jpg'); /* Adjust the path to your image */
-    background-size: 100vw 100vh; /* Ensure the image covers the entire element */
-    height: 98vh; /* Full viewport height */
+  .button_container {
+    position: absolute;
+    bottom: 55%;
+    right: 10%;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
   }
   
   .button {
@@ -68,6 +89,21 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
   
   .button:hover {
     background-color: #1AA34A; /* Darker green on hover */
+  }
+
+  .drop {
+    animation: dropAnimation 1s ease-out
+  }
+
+  @keyframes dropAnimation {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   .footer {

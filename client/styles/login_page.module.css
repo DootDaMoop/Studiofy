@@ -60,6 +60,7 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     width: 500px;
     height: 500px;
     z-index: 0;
+    image-rendering: pixelated;
   }
 
   .button_container {
@@ -92,7 +93,10 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
   }
 
   .drop {
-    animation: dropAnimation 1s ease-out
+    animation: dropAnimation 1s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    image-rendering: pixelated;
   }
 
   @keyframes dropAnimation {
@@ -100,9 +104,26 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
       transform: translateY(-100%);
       opacity: 0;
     }
+    75% {
+      opacity: 0;
+    }
     100% {
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes switch {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
     }
   }
 

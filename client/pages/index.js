@@ -12,13 +12,16 @@ function index() {
 
   // Image Randomizer GET
   const [aptImages, setAptImages] = useState({});
+  const [switchAnimation, setSwitchAnimation] = useState(false);
+
   useEffect (() => {
     const updateFurniture = () => {
       setAptImages(RandomizeLoginApt());
     };
 
     updateFurniture();
-    const intervalID = setInterval(updateFurniture, 10000) // in ms, 10000 = 10 seconds
+    //let images = document.querySelectorAll("");
+    const intervalID = setInterval(updateFurniture, 5000) // in ms, 1000 = 1 second
 
     return () => clearInterval(intervalID);
   }, []);
@@ -28,12 +31,12 @@ function index() {
       <div className={styles.parent}>
         <div className={styles.pixelborder}></div>
         <img className={`${styles.pixel}`} src={aptImages.randomAptBase} alt='apt_image'></img>
-        <img className={`${styles.pixel} ${styles.drop}`} src={aptImages.randomAptWindows} alt='apt_image'></img>
-        <img className={`${styles.pixel} ${styles.drop}`} src={aptImages.randomAptBedroom} alt='apt_image'></img>
-        <img className={`${styles.pixel} ${styles.drop}`} src={aptImages.randomAptEntrance} alt='apt_image'></img>
-        <img className={`${styles.pixel} ${styles.drop}`} src={aptImages.randomAptKitchen} alt='apt_image'></img>
-        <img className={`${styles.pixel} ${styles.drop}`} src={aptImages.randomAptLivingRoom} alt='apt_image'></img>
-        <img className={`${styles.pixel} ${styles.drop}`} src={aptImages.randomAptOffice} alt='apt_image'></img>
+        <img className={`${styles.pixel} ${styles.drop}`} style={{animationDelay: "0.2s"}} src={aptImages.randomAptWindows} alt='apt_image'></img>
+        <img className={`${styles.pixel} ${styles.drop}`} style={{animationDelay: "0.2s"}} src={aptImages.randomAptBedroom} alt='apt_image'></img>
+        <img className={`${styles.pixel} ${styles.drop}`} style={{animationDelay: "0.3s"}} src={aptImages.randomAptEntrance} alt='apt_image'></img>
+        <img className={`${styles.pixel} ${styles.drop}`} style={{animationDelay: "0.4s"}} src={aptImages.randomAptKitchen} alt='apt_image'></img>
+        <img className={`${styles.pixel} ${styles.drop}`} style={{animationDelay: "0.5s"}} src={aptImages.randomAptLivingRoom} alt='apt_image'></img>
+        <img className={`${styles.pixel} ${styles.drop}`} style={{animationDelay: "0.6s"}} src={aptImages.randomAptOffice} alt='apt_image'></img>
       </div>
 
       <SineWave amplitude={40} frequency={4} width={1440} height={1080}></SineWave>

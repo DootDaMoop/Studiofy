@@ -99,6 +99,13 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     image-rendering: pixelated;
   }
 
+  .switch {
+    animation: switchAnimation 1s ease-out;
+    opacity: 1;
+    animation-fill-mode: forwards;
+    image-rendering: pixelated;
+  }
+
   @keyframes dropAnimation {
     0% {
       transform: translateY(-100%);
@@ -113,13 +120,13 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     }
   }
 
-  @keyframes switch {
+  @keyframes switchAnimation {
     0% {
       transform: translateY(0);
       opacity: 1;
     }
-    25% {
-      opacity: 1;
+    10% {
+      opacity: 0;
     }
     100% {
       transform: translateY(-100%);
@@ -132,7 +139,3 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     width: 100%;
     padding: 70px 30px 20px;
   }
-
-
-
- 

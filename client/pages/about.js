@@ -5,10 +5,6 @@ function about() {
   return (
     <div className={styles.container}>
 
-        <div className={styles.menuContainer}>
-            <img src='/images/tempMenu.png' alt='Temp Menu Button'></img>
-        </div>
-
         <div className={styles.headerContainer}>
             <h1 className={styles.header}>About Studiofy</h1>
             <div className={styles.line}></div>
@@ -36,12 +32,13 @@ function about() {
                 </div>
 
             </div>
+
             <div className={styles.profileContent}>
                 <img className={styles.profilePicture} src='/images/lena.png' alt='Lena Profile Picture'></img>
 
                 <div className={styles.profileText}>
                     <h2 className={styles.profileName}>Lena Mai</h2>
-                    <p className={styles.profileRole}>Lead Artist</p>
+                    <p className={styles.profileRole}>Programmer</p>
                     <a href="https://github.com/LenoMai"><img className={styles.socialLinks} src='images/github.png' alt='Github Icon'></img></a>
                     <a href="https://www.linkedin.com/in/lenamai/"><img className={styles.socialLinks} src='images/linkedin.png' alt='LinkedIn Icon'></img></a>
                 </div>
@@ -55,6 +52,17 @@ function about() {
                     <p className={styles.profileRole}>UX/UI Design</p>
                     <a href="https://github.com/benzo1233"><img className={styles.socialLinks} src='images/github.png' alt='Github Icon'></img></a>
                     <a href="https://www.linkedin.com/in/anh-kiet-tong/"><img className={styles.socialLinks} src='images/linkedin.png' alt='LinkedIn Icon'></img></a>
+                </div>
+
+            </div>
+            <div className={styles.profileContent}>
+                <img className={styles.profilePicture} src='/images/angela.jpeg' alt='Angela Profile Picture'></img>
+
+                <div className={styles.profileText}>
+                    <h2 className={styles.profileName}>Angela Yang</h2>
+                    <p className={styles.profileRole}>Lead Designer</p>
+                    <a href="https://jinyayuu.carrd.co/"><img className={styles.socialLinks} src='images/caard.png' alt='Carrd Icon'></img></a>
+                    <a href= "mailto: jinya.art@gmail.com"><img className={styles.socialLinks} src='images/mail.png' alt='Mail Icon'></img></a>
                 </div>
 
             </div>

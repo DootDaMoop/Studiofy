@@ -11,19 +11,19 @@ function generateWavePath(amplitude, frequency, width, height, points = 100) {
     return path;
 }
 
-const SineWave = ({amplitude = 40, frequency = 1, width = 1440, height = 320}) => {
+const SineWave = ({amplitude = 40, frequency = 1, width = "100%", height = "20vh"}) => {
     const pathRef1 = useRef(null);
     
     useEffect(() => {
-        const wavePath = generateWavePath(amplitude, frequency, width, height);
+        const wavePath = generateWavePath(amplitude, frequency, 1440, 1080);
         if(pathRef1.current) {
-            pathRef1.current.setAttribute('d', wavePath + `L${width},${height}L0,${height}Z`);
+            pathRef1.current.setAttribute('d', wavePath + `L1440,1080L0,1080Z`);
         }
-    }, [amplitude, frequency, width, height]);
+    }, [amplitude, frequency]);
 
     return(
-        <div className={`${styles.button_container}`}>
-            <svg className={`${styles.wave} ${styles.wave1}`} viewBox={`0 0 ${width} ${height}`}>
+        <div className={`${styles.waveContainer}`}>
+            <svg className={`${styles.wave} ${styles.wave1}`} viewBox={`0 0 1440 1080`} preserveAspectRatio='none' style={{width, height}}>
                 <path ref={pathRef1} fill='#000000' fillOpacity='1'></path>
             </svg>
         </div>

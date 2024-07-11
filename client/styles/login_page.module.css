@@ -40,25 +40,33 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
 
 **/
 
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
   .pixelborder {
     position: absolute;
     align-items: center;
     justify-content: center;
     background-color: #F6F3E0;
-    top: 20%;
-    left: 12%;
-    height: 450px;
-    width: 650px;
+    top: 25%;
+    left: 10%;
+    height: 600px;
+    width: 800px;
     border-radius: 50px;
     z-index: 0;
   }
   
   .pixel {
     position: absolute;
-    top: 20%;
-    left: 17%;
-    width: 500px;
-    height: 500px;
+    top: -13%;
+    left: 2.5%;
+    width: 768px;
+    height: 768px;
     z-index: 0;
     image-rendering: pixelated;
   }
@@ -70,6 +78,7 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
   }
   
   .button {
@@ -85,7 +94,6 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     font-size: 1.5em; /* */
     border-radius: 25px; /* Rounding Button*/
     flex-direction: row; /* Change this to row if you want horizontal flex */
-
   }
   
   .button:hover {
@@ -131,6 +139,31 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     100% {
       transform: translateY(-100%);
       opacity: 0;
+    }
+  }
+
+  .dayNightOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .25;
+    pointer-events: none;
+    background-color: white;
+    animation-fill-mode: forwards;
+    mix-blend-mode: multiply;
+    z-index: 1;
+    animation: dayNightAnimation 5s infinite alternate;
+  }
+  
+  @keyframes dayNightAnimation {
+    0% {
+      background-color: lightyellow;
+    }
+    50% {
+      background-color: darkblue;
+    }
+    100% {
+      background-color: lightyellow;
     }
   }
 

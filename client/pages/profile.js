@@ -71,13 +71,13 @@ function profile() {
                 {toggle && 
                         <ul className={styles.dropdown}>
                             <li>
-                                <a className={styles.font}  href='/about'>
+                                <a className={styles.font}  href='/privacy'>
                                     <p>Privacy </p>     
                                 </a>
                             </li>
 
                             <li >
-                                <a className={styles.font}  href='/privacy'>
+                                <a className={styles.font}  href='/about'>
                                     <p>About</p>
                                 </a>
                             </li>

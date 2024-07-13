@@ -1,15 +1,12 @@
 import React, { useEffect,useState } from 'react'
 import styles from "../styles/apt.module.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faAngleDown, faCircle} from '@fortawesome/free-solid-svg-icons'
-
+import MenuButton from './api/menuButton';
 
 function profile() {
     const [profile, setProfile] = useState(null);
     const [topTracks, setTopTracks] = useState([]);
     const [audioFeatures, setAudioFeatures] = useState([]);
     const [featureAverages, setFeatureAverages] = useState([]);
-    const [toggle, setToggle] = useState(false);
     const targetEnergyLevel = 0.7; /** TESTING VAR */
 
     const filteredTracks = topTracks.filter((track, index) =>     /**FILTER THROUGH topTracks by track and index && Checks if audio index & a variable (energy) is existent and chooses those tracks above energyLV */
@@ -56,39 +53,12 @@ function profile() {
     }, []);
 
     if(!profile) {
-        return <h1>Loading...</h1>;
+        return null;
     }
 
     return (
         <>
-            <header>
-                <button onClick={() => setToggle(!toggle)} className={styles.button}>
-                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
-                    <p className={styles.font} >Menu</p>  
-                    <i><FontAwesomeIcon icon={faAngleDown} /></i>
-                </button>
-                
-                {toggle && 
-                        <ul className={styles.dropdown}>
-                            <li>
-                                <a className={styles.font}  href='/about'>
-                                    <p>Privacy </p>     
-                                </a>
-                            </li>
-
-                            <li >
-                                <a className={styles.font}  href='/privacy'>
-                                    <p>About</p>
-                                </a>
-                            </li>
-
-                            <li >
-                                <a className={styles.font}  href='http://localhost:3000/'>
-                                    <p>Logout</p>
-                                </a>  
-                            </li>
-                        </ul> }
-            </header>
+            <MenuButton />
 
             <body className={styles.sections}>
                 <section>   

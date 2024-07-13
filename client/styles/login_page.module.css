@@ -71,15 +71,21 @@ Layouts: Content -> Padding -> Border -> Margin (inside to outside)
     image-rendering: pixelated;
   }
 
-  .button_container {
+  .sideContainer {
     position: absolute;
-    bottom: 55%;
-    right: 10%;
+    bottom: 50%;
+    right: 5%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 2;
   }
+
+  .title {
+    color: white;
+    position: relative;
+    bottom: 100px;
+    right: 5%;
+    font-size: 3em;
+    }
   
   .button {
     position: absolute;

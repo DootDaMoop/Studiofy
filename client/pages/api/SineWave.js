@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from "../../styles/sine_wave.module.css";
 
 function generateWavePath(amplitude, frequency, width, height, points = 100) {
@@ -11,19 +11,43 @@ function generateWavePath(amplitude, frequency, width, height, points = 100) {
     return path;
 }
 
-const SineWave = ({amplitude = 40, frequency = 1, width = "100%", height = "20vh"}) => {
+const SineWave = ({amplitude = 40, frequency = 1}) => {
     const pathRef1 = useRef(null);
+    const [dimensions, setDimensions] = useState({width: 0, height: 0});
+
+    useEffect(() => {
+        if(typeof window !== "undefined") {
+            const handleResize = () => {
+                setDimensions({width: window.innerWidth, height: window.innerHeight / 5});
+            };
+
+            window.addEventListener('resize', handleResize);
+            handleResize();
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
+    }, []);
     
     useEffect(() => {
-        const wavePath = generateWavePath(amplitude, frequency, 1440, 1080);
-        if(pathRef1.current) {
-            pathRef1.current.setAttribute('d', wavePath + `L1440,1080L0,1080Z`);
+        const {width, height} = dimensions;
+        if(width > 0 && height > 0) {
+            const wavePath = generateWavePath(amplitude, frequency, width, height);
+            if(pathRef1.current) {
+                pathRef1.current.setAttribute('d', wavePath + `L${width},${height}L0,${height}Z`);
+            }
         }
-    }, [amplitude, frequency]);
+        
+    }, [amplitude, frequency, dimensions]);
+
+    if(dimensions.width === 0 || dimensions.height === 0) {
+        return null;
+    }
 
     return(
         <div className={`${styles.waveContainer}`}>
-            <svg className={`${styles.wave} ${styles.wave1}`} viewBox={`0 0 1440 1080`} preserveAspectRatio='none' style={{width, height}}>
+            <svg className={`${styles.wave} ${styles.wave1}`} viewBox={`0 0 ${dimensions.width} ${dimensions.height}`} preserveAspectRatio='none'>
                 <path ref={pathRef1} fill='#000000' fillOpacity='1'></path>
             </svg>
         </div>

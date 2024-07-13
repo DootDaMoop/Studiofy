@@ -49,9 +49,10 @@ function index() {
           <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.6s"}} src={aptImages.randomAptOffice} alt='apt_image'></img>
         </div>
 
-        <SineWave amplitude={40} frequency={4} width={1440} height={1080}></SineWave>
+        <SineWave amplitude={10} frequency={5} width={1440} height={1080}></SineWave>
 
-        <div className={styles.button_container}> 
+        <div className={styles.sideContainer}>
+          <h1 className={styles.title}>Studiofy</h1>
           <button className={styles.button} onClick={handleLogin}>Login with Spotify</button>
         </div>
         

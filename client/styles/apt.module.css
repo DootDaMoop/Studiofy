@@ -82,6 +82,7 @@
     font-weight: 700;
 }
 
+
 .pixel {
     position: absolute;
     top: 18%;
@@ -115,46 +116,79 @@
 }
 
 .container {
+    /*background-color: red;*/
     display: flex;
-    height: 1920px;
     width: 100%;
-    background-color: red;
-    flex-direction: column;
-    justify-content: baseline; /*vertically*/
-    align-items: left; /*horizontally*/
-    
+    flex-direction: row;
+    gap: 15%;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
 }
 
 .item1 {
-    position: inherit;
-    background-color: yellow;
-    width: 50%;
-    height: 350px;
+    display: flex;
+    background-color: white;
+    width: 600px;
+    height: 275px;
+    border-radius: 50px;
+    align-content: bottom; /*Vertically*/
+    justify-content: center; /*Horizontally*/
+    margin-top: 250px;
+    margin-bottom: 20px;
 }
 
-.item2 {
-    position: inherit;
-    background-color: purple;
-    width: 50%;
-    height: 350px;
+.col1 {
+    margin-top: 15%;
+    margin-bottom: 10%;
 }
 
-.item3 {
-    position: inherit;
-    background-color: blue;
-    width: 50%;
-    height: 350px;
+.col2 {
+    margin-top: 0%;
 }
 
-/*.fadein {
-    animation: fade-in 1s forwards;
-    animation-timeline: view();
+.header1 {
+    display: absolute;
+    top: 0%;
+    margin-left: 10%;
+    margin-top: 12%;
+}
+
+.bars {
+    background-color: #99621E;
+    height: 5px;
+    width: 600px;
+}
+
+.description {
+    font-size: 60px;
+    color: #F6F3E0;
+    font-style: bold;
+    font-weight: 550;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    padding: 0;
+}
+
+.description1 {
+    font-size: 18px;
+    color: white;
+    font-style: bold;
+    padding: 0;
+    font-weight: 500;
+    margin-top: 1%;
 
 }
 
-@keyframes fade-in {
-    from {scale: .5; opacity:0;}
-    to {scale: 1.2; opacity: 1;}
-}
+.footer {
+    background-color: black;
+    height: 18vh;
+    width: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
 /*add @media tag to change login button/background img size depending on width/height (px wise) of browser like obscurify's*/
 /*gen guideline for breakout points for media tags: 600px, 601px+, 768px, 992px, 1200px */

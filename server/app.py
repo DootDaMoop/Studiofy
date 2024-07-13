@@ -75,10 +75,30 @@ def get_user_top_tracks():
     for k,v in feature_dict.items():
         feature_averages_json[k] = v / len(feature_dict)
 
+    # Default closest track method --Rough Draft
+    def find_closest_track(feature, target_value):
+        closest_track = None
+        smallest_difference = float('inf')
+
+        for track in audio_features:
+            difference = abs(track[feature] - target_value)
+            if difference < smallest_difference:
+                smallest_difference = difference
+                closest_track = track
+        
+        return closest_track
+
+    closest_track_json = {}
+
+    # Create Loop to add track closest to preferred
+    # add here-------------- 
+        
     return jsonify({
         'top_tracks': top_tracks_json,
         'audio_features': audio_features_json,
-        'feature_averages': feature_averages_json
+        'feature_averages': feature_averages_json,
+        'closest_tracks': closest_track_json
+
         })
 
 if __name__ == '__main__':

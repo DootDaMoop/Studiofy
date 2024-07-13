@@ -10,12 +10,7 @@ function profile() {
     const [audioFeatures, setAudioFeatures] = useState([]);
     const [featureAverages, setFeatureAverages] = useState([]);
     const [toggle, setToggle] = useState(false);
-    const targetEnergyLevel = 0.7; /** TESTING VAR */
-
-    const filteredTracks = topTracks.filter((track, index) =>     /**FILTER THROUGH topTracks by track and index && Checks if audio index & a variable (energy) is existent and chooses those tracks above energyLV */
-        audioFeatures[index] && audioFeatures[index].energy >= targetEnergyLevel
-        );
-    
+    const [closestTrack, setClosestTrack] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -49,6 +44,7 @@ function profile() {
             setTopTracks(data.top_tracks.items);
             setAudioFeatures(data.audio_features.audio_features);
             setFeatureAverages(data.feature_averages);
+            setClosestTrack(data.closestTrack)
         })
         .catch((error) => {
             console.log(error);
@@ -71,13 +67,13 @@ function profile() {
                 {toggle && 
                         <ul className={styles.dropdown}>
                             <li>
-                                <a className={styles.font}  href='/about'>
+                                <a className={styles.font}  href='/privacy'>
                                     <p>Privacy </p>     
                                 </a>
                             </li>
 
                             <li >
-                                <a className={styles.font}  href='/privacy'>
+                                <a className={styles.font}  href='/about'>
                                     <p>About</p>
                                 </a>
                             </li>
@@ -109,24 +105,49 @@ function profile() {
                 </section>
 
                 <main className={styles.fadein}>
-                    <h1> Your Bedroom Stats... </h1>
+                    <header className={styles.header1}>
+                        <div className={styles.description}> Your Bedroom Stats... </div>
+                        <div className={styles.bars}></div>
+                        <div className={styles.description1}> Retrieved from Spotifys API, measuring happiness, energy, danceability, tempo, and mood.</div>
+                    </header>
+                    
                     <section className={styles.container}>
-                            <div className={styles.item1}>
-                                <p>Avg Energy: {featureAverages.energy}</p>
+                        
+                        <div className={styles.col1}>
+                                <div className={styles.item1}>
+                                    <p>Danceability: {parseFloat(featureAverages.danceability).toFixed(2)}</p>
+                                </div>
+                        
+                                <div className={styles.item1}>
+                                    <p>Acousticness: {parseFloat(featureAverages.acousticness).toFixed(2)}</p> 
+                                </div>
 
-                            </div>
+                                <div className={styles.item1}>
+                                    <p>Energy: {parseFloat(featureAverages.energy).toFixed(2)}</p>
+                                </div>
+                        </div>
 
-                            <div className={styles.item2}>
+                        <div className={styles.col2}>
+                                <div className={styles.item1}>                                
+                                    <p>Instrumentalness: {parseFloat(featureAverages.instrumentalness).toFixed(2)}</p>        
+                                </div>
 
-                            </div>
+                                <div className={styles.item1}>
+                                    <p>Liveness:  {parseFloat(featureAverages.liveness).toFixed(2)}</p>  
+                                </div>
 
-                            <div className={styles.item3}>
+                                <div className={styles.item1}>
+                                    <p>Speechiness: {parseFloat(featureAverages.speechiness).toFixed(2)}</p>
+                                </div>
 
-                            </div>
+                                <div className={styles.item1}>
+                                    <p>Valence: {parseFloat(featureAverages.valence).toFixed(2)} </p>
+                                </div>
+                        </div>
                     </section>
 
-                    {/** 
-                    <h1>User Profile</h1>
+
+                    {/* <h1>User Profile</h1>
                     <h2>Name: {profile.display_name}</h2>
                     <p>Email: {profile.email}</p>
                     <p>Followers: {profile.followers.total}</p>
@@ -146,7 +167,7 @@ function profile() {
                     <h2>Top Tracks</h2>
                     
                     <ul>
-                    // Inside jsonify, track refers to 'album': track.name == album.name 
+                     Inside jsonify, track refers to 'album': track.name == album.name 
                     {topTracks.map((track, index) => (
                         <li key={track.id}>
                             <p>{track.name} by {track.artists.map(artist => artist.name).join(', ')}</p>
@@ -164,21 +185,15 @@ function profile() {
                             )}
                         </li>
                     ))}
-                    */}
-                    
-                    <h2>Filtered Tracks by Energy Level</h2>
-                        {filteredTracks.map((track, index) => (
-                            <li key={track.id}>
-                                <p>{track.name} by {track.artists.map(artist => artist.name).join(', ')}</p>
-                                <img src={track.album.images[2].url} alt='album icon'></img>
-                                <div>                               
-                                    <p>Energy: {audioFeatures[topTracks.indexOf(track)].energy}</p>
-                                </div>
-                            </li>
-                        ))}
-                        
-                    {/*</ul>*/}
+                   
+                    </ul>  */}
+               
+
                 </main>
+
+                <footer className={styles.footer}>
+                        <p>This is the main content area.</p>
+                </footer>
             </body>
         </>
     );

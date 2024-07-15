@@ -9,8 +9,8 @@ function profile() {
     const [topTracks, setTopTracks] = useState([]);
     const [audioFeatures, setAudioFeatures] = useState([]);
     const [featureAverages, setFeatureAverages] = useState([]);
+    const [closestTracks, setClosestTracks] = useState([]);
     const [toggle, setToggle] = useState(false);
-    const [closestTrack, setClosestTrack] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -44,7 +44,7 @@ function profile() {
             setTopTracks(data.top_tracks.items);
             setAudioFeatures(data.audio_features.audio_features);
             setFeatureAverages(data.feature_averages);
-            setClosestTrack(data.closestTrack)
+            setClosestTracks(data.closest_tracks);
         })
         .catch((error) => {
             console.log(error);
@@ -116,6 +116,7 @@ function profile() {
                         <div className={styles.col1}>
                                 <div className={styles.item1}>
                                     <p>Danceability: {parseFloat(featureAverages.danceability).toFixed(2)}</p>
+                                    {/* <p>Closest Track: {closestTracks.danceability.track_name}</p> */}
                                 </div>
                         
                                 <div className={styles.item1}>

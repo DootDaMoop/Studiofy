@@ -7,12 +7,6 @@ app = Flask(__name__)
 app.secret_key = 'lol'
 CORS(app, supports_credentials=True)
 
-@app.get('/')
-def index():
-    return jsonify({
-        'message':'HELLO GOONS'
-    })
-
 @app.get('/login')
 def login():
     auth_url = spotify_repo.get_auth_url()
@@ -71,34 +65,23 @@ def get_user_top_tracks():
         feature_dict['valence'] += feature['valence']
 
     feature_averages_json = {}
+    num_tracks = len(audio_features)
 
     for k,v in feature_dict.items():
-        feature_averages_json[k] = v / len(feature_dict)
+        feature_averages_json[k] = v / num_tracks
 
-    # Default closest track method --Rough Draft
-    def find_closest_track(feature, target_value):
-        closest_track = None
-        smallest_difference = float('inf')
+    closest_tracks = {}
 
-        for track in audio_features:
-            difference = abs(track[feature] - target_value)
-            if difference < smallest_difference:
-                smallest_difference = difference
-                closest_track = track
-        
-        return closest_track
+    for feature in feature_averages_json.keys():
+        closest_tracks[feature] = min(audio_features, key=lambda x: abs(x[feature] - feature_averages_json[feature]))
 
-    closest_track_json = {}
+    closest_tracks_json = {feature: {'track_id': song['id'], 'track_name': top_tracks_json['items'][track_ids.index(song['id'])]['name']} for feature, song in closest_tracks.items()}
 
-    # Create Loop to add track closest to preferred
-    # add here-------------- 
-        
     return jsonify({
         'top_tracks': top_tracks_json,
         'audio_features': audio_features_json,
         'feature_averages': feature_averages_json,
-        'closest_tracks': closest_track_json
-
+        'closest_tracks': closest_tracks_json
         })
 
 if __name__ == '__main__':

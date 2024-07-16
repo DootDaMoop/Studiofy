@@ -4,9 +4,11 @@ import styles from '../../styles/apt.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
-const MenuButton = ({textColor, backgroundColor}) => {
+const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverTextColor}) => {
     const [profile, setProfile] = useState(null);
     const [toggle, setToggle] = useState(false);
+    const [isHovered, setIsHovered] = useState(false); 
+
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -32,28 +34,33 @@ const MenuButton = ({textColor, backgroundColor}) => {
 
     return (
         <header>
-        <button onClick={() => setToggle(!toggle)} className={styles.button} style={{ backgroundColor: backgroundColor }}>
+        <button onClick={() => setToggle(!toggle)} className={styles.button} 
+        style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
+            onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
+                
             <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
-            <p className={styles.font} style={{ color: textColor }}>Menu</p>  
-            <i><FontAwesomeIcon icon={faAngleDown} color={textColor}/></i>
+            <p className={styles.font}  style={{ color: isHovered ? hoverTextColor : textColor }}>Menu</p>  
+            <i><FontAwesomeIcon icon={faAngleDown} style={{ color: isHovered ? hoverTextColor : textColor }}/></i>
         </button>
         
         {toggle && 
-                <ul className={styles.dropdown} style={{ backgroundColor: backgroundColor }}>
+                <ul className={styles.dropdown} style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
+                    onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+
                     <li>
-                        <a className={styles.font}  href='/privacy' style={{ color: textColor }}>
+                        <a className={styles.font}  href='/privacy' style={{ color: isHovered ? hoverTextColor : textColor }}>
                             <p>Privacy </p>     
                         </a>
                     </li>
 
                     <li >
-                        <a className={styles.font}  href='/about' style={{ color: textColor }}>
+                        <a className={styles.font}  href='/about' style={{ color: isHovered ? hoverTextColor : textColor }}>
                             <p>About</p>
                         </a>
                     </li>
 
                     <li >
-                        <a className={styles.font}  href='http://localhost:3000/' style={{ color: textColor }}>
+                        <a className={styles.font}  href='http://localhost:3000/' style={{ color: isHovered ? hoverTextColor : textColor }}>
                             <p>Logout</p>
                         </a>  
                     </li>
@@ -65,11 +72,15 @@ const MenuButton = ({textColor, backgroundColor}) => {
 MenuButton.propTypes = {
     textColor: PropTypes.string,
     backgroundColor: PropTypes.string,
+    hoverBackgroundColor: PropTypes.string, 
+    hoverTextColor: PropTypes.string, 
 };
 
 MenuButton.defaultProps = {
-    textColor: '#000', // Default text color
-    backgroundColor: '#F6F3E0', // Default background color
+    textColor: '#000', 
+    backgroundColor: '#F6F3E0', 
+    hoverBackgroundColor: 'white', 
+    hoverTextColor: "black",
 };
 
 

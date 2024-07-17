@@ -37,7 +37,8 @@ function privacy(){
 
                      <h3 className={privacyStyles.detailHeader}>Questions or Concerns?</h3>
                     <p className={privacyStyles.details}>We would love to hear your input! Please don't hesitate to contact us by reaching out to any of the developers. 
-                        You can find our contact information through the <a href="/about">About</a> page. Thank you for checking out Studiofy! 
+                        You can find our contact information through the <a href="/about">About</a> page or email us at <a href="mailto: studiofy.team@gmail.com">studiofy.team@gmail.com</a>. 
+                        Thank you for checking out Studiofy! 
                     </p>
                 </div>
             </div>

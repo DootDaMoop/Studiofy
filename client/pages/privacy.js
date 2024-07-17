@@ -4,7 +4,7 @@ import privacyStyles from "../styles/privacy.module.css"
 function privacy(){
     return(
         <>
-            <MenuButton textColor="black" backgroundColor="white" hoverTextColor="white" hoverBackgroundColor="#23221F"/>
+            <MenuButton textColor="#f6f3e0" backgroundColor="#181816" hoverTextColor="#181816" hoverBackgroundColor="#fdfcf8"/>
 
             <div className={privacyStyles.container}>
                 <div className={privacyStyles.headerContainer}>

@@ -1,16 +1,18 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect,useRef,useState } from 'react'
 import styles from "../styles/apt.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faAngleDown, faCircle} from '@fortawesome/free-solid-svg-icons'
+import html2canvas from 'html2canvas';
 
 
 function profile() {
     const [profile, setProfile] = useState(null);
     const [topTracks, setTopTracks] = useState([]);
     const [audioFeatures, setAudioFeatures] = useState([]);
-    const [featureAverages, setFeatureAverages] = useState([]);
-    const [closestTracks, setClosestTracks] = useState([]);
+    const [featureAverages, setFeatureAverages] = useState({});
+    const [closestTracks, setClosestTracks] = useState({});
     const [toggle, setToggle] = useState(false);
+    const aptRef = useRef(null);
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -51,7 +53,19 @@ function profile() {
         })
     }, []);
 
-    if(!profile) {
+    const downloadApartmentHandler = () => {
+        if(aptRef.current) {
+            html2canvas(aptRef.current).then((canvas) => {
+                const link = window.document.createElement('a');
+                link.backgroundColor = null;
+                link.download = `${profile.display_name}_studiofy_apartment`;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    }
+
+    if(!profile || !topTracks || !audioFeatures || !featureAverages || !closestTracks) {
         return <h1>Loading...</h1>;
     }
 
@@ -89,18 +103,19 @@ function profile() {
             <body className={styles.sections}>
                 <section>   
                     <div className={styles.parent}>
-                        <div className={styles.pixelborder}></div>
-                        <img className={styles.pixel} src='/images/apt01_base.png' alt='apt_image'></img>
-                        <img className={styles.pixel} src='/images/apt01_windows.png' alt='apt_image'></img>
-                        <img className={styles.pixel} src='/images/apt01_kitchen.png' alt='apt_image'></img>
-                        <img className={styles.pixel} src='/images/apt01_entrance.png' alt='apt_image'></img>
-                        <img className={styles.pixel} src='/images/apt01_office.png' alt='apt_image'></img>
-                        <img className={styles.pixel} src='/images/apt01_livingroom.png' alt='apt_image'></img>
-                        <img className={styles.pixel} src='/images/apt01_bedroom.png' alt='apt_image'></img>
+                        <div className={styles.pixelborder} ref={aptRef}>
+                            {/* <img className={styles.pixel} src='/images/apt01_base.png' alt='apt_image'></img>
+                            <img className={styles.pixel} src='/images/apt01_windows.png' alt='apt_image'></img>
+                            <img className={styles.pixel} src='/images/apt01_kitchen.png' alt='apt_image'></img>
+                            <img className={styles.pixel} src='/images/apt01_entrance.png' alt='apt_image'></img>
+                            <img className={styles.pixel} src='/images/apt01_office.png' alt='apt_image'></img>
+                            <img className={styles.pixel} src='/images/apt01_livingroom.png' alt='apt_image'></img>
+                            <img className={styles.pixel} src='/images/apt01_bedroom.png' alt='apt_image'></img> */}
+                            <img className={styles.pixel} src='/images/TestRoomExport.png' alt='apt_image'></img>
+                        </div>
                         <div className={styles.pixelfooter}>
                             <p className={styles.font1}>Lets See Your Breakdown...</p>
                         </div>
-
                     </div> 
                 </section>
 
@@ -116,81 +131,59 @@ function profile() {
                         <div className={styles.col1}>
                                 <div className={styles.item1}>
                                     <p>Danceability: {parseFloat(featureAverages.danceability).toFixed(2)}</p>
-                                    {/* <p>Closest Track: {closestTracks.danceability.track_name}</p> */}
+                                    <a href={closestTracks.danceability?.track_link} target='_blank'>Closest Track: {closestTracks.danceability?.track_name}</a>
+                                    <p>Artist: {closestTracks.danceability?.artist_names?.join(', ')}</p>
+                                    <img src={closestTracks.danceability?.album_art}></img>
                                 </div>
                         
                                 <div className={styles.item1}>
-                                    <p>Acousticness: {parseFloat(featureAverages.acousticness).toFixed(2)}</p> 
+                                    <p>Acousticness: {parseFloat(featureAverages.acousticness).toFixed(2)}</p>
+                                    <a href={closestTracks.acousticness?.track_link} target='_blank'>Closest Track: {closestTracks.acousticness?.track_name}</a>
+                                    <p>Artist: {closestTracks.acousticness?.artist_names?.join(', ')}</p>
+                                    <img src={closestTracks.acousticness?.album_art}></img>
                                 </div>
 
                                 <div className={styles.item1}>
                                     <p>Energy: {parseFloat(featureAverages.energy).toFixed(2)}</p>
+                                    <a href={closestTracks.energy?.track_link} target='_blank'>Closest Track: {closestTracks.energy?.track_name}</a>
+                                    <p>Artist: {closestTracks.energy?.artist_names?.join(', ')}</p>
+                                    <img src={closestTracks.energy?.album_art}></img>
                                 </div>
                         </div>
 
                         <div className={styles.col2}>
                                 <div className={styles.item1}>                                
-                                    <p>Instrumentalness: {parseFloat(featureAverages.instrumentalness).toFixed(2)}</p>        
+                                    <p>Instrumentalness: {parseFloat(featureAverages.instrumentalness).toFixed(2)}</p> 
+                                    <a href={closestTracks.instrumentalness?.track_link} target='_blank'>Closest Track: {closestTracks.instrumentalness?.track_name}</a>
+                                    <p>Artist: {closestTracks.instrumentalness?.artist_names?.join(', ')}</p>
+                                    <img src={closestTracks.instrumentalness?.album_art}></img>
                                 </div>
 
                                 <div className={styles.item1}>
                                     <p>Liveness:  {parseFloat(featureAverages.liveness).toFixed(2)}</p>  
+                                    <a href={closestTracks.liveness?.track_link} target='_blank'>Closest Track: {closestTracks.liveness?.track_name}</a>
+                                    <p>Artist: {closestTracks.liveness?.artist_names?.join(', ')}</p>
+                                    <img src={closestTracks.liveness?.album_art}></img>
                                 </div>
 
                                 <div className={styles.item1}>
                                     <p>Speechiness: {parseFloat(featureAverages.speechiness).toFixed(2)}</p>
+                                    <a href={closestTracks.speechiness?.track_link} target='_blank'>Closest Track: {closestTracks.speechiness?.track_name}</a>
+                                    <p>Artist: {closestTracks.speechiness?.artist_names?.join(', ')}</p>
+                                    <img src={closestTracks.speechiness?.album_art}></img>
                                 </div>
 
                                 <div className={styles.item1}>
-                                    <p>Valence: {parseFloat(featureAverages.valence).toFixed(2)} </p>
+                                    <p>Valence: {parseFloat(featureAverages.valence).toFixed(2)}</p>
+                                    <a href={closestTracks.valence?.track_link} target='_blank'>Closest Track: {closestTracks.valence?.track_name}</a>
+                                    <p>Artist: {closestTracks.valence?.artist_names?.join(', ')}</p>
+                                    <img src={closestTracks.valence?.album_art}></img>
                                 </div>
                         </div>
                     </section>
-
-
-                    {/* <h1>User Profile</h1>
-                    <h2>Name: {profile.display_name}</h2>
-                    <p>Email: {profile.email}</p>
-                    <p>Followers: {profile.followers.total}</p>
-                    <img src={profile.images[1].url} alt='spotify profile picture'></img>
-                 
-                    <h2>Audio Feature Averages</h2>
-                    <div>
-                        <p>Danceability: {featureAverages.danceability}</p>
-                        <p>Acousticness: {featureAverages.acousticness}</p>
-                        <p>Energy: {featureAverages.energy}</p>
-                        <p>Instrumentalness: {featureAverages.instrumentalness}</p>
-                        <p>Liveness: {featureAverages.liveness}</p>
-                        <p>Speechiness: {featureAverages.speechiness}</p>
-                        <p>Valence: {featureAverages.valence}</p>
-                    </div>
-                    
-                    <h2>Top Tracks</h2>
-                    
-                    <ul>
-                     Inside jsonify, track refers to 'album': track.name == album.name 
-                    {topTracks.map((track, index) => (
-                        <li key={track.id}>
-                            <p>{track.name} by {track.artists.map(artist => artist.name).join(', ')}</p>
-                            <img src={track.album.images[2].url} alt='album icon'></img>
-                            {audioFeatures[index] && (
-                                <div>
-                                    <p>Danceability: {audioFeatures[index].danceability}</p>
-                                    <p>Acousticness: {audioFeatures[index].acousticness}</p>
-                                    <p>Energy: {audioFeatures[index].energy}</p>
-                                    <p>Instrumentalness: {audioFeatures[index].instrumentalness}</p>
-                                    <p>Liveness: {audioFeatures[index].liveness}</p>
-                                    <p>Speechiness: {audioFeatures[index].speechiness}</p>
-                                    <p>Valence: {audioFeatures[index].valence}</p>
-                                </div>
-                            )}
-                        </li>
-                    ))}
-                   
-                    </ul>  */}
-               
-
                 </main>
+
+                <button onClick={downloadApartmentHandler} className=''>Download Your Apartment!</button>
 
                 <footer className={styles.footer}>
                         <p>This is the main content area.</p>

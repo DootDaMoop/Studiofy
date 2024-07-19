@@ -75,7 +75,15 @@ def get_user_top_tracks():
     for feature in feature_averages_json.keys():
         closest_tracks[feature] = min(audio_features, key=lambda x: abs(x[feature] - feature_averages_json[feature]))
 
-    closest_tracks_json = {feature: {'track_id': song['id'], 'track_name': top_tracks_json['items'][track_ids.index(song['id'])]['name']} for feature, song in closest_tracks.items()}
+    closest_tracks_json = {
+        feature: {
+            'track_id': song['id'],
+            'track_name': top_tracks_json['items'][track_ids.index(song['id'])]['name'],
+            'artist_names': [artist['name'] for artist in top_tracks_json['items'][track_ids.index(song['id'])]['artists']],
+            'album_art': top_tracks_json['items'][track_ids.index(song['id'])]['album']['images'][0]['url'],
+            'track_link': top_tracks_json['items'][track_ids.index(song['id'])]['external_urls']['spotify']
+            } for feature, song in closest_tracks.items()
+        }
 
     return jsonify({
         'top_tracks': top_tracks_json,

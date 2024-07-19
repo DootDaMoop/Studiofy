@@ -85,9 +85,10 @@
 
 .pixel {
     position: absolute;
-    top: 18%;
-    width: 500px;
-    height: 500px;
+    top: -2%;
+    left: 11.5%;
+    width: 1024px;
+    height: 722px;
     z-index: 0;
 } /* ADD MEDIA TAG SO THIS ADJUSTS TO SCREEN SIZE*/
 
@@ -96,9 +97,9 @@
     align-items: center;
     justify-content: center;
     background-color: #F6F3E0;
-    top: 20%;
-    height: 450px;
-    width: 650px;
+    top: 25%;
+    height: 800px;
+    width: 1200px;
     border-radius: 50px;
     z-index: 0;
 }

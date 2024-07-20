@@ -5,3 +5,4 @@ __pycache__
 .pytest_cache
 .env
 json_examples
+node_modules

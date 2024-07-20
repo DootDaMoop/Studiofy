@@ -38,7 +38,6 @@ function index() {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.dayNightOverlay}></div>
         <div className={styles.pixelborder}>
           <img className={`${styles.pixel}`} src={aptImages.randomAptBase} alt='apt_image'></img>
           <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.2s"}} src={aptImages.randomAptWindows} alt='apt_image'></img>
@@ -47,9 +46,11 @@ function index() {
           <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.5s"}} src={aptImages.randomAptLivingRoom} alt='apt_image'></img>
           <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.4s"}} src={aptImages.randomAptKitchen} alt='apt_image'></img>
           <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.6s"}} src={aptImages.randomAptOffice} alt='apt_image'></img>
+          <div className={styles.dayNightOverlay}></div>
+
         </div>
 
-        <SineWave amplitude={10} frequency={5} width={1440} height={1080}></SineWave>
+        {/* <SineWave amplitude={10} frequency={5} width={1440} height={1080}></SineWave> */}
 
         <div className={styles.sideContainer}>
           <h1 className={styles.title}>Studiofy</h1>
@@ -58,9 +59,9 @@ function index() {
         
       </div>
 
-        {/* <footer className={styles.footer}>
+        <footer className={styles.footer}>
           <p>This is the main content area.</p>
-        </footer> */}
+        </footer>
     </>
   );
 }

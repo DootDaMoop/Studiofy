@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styles from "../styles/login_page.module.css";
-import SineWave from './api/SineWave';
 import RandomizeLoginApt from './api/RandomizeLoginApt';
 
 function index() {
@@ -50,18 +49,26 @@ function index() {
 
         </div>
 
-        {/* <SineWave amplitude={10} frequency={5} width={1440} height={1080}></SineWave> */}
 
         <div className={styles.sideContainer}>
           <h1 className={styles.title}>Studiofy</h1>
           <button className={styles.button} onClick={handleLogin}>Login with Spotify</button>
         </div>
         
+        
       </div>
 
-        <footer className={styles.footer}>
-          <p>This is the main content area.</p>
-        </footer>
+      <footer className={styles.footer}>
+          <div className={styles.footerOptionsContainer}>
+            <a className={styles.footerOptions}  href='/about'>ABOUT</a>
+            <a className={styles.footerOptions}  href='/privacy'>PRIVACY</a>
+          </div>
+
+          <a href= "mailto: studiofy.team@gmail.com" className={styles.footerEmail}>
+            <img className={styles.emailIcon} src='images/blackMail.png' alt='Mail Icon'></img>STUDIOFY.TEAM@GMAIL.COM
+          </a>
+      </footer>
+      
     </>
   );
 }

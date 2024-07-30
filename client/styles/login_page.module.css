@@ -3,75 +3,182 @@
 
   .container {
     width: 100%;
-    height: 100vh;
+    height: 85vh;
     display: flex; 
     flex-direction: column; 
     overflow: hidden; 
     align-items: center;
+    background-color: #FFFADC;
   }
+
+  .content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    }
 
   .pixelborder {
     position: absolute;
     align-items: center;
     justify-content: center;
-    background-color: #F6F3E0;
-    top: 18%;
-    left: 5%;
-    height: 600px;
-    width: 800px;
-    border-radius: 50px;
+    top: 13.5%;
+    left: 0.38%;
+    height: 566.5px;
+    width: 722px; 
     z-index: 0;
+    overflow: hidden;
   }
   
   .pixel {
     position: absolute;
-    top: -13%;
-    left: 2.5%;
-    width: 768px;
-    height: 768px;
+    top: 0%;
+    left: -5%;
+    width: 110%;
+    height: 100%;
     z-index: 0;
-    image-rendering: pixelated;
+    object-fit: cover;
+  }
+
+  .mainWindow{
+    position: relative;
+    top: 6%;
+    left: -20%;
+    z-index: 0;
+    height: 70vh
+  }
+
+  .mainWindowImage{
+    width: auto;
+    height: 650px;
+  }
+
+  .bgWindowTall{
+    position: absolute;
+    left: 85%;
+    height: 250px;
+    width: auto;
+    z-index: -1;
+    animation: floatTall 2s infinite alternate-reverse ease-in-out;
+  }
+
+  .bgWindowWide{
+    position: absolute;
+    right: -140%;
+    height: 175px;
+    width: auto;
+    z-index: -1;
+    animation: floatWide 2.3s infinite alternate-reverse ease-in-out;
+  }
+
+  .bgWindowSquare{
+    position: absolute;
+    left: -20%;
+    height: 300px;
+    width: auto;
+    z-index: -1;
+    animation: floatSquare 2.2s infinite alternate-reverse ease-in-out;
+  }
+
+  @keyframes floatTall {
+    0%{bottom: 375px;}
+    100%{bottom: 425px;}
+  }
+
+  @keyframes floatWide{
+    0%{bottom: 450px;}
+    100%{bottom: 500px;}
+  }
+
+  @keyframes floatSquare{
+    0%{bottom: 300px;}
+    100%{bottom: 350px;}
+  }
+
+  .dayNightOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .25;
+    pointer-events: none;
+    background-color: white;
+    animation-fill-mode: forwards;
+    mix-blend-mode: multiply;
+    z-index: 1;
+    animation: dayNightAnimation 5s infinite alternate;
+    border-bottom-right-radius: 31px;
+    border-bottom-left-radius: 31px;
+  }
+
+  @keyframes dayNightAnimation {
+    0% {
+      background-color: lightyellow;
+    }
+    50% {
+      background-color: darkblue;
+    }
+    100% {
+      background-color: lightyellow;
+    }
   }
 
   .sideContainer {
-    position: absolute;
-    right: 15%;
-    z-index: 2;
-    top: 25%;
-    align-items: center;  
-  }
-
-  .title {
-    color: black;
-    font-size: 3em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-  
-  .button {
-    position: absolute;
-    /* right: 10%; */
-    width: max-content;
-    margin-top: 10%;
+    position: relative;
     display: flex;
-    background-color: white; /* Spotify green */
-    color: black; /* Text Color */
-    background-color: #E5E5E5;
-    border: none; /* Border around Padding*/ 
-    padding: 15px 30px; /* Button Size*/
-    font-size: 1.5em; /* */
-    border-radius: 25px; /* Rounding Button*/
-    flex-direction: row; /* Change this to row if you want horizontal flex */
-  }
-  
-  .button:hover {
-    background-color: #1AA34A; /* Darker green on hover */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    right: -25%;
+    top: -60%
   }
 
+  .studiofyText{
+    max-width: 110%;
+    height: auto;
+    margin-bottom: -10%;
+  }
+
+  .studiofyText{
+    width: 110%
+  }
+  
+  .loginButton{
+    display: flex;
+    border: none; 
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .loginButton{
+    max-width: 100;
+    height: auto;
+  }
+
+  .loginButton:hover{
+    filter: drop-Shadow(-1px 1px );
+  }
+  
   .drop {
     animation: dropAnimation 1s ease-out;
     opacity: 0;
     animation-fill-mode: forwards;
     image-rendering: pixelated;
+  }
+
+  @keyframes dropAnimation {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    75% {
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   .switch {
@@ -81,11 +188,25 @@
     image-rendering: pixelated;
   }
 
+  @keyframes switchAnimation {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    10% {
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+
   .footer {
     background-color: black;
     width: 100%;
-    height: 125px;
-    padding-top: 30px;
+    height: 15vh;
     text-align: center;
     position: relative;
   }
@@ -97,6 +218,7 @@
     font-size: 1.3rem;
     margin: 10px 30px; 
     margin-bottom: 30px;
+    margin-top: 30px;
     text-decoration: none;
   }
 
@@ -111,7 +233,6 @@
     color: black;
     padding: 10px 20px; 
     border-radius: 20px; 
-    margin-top: 30px; 
   }
 
   .footerEmail:hover{
@@ -129,143 +250,204 @@
     margin-right: 5px; 
   }
 
+/* Large devices (desktops, less than 1400px) */
+@media (max-width: 1399px) {
+  .sideContainer {
+    right: -29.5%;
+    top: -30%;
+  }
 
-  /* Media Tags for Login-Page, Standard breakout points: 600,601,768,992,1200px's */
-  @media (max-width: 1300px) {
-      .sideContainer {
-        right: 8%;
-      }
-    }
+  .studiofyText {
+    width: 425px;
+  }
 
-  @media (max-width: 1200px) {
-    .pixelborder {
-      width: 650px;
-      height: 500px;
-    }
-    .pixel {
-      width: 638px;
-      height: 638px;
-    }
-}
+  .mainWindow {
+    left: -20%;
+    top: 20%;
+  }
 
-  @media (max-width: 992px) {
-    .pixelborder {
-      width: 550px;
-      height: 400px;
-    }
-    .pixel {
-      width: 518px;
-      height: 518px;
-    }
-    .title {
-      font-size: 2.8em;
-    }
-    .button {
-      padding: 12px 20px; /* Button Size*/
-      font-size: 1.2em; /* */
-    }
-}
+  .mainWindowImage {
+    width: 550px;
+    height: auto;
+  }
 
-  @media (max-width: 836px) {
-    .pixelborder {
-      width: 425px;
-      height: 300px;
-    }
-    .pixel {
-      width: 398px;
-      height: 398px;
-    }
-}
-
-@media (max-width: 730px) {
   .pixelborder {
-    width: 350px;
-    height: 270px;
-  }
-  .pixel {
-    width: 334px;
-    height: 334px;
-    
-  }
-}
-
-  @media (max-width: 600px) {
-    .pixelborder {
-      width: 400px;
-      height: 300px;
-      right: 10%;
-      left: 10%;
-    }
-    .pixel {
-      width: 368px;
-      height: 368px;
-    }
-
-    .sideContainer {
-      z-index: 2;
-      bottom: 0%;
-      margin-bottom: 0%;
-      margin-right: 15%;
-      margin-left: 15%;
-      margin-top: 15%;
-      align-self:center;
-    }
-  }
-
-  @keyframes dropAnimation {
-    0% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    75% {
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes switchAnimation {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    10% {
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
+    width: 547px;
+    height: 429px;
+    left: 1px;
+    top: 13%;
   }
 
   .dayNightOverlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: .25;
-    pointer-events: none;
-    background-color: white;
-    animation-fill-mode: forwards;
-    mix-blend-mode: multiply;
-    z-index: 1;
-    animation: dayNightAnimation 5s infinite alternate;
-    border-radius: 50px;
-  }
-  
-  @keyframes dayNightAnimation {
-    0% {
-      background-color: lightyellow;
-    }
-    50% {
-      background-color: darkblue;
-    }
-    100% {
-      background-color: lightyellow;
-    }
+    border-bottom-right-radius: 23px;
+    border-bottom-left-radius: 26px;
   }
 
-  
+  .bgWindowWide {
+    left: -20%;
+    height: 175px;
+    width: auto;
+  }
 
-  
+  @keyframes floatWide {
+    0% { bottom: 350px; }
+    100% { bottom: 400px; }
+  }
+
+  .bgWindowTall {
+    height: auto;
+    width: 150px;
+    left: 85%;
+  }
+
+  @keyframes floatTall {
+    0% { bottom: -100px; }
+    100% { bottom: -50px; }
+  }
+
+  .bgWindowSquare {
+    left: 200%;
+    width: 175px;
+    height: auto;
+  }
+
+  @keyframes floatSquare {
+    0% { bottom: 350px; }
+    100% { bottom: 375px; }
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991px) {
+  .pixelborder {
+    width: 497px;
+    height: 390.5px;
+    top: 13%;
+    left: 1px;
+  }
+
+  .sideContainer {
+    right: 0%;
+    top: -1%;
+  }
+
+  .studiofyText {
+    width: 450px;
+    margin-top: 5px;
+  }
+
+  .loginButton {
+    margin-top: -5px;
+    width: 350px;
+  }
+
+  .mainWindow {
+    left: 0%;
+    top: 5%;
+  }
+
+  .mainWindowImage {
+    width: 500px;
+    height: auto;
+  }
+
+  .dayNightOverlay {
+    border-bottom-right-radius: 23px;
+    border-bottom-left-radius: 24px;
+  }
+
+  .bgWindowWide {
+    left: -20%;
+    height: 100px;
+    width: auto;
+  }
+
+  @keyframes floatWide {
+    0% { bottom: 340px; }
+    100% { bottom: 395px; }
+  }
+
+  .bgWindowTall {
+    height: auto;
+    width: 150px;
+    right: 0%;
+  }
+
+  @keyframes floatTall {
+    0% { bottom: -30px; }
+    100% { bottom: 10px; }
+  }
+
+  .bgWindowSquare {
+    display: none;
+  }
+
+ 
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767px) {
+  .pixelborder {
+    width: 349px;
+    height: 273.5px;
+    top: 13%;
+  }
+
+  .sideContainer {
+    right: 0;
+    top: 5%;
+    width: 350px;
+  }
+
+  .studiofyText {
+    width: 300px;
+    margin-top: 50px;
+  }
+
+  .loginButton {
+    width: 275px;
+  }
+
+  .mainWindow {
+    left: 0%;
+    top: 25%;
+  }
+
+  .mainWindowImage {
+    width: 350px;
+    height: auto;
+  }
+
+  .dayNightOverlay {
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 16px;
+  }
+
+  .bgWindowWide {
+    left: -45%;
+    height: 150px;
+    width: auto;
+  }
+
+  @keyframes floatWide {
+    0% { bottom: 200px; }
+    100% { bottom: 250px; }
+  }
+
+  .bgWindowTall {
+    height: auto;
+    width: 150px;
+    left: 95%;
+  }
+
+  @keyframes floatTall {
+    0% { bottom: 220px; }
+    100% { bottom: 270px; }
+  }
+
+  .bgWindowSquare {
+    display: none;
+  }
+
+ 
+}

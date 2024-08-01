@@ -22,6 +22,15 @@ function profile() {
     const categ7ref = useRef(null);
     const columnRefs = [categ1ref, categ2ref, categ3ref, categ4ref, categ5ref, categ6ref, categ7ref];
     const [currentColumn, setCurrentColumn] = useState(6);
+    const widthDance = `${parseFloat(featureAverages.danceability) * 100}%`;
+    const widthAcoustic = `${parseFloat(featureAverages.acousticness) * 100}%`;
+    const widthEnergy = `${parseFloat(featureAverages.energy) * 100}%`;
+    const widthInstrument = `${parseFloat(featureAverages.instrumentalness) * 100}%`;
+    const widthLiveness = `${parseFloat(featureAverages.liveness) * 100}%`;
+    const widthSpeech = `${parseFloat(featureAverages.speechiness) * 100}%`;
+    const widthValence = `${parseFloat(featureAverages.valence) * 100}%`;
+
+
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -116,131 +125,250 @@ function profile() {
         <>
             <header>
                 <button onClick={() => setToggle(!toggle)} className={styles.button}>
-                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
-                    <p className={styles.font} >Menu</p>  
+                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0]?.url})` }}></div>
+                    <p className={styles.menuFont} >Menu</p>  
                     <i><FontAwesomeIcon icon={faAngleDown} /></i>
                 </button>
                 
                 {toggle && 
-                        <ul className={styles.dropdown}>
+                        <ul className={styles.buttonDropDown}>
                             <li>
-                                <a className={styles.font}  href='/privacy'>
+                                <a className={styles.menuFont}  href='/privacy'>
                                     <p>Privacy </p>     
                                 </a>
                             </li>
 
                             <li >
-                                <a className={styles.font}  href='/about'>
+                                <a className={styles.menuFont}  href='/about'>
                                     <p>About</p>
                                 </a>
                             </li>
 
                             {/* TODO: Backend Logout! This wont actually log the user out, just go back to the login page. */}
                             <li >
-                                <a className={styles.font}  href='http://localhost:3000/'>
+                                <a className={styles.menuFont}  href='http://localhost:3000/'>
                                     <p>Logout</p>
                                 </a>  
                             </li>
                         </ul> }
             </header>
 
-            <body className={styles.sections}>
-                <section>   
-                    <div className={styles.parent}>
-                        <div className={styles.pixelborder} ref={aptRef}>
-                            {/* <img className={styles.pixel} src='/images/apt01_base.png' alt='apt_image'></img>
-                            <img className={styles.pixel} src='/images/apt01_windows.png' alt='apt_image'></img>
-                            <img className={styles.pixel} src='/images/apt01_kitchen.png' alt='apt_image'></img>
-                            <img className={styles.pixel} src='/images/apt01_entrance.png' alt='apt_image'></img>
-                            <img className={styles.pixel} src='/images/apt01_office.png' alt='apt_image'></img>
-                            <img className={styles.pixel} src='/images/apt01_livingroom.png' alt='apt_image'></img>
-                            <img className={styles.pixel} src='/images/apt01_bedroom.png' alt='apt_image'></img> */}
-                            <img className={styles.pixel} src='/images/TestRoomExport.png' alt='apt_image'></img>
-                        </div>
-                        <div className={styles.pixelfooter}>
-                            <p className={styles.font1}>Lets See Your Breakdown...</p>
-                        </div>
+            <body className={styles.main}>
+                <section>    
+                        <div className={styles.titleContainer}>
+                            <p className={styles.titleText}>WELCOME TO STUDIOFY</p>
+
+                            <div className={styles.pixelFooter}>
+                                <p className={styles.pixelFooterFont}> LET'S GO ON A ROOM TOUR...</p>
+                                <i className={styles.circleDown}><FontAwesomeIcon icon={faAngleDown} /></i>
+                            </div>
                     </div> 
                 </section>
+            </body>
 
-                <main className={styles.fadein}>
-                    <header className={styles.header1}>
-                        <div className={styles.description}> Your Bedroom Stats... </div>
-                        <div className={styles.bars}></div>
-                        <div className={styles.description1}> Retrieved from Spotifys API, measuring happiness, energy, danceability, tempo, and mood.</div>
-                    </header>
-                    
-                    <section className={styles.container}>
+                <main>
+                    <section className={styles.itemsContainer}>
                         
-                        <div className={styles.col1}>
-                            <div className={styles.item1}>
+                            {/* <div className={styles.items}>
                                 <a href='#categ1ref' ref={categ1ref}></a>
                                 <p>Danceability: {parseFloat(featureAverages.danceability).toFixed(2)}</p>
                                 <a href={closestTracks.danceability?.track_link} target='_blank'>Closest Track: {closestTracks.danceability?.track_name}</a>
                                 <p>Artist: {closestTracks.danceability?.artist_names?.join(', ')}</p>
-                                <img src={closestTracks.danceability?.album_art}></img>
+                                <img className={styles.img} src={closestTracks.danceability?.album_art}></img>
                             </div>
                         
-                            <div className={styles.item1}>
+                            <div className={styles.items}>
                                 <a href='#categ2ref' ref={categ2ref}></a>
                                 <p>Acousticness: {parseFloat(featureAverages.acousticness).toFixed(2)}</p>
                                 <a href={closestTracks.acousticness?.track_link} target='_blank'>Closest Track: {closestTracks.acousticness?.track_name}</a>
                                 <p>Artist: {closestTracks.acousticness?.artist_names?.join(', ')}</p>
-                                <img src={closestTracks.acousticness?.album_art}></img>
+                                <img className={styles.img} src={closestTracks.acousticness?.album_art}></img>
                             </div>
 
-                            <div className={styles.item1}>
+                            <div className={styles.items}>
                                 <a href='#categ3ref' ref={categ3ref}></a>
                                 <p>Energy: {parseFloat(featureAverages.energy).toFixed(2)}</p>
                                 <a href={closestTracks.energy?.track_link} target='_blank'>Closest Track: {closestTracks.energy?.track_name}</a>
                                 <p>Artist: {closestTracks.energy?.artist_names?.join(', ')}</p>
-                                <img src={closestTracks.energy?.album_art}></img>
+                                <img className={styles.img} src={closestTracks.energy?.album_art}></img>
                             </div>
                         </div>
 
-                        <div className={styles.col2}>
-                            <div className={styles.item1}>
+                        <div>
+                            <div className={styles.items}>
                                 <a href='#categ4ref' ref={categ4ref}></a>
                                 <p>Instrumentalness: {parseFloat(featureAverages.instrumentalness).toFixed(2)}</p> 
                                 <a href={closestTracks.instrumentalness?.track_link} target='_blank'>Closest Track: {closestTracks.instrumentalness?.track_name}</a>
                                 <p>Artist: {closestTracks.instrumentalness?.artist_names?.join(', ')}</p>
-                                <img src={closestTracks.instrumentalness?.album_art}></img>
+                                <img className={styles.img} src={closestTracks.instrumentalness?.album_art}></img>
                             </div>
 
-                            <div className={styles.item1}>
+                            <div className={styles.items}>
                                 <a href='#categ5ref' ref={categ5ref}></a>
                                 <p>Liveness:  {parseFloat(featureAverages.liveness).toFixed(2)}</p>  
                                 <a href={closestTracks.liveness?.track_link} target='_blank'>Closest Track: {closestTracks.liveness?.track_name}</a>
                                 <p>Artist: {closestTracks.liveness?.artist_names?.join(', ')}</p>
-                                <img src={closestTracks.liveness?.album_art}></img>
+                                <img className={styles.img} src={closestTracks.liveness?.album_art}></img>
                             </div>
 
-                            <div className={styles.item1}>
+                            <div className={styles.items}>
                                 <a href='#categ6ref' ref={categ6ref}></a>
                                 <p>Speechiness: {parseFloat(featureAverages.speechiness).toFixed(2)}</p>
                                 <a href={closestTracks.speechiness?.track_link} target='_blank'>Closest Track: {closestTracks.speechiness?.track_name}</a>
                                 <p>Artist: {closestTracks.speechiness?.artist_names?.join(', ')}</p>
-                                <img src={closestTracks.speechiness?.album_art}></img>
+                                <img className={styles.img} src={closestTracks.speechiness?.album_art}></img>
+                            </div> */}
+
+                            {/* MAKE PROGRESSBAR and PERHAPS CARD INTO COMPONENTS FOR REUSEABILITY && DO WE HAVE TO INCLUDE ARTIST NAME?? */}
+                            
+                            <section>
+                                <div className={styles.itemsHeader}> 
+                                    <p className={styles.menuFont}>STUDIO - ENTRANCE</p>
+                                </div>
+                    
+                                <div className={styles.itemsBody}>
+                                    <div className={styles.itemBodyLeft}>
+                                        <p className={styles.fontTest}> VALANCE </p>
+                                        <div className={styles.progresscontainer}>
+                                            <div className={styles.progressbar} style={{ width: widthValence}}>
+                                            <p className={styles.progressPer}> {parseFloat(widthValence).toFixed(0)}% </p>
+                                            </div>
+                                        </div>
+                                        <p className={styles.fontTest}> This Percentage descrbes the musical positiveness conveyed by your Top 50 Most Played Songs!</p>
+                                        
+                                        <div className={styles.bar}></div>
+
+                                        <p className={styles.fontTest}> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS: </p>
+                                        <a href={closestTracks.valence?.track_link} target='_blank'>Closest Track: {closestTracks.valence?.track_name}</a>
+                                        
+
+
+                                        <a href='#categ7ref' ref={categ7ref}></a>
+                                        <p>Valence: {parseFloat(featureAverages.valence).toFixed(2)}</p>
+                                        
+                                        <p>Artist: {closestTracks.valence?.artist_names?.join(', ')}</p>
+                                        <img className={styles.trackImg} src={closestTracks.valence?.album_art}></img>
+                                    
+                                        <div className={styles.itemPlayButton}>
+                                            <p>PLAY ON SPOTIFY</p>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.itemBodyRight}>
+                                        <img className={styles.pixelBedroom} src='/images/bedroom-0.65-1.00.png' alt='apt_image'></img> 
+                                    </div> 
+                                </div>
+                            </section>
+
+                            <section>
+                                <div className={styles.itemsHeader}> 
+                                    <p className={styles.menuFont}>STUDIO - ENTRANCE</p>
+                                </div>
+                    
+                                <div className={styles.itemsBody}>
+                                    <div className={styles.itemBodyLeft}>
+                                        <p> VALANCE </p>
+                                        <div className={styles.progresscontainer}>
+                                            <div className={styles.progressbar} style={{ width: widthValence}}>
+                                            <p className={styles.progressPer}> {parseFloat(widthValence).toFixed(0)}% </p>
+                                            </div>
+                                        </div>
+                                        <p> This Percentage descrbes the musical positiveness conveyed by your Top 50 Most Played Songs!</p>
+                                        
+                                        <div className={styles.bar}></div>
+
+                                        <p> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS: 
+                                            <a href={closestTracks.valence?.track_link} target='_blank'>Closest Track: {closestTracks.valence?.track_name}</a>
+                                        </p>
+
+
+                                        <a href='#categ7ref' ref={categ7ref}></a>
+                                        <p>Valence: {parseFloat(featureAverages.valence).toFixed(2)}</p>
+                                        
+                                        <p>Artist: {closestTracks.valence?.artist_names?.join(', ')}</p>
+                                        <img className={styles.trackImg} src={closestTracks.valence?.album_art}></img>
+                                    
+                                        <div className={styles.itemPlayButton}>
+                                            <p>PLAY ON SPOTIFY</p>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.itemBodyRight}>
+                                        <img className={styles.pixelBedroom} src='/images/bedroom-0.65-1.00.png' alt='apt_image'></img> 
+                                    </div> 
+                                </div>
+                            </section>
+
+                       
+                            <section>
+                                <div className={styles.itemsHeader}> 
+                                    <p className={styles.menuFont}>STUDIO - ENTRANCE</p>
+                                </div>
+                    
+                                <div className={styles.itemsBody}>
+                                    <div className={styles.itemBodyLeft}>
+                                        <p> VALANCE </p>
+                                        <div className={styles.progresscontainer}>
+                                            <div className={styles.progressbar} style={{ width: widthValence}}>
+                                            <p className={styles.progressPer}> {parseFloat(widthValence).toFixed(0)}% </p>
+                                            </div>
+                                        </div>
+                                        <p> This Percentage descrbes the musical positiveness conveyed by your Top 50 Most Played Songs!</p>
+                                        
+                                        <div className={styles.bar}></div>
+
+                                        <p> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS: 
+                                            <a href={closestTracks.valence?.track_link} target='_blank'>Closest Track: {closestTracks.valence?.track_name}</a>
+                                        </p>
+
+
+                                        <a href='#categ7ref' ref={categ7ref}></a>
+                                        <p>Valence: {parseFloat(featureAverages.valence).toFixed(2)}</p>
+                                        
+                                        <p>Artist: {closestTracks.valence?.artist_names?.join(', ')}</p>
+                                        <img className={styles.trackImg} src={closestTracks.valence?.album_art}></img>
+                                    
+                                        <div className={styles.itemPlayButton}>
+                                            <p>PLAY ON SPOTIFY</p>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.itemBodyRight}>
+                                        <img className={styles.pixelItem} src='/images/apt01_office.png' alt='apt_image'></img> 
+                                    </div> 
+                                </div>
+                            </section>
+                    </section>
+
+                    <section>   
+                        <div className={styles.pixelContainer}>
+                            <div className={styles.pixelFooter}>
+                                <p className={styles.pixelFooterFont}>THE FINAL RESULT</p>
+                                <i className={styles.circleDown}><FontAwesomeIcon icon={faAngleDown} /></i>
+                            </div>
+                            
+                            <div className={styles.pixelWindow}>
+                                <p className={styles.menuFont}> {profile.display_name} Studio - STUDIOIFY</p>
                             </div>
 
-                            <div className={styles.item1}>
-                                <a href='#categ7ref' ref={categ7ref}></a>
-                                <p>Valence: {parseFloat(featureAverages.valence).toFixed(2)}</p>
-                                <a href={closestTracks.valence?.track_link} target='_blank'>Closest Track: {closestTracks.valence?.track_name}</a>
-                                <p>Artist: {closestTracks.valence?.artist_names?.join(', ')}</p>
-                                <img src={closestTracks.valence?.album_art}></img>
-                            </div>
-                        </div>
+                            <div className={styles.pixelBorder} ref={aptRef}>
+                                <img className={styles.pixelRoom} src='/images/TestRoomExport.png' alt='apt_image'></img>
+                            </div>          
+                        </div> 
                     </section>
+
+                    <div className={styles.interactContainer}>
+                        <button onClick={downloadApartmentHandler} className={styles.downloadAPT}>Download Your Apartment!</button>
+                        <button className={styles.shareLink}>Share our Site</button>
+                    </div>
+
                 </main>
 
-                <button onClick={downloadApartmentHandler} className=''>Download Your Apartment!</button>
 
                 <div className={styles.fixedButtonContainer}>
                     <button onClick={handleScrollToNextColumn}>Next Col</button>
                     <button onClick={handleScrollToPrevColumn}>Prev Col</button>
                 </div>
-            </body>
         </>
     );
 }

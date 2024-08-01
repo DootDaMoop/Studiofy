@@ -1,25 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metrophobic&family=Sora:wght@100..800&display=swap');
 
-
-.parent {
-    position: initial;
-    background-size: 100vw 100vh; /* Ensure the image covers the entire element */
-    height: 98vh; /* Full viewport height */
+.titleContainer {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    background-color: #739E82;
+    align-items: center;
+    justify-content: center;    
+    min-height: 100vh;
+    flex-direction: column;
+    max-width: 60rem;
 }
 
-.sections {
-    background-color:#D38B5D;
-}
-
-.profileimg {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background-size: cover;
+.titleText {
+    /* background-color: #F6F3E0; */
+    font-size: 5vw;
+    width: 55vw;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    letter-spacing: 0.4em;
+    font-family: "Inter", sans-serif;
+    font-style:bold;
+    font-weight: 750;
 }
 
 .button {
@@ -37,20 +38,16 @@
     font-size: 1.1rem;
     user-select: none;
     transition: background-color 0.3s;
-    background-color:#F6F3E0;
-    border-style: none;
+    background-color:#FFFFFF;
+    border-style: solid;
     z-index: 3;
-  }
-
-.spans {
-    position: initial;
 }
 
 .button:hover {
     background-color: white;
 }
 
-.dropdown {
+.buttonDropDown {
     position: absolute;
     top: 9.5%;
     width: 130px;
@@ -60,13 +57,21 @@
     padding: 0.5rem 0 0.5rem 1rem;
     background-color: white;
     cursor: pointer;
-    background-color: #F6F3E0;
+    background-color: #FFFFFF;
+    border-style: solid;
     list-style-type: none;
     z-index: 3;
     font-size: large
 }
 
-.font {
+.profileimg {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.menuFont {
     font-family: "Sora", sans-serif;
     font-weight: 500;
     font-style: bold;
@@ -75,77 +80,306 @@
     color: black;
 }
 
-.font1 {
-    font-size: 75px;
-    color: #739E82;
+.main {
+    background-color: #F6F3E0;
+    width: 100%;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    display: flex;
+}
+
+.pixelContainer {
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: #F6F3E0;
+}
+
+.pixelRoom {
+    top: 3%;
+    left: 7.5%;
+    width: 824px;
+    height: 522px;
+    z-index: 0;
+}
+
+@media (max-width: 1350px) {
+    .pixelRoom {
+        width: 624px;
+        height: 422px;
+    }
+}
+
+@media (max-width: 1130px) {
+    .pixelRoom {
+        width: 524px;
+        height: 322px;
+    }
+}
+/* TEST */
+@media (max-width: 1130px) {
+    .pixelBorder {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 1130px) {
+    .pixelRoom {
+        width: 324px;
+        height: 222px;
+    }
+}
+
+@media (max-width: 450px) {
+    .pixelRoom {
+        width: 224px;
+        height: 122px;
+    }
+}
+.pixelWindow {
+    /* position: absolute; */
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    height: 47px;
+    width: 50%;
+    border-radius:50px 50px 0px 0px;
+    border-style: solid; 
+    border-bottom: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+.pixelBorder {
+    /* position: absolute; */
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    top: 10vh;
+    height: 75vh;
+    width: 50vw;
+    border-radius: 0px 0px 30px 30px;
+    margin-bottom: 10vh;
+    z-index: 0;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+}
+
+.pixelFooter {
+    height: 8vw;
+    width: 70vw;
+    margin-bottom: 50px;
+    bottom: 5%;
+    background-color: #FFFFFF;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    border-style: solid;
+    overflow: hidden;
+    
+}
+
+.circleDown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3.5vw;
+    width: 3.5vw;
+    background-color: #FFFFFF;
+    border-style: solid;
+    position: absolute;
+    margin-bottom: 8.5vw;
+}
+
+.pixelFooterFont {
+    font-size: 3vw;
+    color: black;
     font-style: bold;
     font-weight: 700;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.2em;
 }
 
-
-.pixel {
-    position: absolute;
-    top: 0%;
-    left: 7.5%;
-    width: 1024px;
-    height: 722px;
-    z-index: 0;
-} /* ADD MEDIA TAG SO THIS ADJUSTS TO SCREEN SIZE*/
-
-.pixelborder {
-    position: absolute;
-    align-items: center;
-    justify-content: center;
+.itemsContainer {
     background-color: #F6F3E0;
-    top: 5%;
-    height: 725px;
-    width: 1200px;
-    border-radius: 50px;
-    z-index: 0;
-}
-
-.pixelfooter {
-    height: 18vh;
-    width: 100%;
-    position: absolute;
-    bottom: 0%;
-    background-color: #F6F3E0;
-    z-index: 0;
-    align-items: center;
-    justify-content: center;
     display: flex;
-}
-
-.container {
-    /*background-color: red;*/
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    gap: 15%;
-    justify-content: center;
-    margin: auto;
+    /* width: 100%; */
     flex-wrap: wrap;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-bottom: 10%;
 }
 
-.item1 {
-    display: flex;
+/* Placeholder */
+.itemsHeader {
     background-color: white;
-    width: 600px;
-    height: 275px;
+    max-width: 576px;
+    height: 46px;
+    border-style: solid;
+    border-bottom: none;
+    border-radius: 40px 40px 0px 0px;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0% 5% 0% 5%;
+
+}
+
+/* PlaceHolder */
+.itemsBody {
+    flex-wrap: wrap;
+    background-color: white;
+    max-width: 576px;
+    height: 636px;
+    border-radius: 0px 0px 40px 40px;
+    border-style: solid;
+    overflow: hidden;
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 8%;
+    margin: 5% 5%;
+}
+
+.itemBodyLeft {
+    background-color: white;
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1% 8% 1% 8%;
+}
+
+.itemBodyRight {
+    /* background-color: aqua; */
+    background-color: white;
+    width: 54%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ADJUSTMENT FOR IMGS INSIDE THE BODY ITEMS */
+.pixelEntrance {
+    /* background-color: #F6F3E0; */
+    position: relative;
+    left: 15%;
+    bottom: 30%;
+}
+
+.pixelBedroom {
+    /* background-color: #F6F3E0; */
+    position: relative;
+    right: 40%;
+    width: 175%;
+    top: 8%;
+}
+
+/* Placeholder */
+
+@media (max-width: 767px) {
+    .itemsContainer {
+        flex-direction: column;
+        display: flex;
+    }
+    .itemsBody {
+        width: 75vw;
+        height: 60vh;
+    }
+    .itemsHeader {
+        width: 75vw;
+        height: 3.5vh;
+    }
+    .itemBodyLeft {
+        display: flex;
+        font-size: 0.7em;
+    }
+    .itemBodyRight {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .pixelBedroom {
+        padding-bottom: 10vh; 
+    }
+    .trackImg {
+        margin: 2vw;
+    }
+
+}
+
+.itemPlayButton {
+    height: 4vh;
+    width: 10vw;
+    display: flex;
     border-radius: 50px;
-    align-content: bottom; /*Vertically*/
-    justify-content: center; /*Horizontally*/
-    margin-top: 250px;
-    margin-bottom: 20px;
+    background-color: white;
+    border-style: solid;
+    position: absolute;
+    margin-bottom: 2;
+    justify-content: center;
+    align-items: center;
+    margin: 44vh 50px 50px 50px;
 }
 
-.col1 {
-    margin-top: 15%;
-    margin-bottom: 10%;
+.bar {
+    background-color: black;
+    height: 0.4vh;
+    width: 12vw;
 }
 
-.col2 {
-    margin-top: 0%;
+/* Adjust Below */
+
+.progresscontainer {
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+    width: 95%;
+    /* background-color: #F6F3E0; */
+    border-style: solid;
+    border-radius: 40px;
+    height: 30px;
+    overflow: hidden; /* Ensure content does not overflow the container */
+  }
+  
+.progressbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 0%; /* Initial width set to 0% */
+    background-color: black;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    overflow: hidden;
+  }
+  
+.progressPer {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1.1em; /* Adjust font size as needed */
+    z-index: 1001; /* Ensure text appears above the progress bar */
+    color: white;
+}
+
+.trackImg {
+    width: 100%;  /* Make the image's width scale with the container */
+    height: auto; /* Maintain the aspect ratio */
+    border-style: solid;
 }
 
 .header1 {
@@ -153,12 +387,6 @@
     top: 0%;
     margin-left: 10%;
     margin-top: 12%;
-}
-
-.bars {
-    background-color: #99621E;
-    height: 5px;
-    width: 600px;
 }
 
 .description {
@@ -171,15 +399,19 @@
     padding: 0;
 }
 
-.description1 {
+.fontTest {
+    font-family: "Inter", sans-serif;
+    font-size: 0.9em;
+}
+
+/* .description1 {
     font-size: 18px;
     color: white;
     font-style: bold;
     padding: 0;
     font-weight: 500;
     margin-top: 1%;
-
-}
+} */
 
 .fixedButtonContainer {
     position: fixed;
@@ -190,15 +422,36 @@
     gap: 10px;
 }
 
-.footer {
+.interactContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6F3E0;
+    
+}
+
+.downloadAPT {
+    border-radius: 40px;
+    width: 40%;
+    height: 5vh;
+    background-color: white;
+    font-family: "Inter", sans-serif;
+
+}
+
+.shareLink {
+    border-radius: 40px;
+    width: 40%;
+    height: 5vh;
+    background-color: white;
+    font-family: "Inter", sans-serif;
+
+}
+/* .footer {
     background-color: black;
     height: 18vh;
     width: 100%;
     position: absolute;
     align-items: center;
     justify-content: center;
-    
-  }
-
-/*add @media tag to change login button/background img size depending on width/height (px wise) of browser like obscurify's*/
-/*gen guideline for breakout points for media tags: 600px, 601px+, 768px, 992px, 1200px */
+  } */

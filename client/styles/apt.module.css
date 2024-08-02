@@ -11,10 +11,11 @@
 }
 
 .titleText {
-    /* background-color: #F6F3E0; */
+    /* background-color: blue; */
     font-size: 5vw;
     width: 55vw;
     text-align: center;
+    align-items:center;    
     justify-content: center;
     display: flex;
     letter-spacing: 0.4em;
@@ -90,7 +91,7 @@
 }
 
 .pixelContainer {
-    height: 100vh; /* Full viewport height */
+
     flex-direction: column;
     display: flex;
     align-items: center;
@@ -106,46 +107,13 @@
     z-index: 0;
 }
 
-@media (max-width: 1350px) {
-    .pixelRoom {
-        width: 624px;
-        height: 422px;
-    }
-}
-
-@media (max-width: 1130px) {
-    .pixelRoom {
-        width: 524px;
-        height: 322px;
-    }
-}
-/* TEST */
-@media (max-width: 1130px) {
-    .pixelBorder {
-        height: 50vh;
-    }
-}
-
-@media (max-width: 1130px) {
-    .pixelRoom {
-        width: 324px;
-        height: 222px;
-    }
-}
-
-@media (max-width: 450px) {
-    .pixelRoom {
-        width: 224px;
-        height: 122px;
-    }
-}
 .pixelWindow {
     /* position: absolute; */
     justify-content: center;
     align-items: center;
     z-index: 0;
     height: 47px;
-    width: 50%;
+    width: 50vw;
     border-radius:50px 50px 0px 0px;
     border-style: solid; 
     border-bottom: 5px;
@@ -153,29 +121,31 @@
     display: flex;
     justify-content: center;
     background-color: white;
+    
 }
 .pixelBorder {
     /* position: absolute; */
     align-items: center;
     justify-content: center;
     background-color: #FFFFFF;
-    top: 10vh;
-    height: 75vh;
+    /* top: 10vh; */
+    height: auto;
     width: 50vw;
     border-radius: 0px 0px 30px 30px;
-    margin-bottom: 10vh;
+    /* margin-bottom: 10vh; */
     z-index: 0;
     border-style: solid;
     display: flex;
     justify-content: center;
 }
 
-.pixelFooter {
+.titleDescription {
+    margin-top: 10%;
     height: 8vw;
     width: 70vw;
     margin-bottom: 50px;
     bottom: 5%;
-    background-color: #FFFFFF;
+    /* background-color: blue; */
     z-index: 0;
     display: flex;
     align-items: center;
@@ -183,7 +153,6 @@
     border-radius: 80px;
     border-style: solid;
     overflow: hidden;
-    
 }
 
 .circleDown {
@@ -199,173 +168,204 @@
     margin-bottom: 8.5vw;
 }
 
-.pixelFooterFont {
-    font-size: 3vw;
-    color: black;
-    font-style: bold;
-    font-weight: 700;
+.item {
+    /* background-color: black; */
+    margin: 1%;
+    margin-bottom: 2.5%;
+}
+
+.itemBodyTitle {
     font-family: "Inter", sans-serif;
-    letter-spacing: 0.2em;
+    font-weight: 490;
+    font-size: 1em;
+    margin: 5%;
 }
 
 .itemsContainer {
-    background-color: #F6F3E0;
+    /* background-color: red; */
     display: flex;
-    /* width: 100%; */
-    flex-wrap: wrap;
-    gap: 5%;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     flex-direction: row;
-    padding-bottom: 10%;
 }
 
-/* Placeholder */
 .itemsHeader {
     background-color: white;
-    max-width: 576px;
+    width: 45vw;
     height: 46px;
     border-style: solid;
     border-bottom: none;
     border-radius: 40px 40px 0px 0px;
-    margin-top: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0% 5% 0% 5%;
-
+    opacity: 90%;
+    /* margin: 8% 5% 0% 0%; */
 }
 
-/* PlaceHolder */
+.itemHeaderFont {
+    font-family: "Inter", sans-serif;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+}
+
 .itemsBody {
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     background-color: white;
-    max-width: 576px;
-    height: 636px;
+    /* max-width: 700px; */
+    /* height: 60%; */
     border-radius: 0px 0px 40px 40px;
     border-style: solid;
     overflow: hidden;
+    opacity: 90%;
+    /* margin: 0% 5% 5% 0%; */
+    /* align-items: center;
+    justify-content: center; */
+
+}
+
+.alignment {
+    display: flex;
     flex-direction: row;
-    display: flex;
-    margin-bottom: 8%;
-    margin: 5% 5%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
-.itemBodyLeft {
-    background-color: white;
-    width: 30%;
-    height: 100%;
+.itemsContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1% 8% 1% 8%;
+    height: auto;
+    flex-wrap: wrap;
+    /* background-color: blue; */
+    width:20vw;
 }
 
-.itemBodyRight {
-    /* background-color: aqua; */
-    background-color: white;
-    width: 54%;
-    display: flex;
-    flex-direction: column;
+.imgSection {
+    display:flex;
     align-items: center;
-    position: relative;
-    overflow: hidden;
+    justify-content: center;
+    /* background-color: yellow; */
+    width: 20vw;
+}
+
+.itemFrame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    border-radius: 50px;
+    height: 20vh;
+    width: 80%;
+    z-index: 0;
+    margin: 5%;
+    
 }
 
 /* ADJUSTMENT FOR IMGS INSIDE THE BODY ITEMS */
-.pixelEntrance {
-    /* background-color: #F6F3E0; */
-    position: relative;
-    left: 15%;
-    bottom: 30%;
-}
-
 .pixelBedroom {
     /* background-color: #F6F3E0; */
     position: relative;
-    right: 40%;
-    width: 175%;
-    top: 8%;
+    right: 35%;
+    width: 155%;
+    /* top: 140%; */
 }
 
-/* Placeholder */
-
-@media (max-width: 767px) {
-    .itemsContainer {
-        flex-direction: column;
-        display: flex;
-    }
-    .itemsBody {
-        width: 75vw;
-        height: 60vh;
-    }
-    .itemsHeader {
-        width: 75vw;
-        height: 3.5vh;
-    }
-    .itemBodyLeft {
-        display: flex;
-        font-size: 0.7em;
-    }
-    .itemBodyRight {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .pixelBedroom {
-        padding-bottom: 10vh; 
-    }
-    .trackImg {
-        margin: 2vw;
-    }
-
+.pixelEntrance {
+    position: relative;
+    right: -55%;
+    width: 155%;
+    bottom: 75%;
 }
+.pixelKitchen {
+    position:relative;
+    right: -45%;
+    width: 155%;
+}
+.pixelLiving {
+    position:relative;
+    right: 1%;
+    width: 155%;
+    top: 3vh;
+}
+
+.pixelOffice {
+    position:relative;
+    right: 5%;
+    width: 230%;
+    align-items: center;
+    top: -12vh;
+}
+
+/*  */
+
 
 .itemPlayButton {
-    height: 4vh;
-    width: 10vw;
     display: flex;
+    height: 4vh;
+    width: 20vw;
     border-radius: 50px;
     background-color: white;
     border-style: solid;
-    position: absolute;
-    margin-bottom: 2;
     justify-content: center;
     align-items: center;
-    margin: 44vh 50px 50px 50px;
+    margin: 5%;
 }
 
 .bar {
     background-color: black;
-    height: 0.4vh;
-    width: 12vw;
+    height: 0.3vh;
+    width: 20vw;
 }
 
-/* Adjust Below */
+.songCloseFont {
+    font-size: 0.9em;
+    font-weight: 550;
+    font-family: "Inter", sans-serif;
+
+}
+.closestByFont {
+    font-size: 0.8em;
+    font-family: "Inter", sans-serif;   
+}
+
+.playButtonFont {
+    font-size: 0.8em;
+    font-family: "Inter", sans-serif;
+    color: black;
+    text-decoration: none;
+    font-weight: 550;
+    padding: 5%;
+
+}
 
 .progresscontainer {
-    margin-top: 5%;
-    margin-left: 5%;
+    /* margin-top: 5%; */
+
     display: flex;
     width: 95%;
     /* background-color: #F6F3E0; */
     border-style: solid;
     border-radius: 40px;
-    height: 30px;
-    overflow: hidden; /* Ensure content does not overflow the container */
+    height: 3vh;
   }
   
 .progressbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30px;
+    height: auto;
     width: 0%; /* Initial width set to 0% */
     background-color: black;
-    border-top-right-radius: 40px;
-    border-bottom-right-radius: 40px;
+    border-radius: 40px;
     overflow: hidden;
+    padding-left: 0.7vw;
+    padding-right: 0.7vw;
   }
   
 .progressPer {
@@ -377,8 +377,8 @@
 }
 
 .trackImg {
-    width: 100%;  /* Make the image's width scale with the container */
-    height: auto; /* Maintain the aspect ratio */
+    width: 50%;  /* Make the image's width scale with the container */
+    height: auto; /* Maintain the aspect ratio according to parent */
     border-style: solid;
 }
 
@@ -401,7 +401,8 @@
 
 .fontTest {
     font-family: "Inter", sans-serif;
-    font-size: 0.9em;
+    font-size: 0.5em;
+    font-weight: 500;
 }
 
 /* .description1 {
@@ -426,25 +427,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F6F3E0;
-    
+    /* background-color: #F6F3E0; */
+    bottom: 15%;
+    margin-top: 2%;;
+    width: 100vw;
+    flex-direction: row;
+    gap: 1%;
 }
 
 .downloadAPT {
+    display:flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 40px;
-    width: 40%;
+    width: 30vw;
     height: 5vh;
     background-color: white;
     font-family: "Inter", sans-serif;
-
+    font-size: 1.2em;
+    font-weight: 550;
+    border-style: solid;
 }
+
 
 .shareLink {
     border-radius: 40px;
-    width: 40%;
+    width: 30vw;
     height: 5vh;
     background-color: white;
     font-family: "Inter", sans-serif;
+    font-size: 1.2em;
+    font-weight: 550;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 /* .footer {
@@ -455,3 +472,301 @@
     align-items: center;
     justify-content: center;
   } */
+
+.itemPercDescription {
+    font-family: "Inter", sans-serif;
+    font-size: 0.8em;
+    
+}
+
+.centerize {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -5%;
+}
+
+.resultContainer {
+    /* background-color: blue; */
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FooterDescription {
+    /* margin-top: 5vh; */
+    height: 8vw;
+    width: 70vw;
+    margin-bottom: 5vh;
+    /* background-color: red; */
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+.pixelFooterFont {
+    font-size: 3vw;
+    color: black;
+    font-style: bold;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.2em;
+}
+
+.circleDownFooter {
+    right: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3vw;
+    width: 3vw;
+    background-color: #FFFFFF;
+    border-style: solid;
+    position: absolute;
+    bottom: 1vw;
+}
+
+.shareFont {
+    font-size: 1.5vw;
+    font-weight: 550;
+    font-family: "Inter", sans-serif;
+}
+
+/* MEDIA TAG FOR TITLE  */
+
+@media (max-width: 908px) {
+    .titleText {
+    font-size: 7vw;
+    letter-spacing: none;
+    }
+}
+@media (max-width: 608px) {
+    .titleText {
+    font-size: 10vw;
+    }
+}
+
+/* MEDIA TAG FOR RESULTS PG */
+@media (max-height: 830px){
+    .pixelBedroom {
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: 20%;
+    }
+    .pixelLiving{
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: -1%;
+    }
+    .pixelOffice {
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: 20%;
+    }
+    .pixelKitchen {
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: -25%;
+    }
+    .pixelEntrance {
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: 20%;
+    }
+    .trackImg {
+        width: 100px;
+        height: 100px;
+    }
+    .progressbar {
+        width: 10%;
+    }
+    .itemPlayButton {
+        width: 250px;
+    }
+}
+
+/* MEDIA TAGS FOR PIXEL ROOM */
+
+@media (max-width: 1350px) {
+    .pixelRoom {
+        width: 624px;
+        height: 422px;
+    }
+    .pixelEntrance {
+        top: -60%;
+    }
+    .pixelOffice {
+        top: -45%;
+    }
+}
+
+@media (max-width: 1150px) {
+    .pixelRoom {
+        width: 580px;
+        height: 380px;
+    }
+    .pixelEntrance {
+        top: -40%;
+    }
+    .pixelOffice {
+        top: -35%;
+    }
+}
+
+@media (max-width: 950px) {
+    .pixelRoom {
+        width: 480px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 750px) {
+    .pixelRoom {
+        width: 380px;
+        height: 240px;
+    }
+}
+
+/* @media (max-width: 650px) {
+    .pixelRoom {
+        width: 280px;
+        height: 200px;
+    }
+} */
+
+@media (max-width: 649px) {
+    /* .FooterDescription {
+        margin-top: 18vh;
+    } */
+    .pixelRoom {
+        width: 400px;
+        height: 280px;
+    }
+    .FooterDescription {
+        height: 8vh;
+        width: 90vw;
+    }
+    .pixelBorder {
+        width: 90vw;
+        height: 50vh;
+    }
+    .pixelWindow {
+        width: 90vw;
+    }
+    /* .shareFont {
+        font-size:0.8em;
+    } */
+}
+
+@media (max-width:420px) {
+    .pixelRoom {
+        width: 95vw;
+        height: 35vh;
+    }
+    .circleDownFooter {
+        height: 3vh;
+        width: 6vw;
+        bottom: 3%;
+    }
+}
+
+/* Play on Spotify Edit */
+
+@media (min-width: 768px) {
+    .itemPlayButton {
+        width: 10vw;
+    }
+}
+
+/* SMALL ADJUSTMENTS FOR TRANSITION TO MOBILE */
+
+@media (max-width: 767px) {
+    .alignment {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .itemsContainer {
+        flex-direction: column;
+    }
+
+    .itemsContent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+        height: auto;
+        flex-wrap: wrap;
+        /* background-color: blue; */
+        width:300px;
+    }
+    .imgSection {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+    }
+    .itemsHeader {
+        width: 300px;
+    }
+    .itemFrame {
+        width: 80%;
+        height: auto;
+    }
+    .itemsBody {
+        height: 90vh;
+    }
+    .titleDescription {
+        height: 10vh;
+    }
+    .circleDown {
+        width:5vw;
+        height: 5vh;
+        margin-bottom: 9.5vh;
+    }
+    .pixelOffice {
+        top: -7vh;
+        height: 25vh;
+        width: 270%;
+        right: -0.1vw;
+    }
+    .pixelEntrance {
+        top: -5vh;
+        right: -12vw;
+        height: 25vh;
+    }
+   
+    /* .shareFont {
+        font-size: 1em;
+    } */
+    /* .pixelFooterFont {
+        font-size: 3vw;
+    } */
+}
+
+@media (max-width: 672px) {
+    .shareFont {
+        font-size: 2.5vw;
+    }
+    .interactContainer {
+        gap: 8%;
+    }
+}

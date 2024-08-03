@@ -121,7 +121,8 @@
     display: flex;
     justify-content: center;
     background-color: white;
-    
+    justify-content: space-evenly;
+    gap: 10vw;
 }
 .pixelBorder {
     /* position: absolute; */
@@ -264,6 +265,19 @@
     width: 80%;
     z-index: 0;
     margin: 5%;
+
+    /* margin-top: 10%;
+    height: 8vw;
+    width: 70vw;
+    margin-bottom: 50px;
+    bottom: 5%;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    border-style: solid;
+    overflow: hidden; */
     
 }
 
@@ -321,6 +335,7 @@
     background-color: black;
     height: 0.3vh;
     width: 20vw;
+    border-radius: 50px;
 }
 
 .songCloseFont {
@@ -534,10 +549,9 @@
     bottom: 1vw;
 }
 
-.shareFont {
-    font-size: 1.5vw;
-    font-weight: 550;
-    font-family: "Inter", sans-serif;
+.iconsFormater {
+    height: 3.2vh;
+    width: 3.2vw;
 }
 
 /* MEDIA TAG FOR TITLE  */
@@ -611,6 +625,13 @@
     .pixelOffice {
         top: -45%;
     }
+    /* .iconsFormater {
+        height: 2vh;
+        width: 2vw;
+    } */
+    .pixelWindow {
+        gap: 5vw;
+    }
 }
 
 @media (max-width: 1150px) {
@@ -630,6 +651,9 @@
     .pixelRoom {
         width: 480px;
         height: 280px;
+    }
+    .pixelWindow {
+        gap: 1vw;
     }
 }
 
@@ -665,10 +689,25 @@
     }
     .pixelWindow {
         width: 90vw;
+        gap: 8vw;
+    }
+    .iconsFormater {
+        height: 3vh;
+        width: 5vw;
     }
     /* .shareFont {
         font-size:0.8em;
     } */
+}
+
+@media (max-width: 520px) {
+    .iconsFormater {
+        height: 4vh;
+        width: 4vh;
+    }
+    .pixelWindow {
+        gap: 1vw;
+    }
 }
 
 @media (max-width:420px) {
@@ -681,6 +720,19 @@
         width: 6vw;
         bottom: 3%;
     }
+    .iconsFormater {
+        height: 3vh;
+        width: 4vh;
+    }
+    .pixelWindow {
+        gap: 0%;
+    }
+}
+
+@media (max-width: 380px) {
+    .iconsFormater {
+        display: none;
+    }
 }
 
 /* Play on Spotify Edit */
@@ -689,6 +741,7 @@
     .itemPlayButton {
         width: 10vw;
     }
+    
 }
 
 /* SMALL ADJUSTMENTS FOR TRANSITION TO MOBILE */
@@ -701,6 +754,9 @@
         align-items: center;
         justify-content: center;
         
+    }
+    .shareFont {
+        font-size: 2vw;
     }
     .itemsContainer {
         flex-direction: column;
@@ -753,13 +809,6 @@
         right: -12vw;
         height: 25vh;
     }
-   
-    /* .shareFont {
-        font-size: 1em;
-    } */
-    /* .pixelFooterFont {
-        font-size: 3vw;
-    } */
 }
 
 @media (max-width: 672px) {
@@ -770,3 +819,30 @@
         gap: 8%;
     }
 }
+
+.hardCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3.5vw;
+    width: 3.5vw;
+    background-color: #FFFFFF;
+    border-style: dashed;
+    position: absolute;
+    margin-bottom: 13vw;
+
+    /*  */
+
+    /*  display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3.5vw;
+    width: 3.5vw;
+    background-color: #FFFFFF;
+    border-style: solid;
+    position: absolute;
+    margin-bottom: 8.5vw; */
+}
+

@@ -1,7 +1,7 @@
 import React, { useEffect,useRef,useState } from 'react'
 import styles from "../styles/apt.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faAngleDown, faAngleUp, faCircle, faExclamation} from '@fortawesome/free-solid-svg-icons'
+import {faAngleDown, faAngleUp, faImages, faExclamation, faEllipsis, faDownload, faShare,faShareFromSquare} from '@fortawesome/free-solid-svg-icons'
 import html2canvas from 'html2canvas';
 
 
@@ -162,7 +162,7 @@ function profile() {
                                 <p className={styles.pixelFooterFont}> LET'S GO ON A ROOM TOUR...</p>
                                 <i className={styles.circleDown} style={{ fontSize: '2vw' }}><FontAwesomeIcon icon={faAngleDown} /></i>
                             </div>
-                    </div> 
+                        </div> 
                 </section>
             
 
@@ -176,7 +176,7 @@ function profile() {
                             TO-FIX: ALIGNMENT FOR ENTRANCE/OFFICE ARE NOT WORKING
                           
                         
-                        {/*  BEDROOM / VALANCE */}
+                        {/*  BEDROOM / ACOUSTICNESS */}
 
                         <div className={styles.item}>
 
@@ -192,8 +192,8 @@ function profile() {
                                             <p className={styles.itemBodyTitle}> VALANCE </p>
 
                                             <div className={styles.progresscontainer}>
-                                                <div className={styles.progressbar} style={{ width: widthValence}}>
-                                                    <p className={styles.progressPer}> {parseFloat(widthValence).toFixed(0)}% </p>
+                                                <div className={styles.progressbar} style={{ width: widthAcoustic}}>
+                                                    <p className={styles.progressPer}> {parseFloat(widthAcoustic).toFixed(0)}% </p>
                                                 </div>
                                             </div>
 
@@ -206,18 +206,23 @@ function profile() {
                                             </p>
 
                                             <a href='#categ7ref' ref={categ7ref}></a>                                            
-                                            <p className={styles.closestByFont}>{closestTracks.valence?.track_name} By: {closestTracks.valence?.artist_names?.join(', ')}    </p>
-                                            <img className={styles.trackImg} src={closestTracks.valence?.album_art}></img>
+                                            <p className={styles.closestByFont}>{closestTracks.acousticness?.track_name} By: {closestTracks.acousticness?.artist_names?.join(', ')}    </p>
+                                            <img className={styles.trackImg} src={closestTracks.acousticness?.album_art}></img>
                                         
                                             <div className={styles.itemPlayButton}>
-                                                <a href={closestTracks.valence?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
+                                                <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
                                             </div>
 
                                     </div>
 
                                         <div className={styles.imgSection}>
+                                            {/* TEST */}
+                                                {/* <div className={styles.hardCode}>
+                                                    <i ><FontAwesomeIcon icon={faImage} /></i>
+                                                </div> */}
                                             <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelBedroom} src='/images/bedroom-0.65-1.00.png' alt='apt_image'></img> 
+                                                <img className={styles.pixelBedroom} src='/images/bedroom-0.65-1.00.png' alt='apt_image'></img> 
+                                                
                                             </div>
                                         </div>
                                 </div>
@@ -322,7 +327,7 @@ function profile() {
                             
                         </div>
 
-                        {/* LIVING ROOM / ENERGY */}
+                        {/* LIVING ROOM / DANCIBILITY */}
 
                         <div className={styles.item}>
 
@@ -330,54 +335,6 @@ function profile() {
                                 <p className={styles.itemHeaderFont}>STUDIO - LIVING ROOM</p>
                             </div>
 
-                            <div className={styles.itemsBody}>
-
-                                <div className={styles.alignment}>
-                                    <div class={styles.itemsContent}>
-
-                                            <p className={styles.itemBodyTitle}> VALANCE </p>
-
-                                            <div className={styles.progresscontainer}>
-                                                <div className={styles.progressbar} style={{ width: widthEnergy}}>
-                                                    <p className={styles.progressPer}> {parseFloat(widthEnergy).toFixed(0)}% </p>
-                                                </div>
-                                            </div>
-
-                                            <p className={styles.itemPercDescription}> This Percentage Detects the occurence of Vocals in your 50 most Played Songs!</p>
-                                            
-                                            <div className={styles.bar}></div>
-
-                                            <p className={styles.songCloseFont}> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS:
-                                                {/* Closest Track: {closestTracks.valence?.track_name}    */}
-                                            </p>
-
-                                            <a href='#categ7ref' ref={categ7ref}></a>                                            
-                                            <p className={styles.closestByFont}>{closestTracks.energy?.track_name} By: {closestTracks.energy?.artist_names?.join(', ')}    </p>
-                                            <img className={styles.trackImg} src={closestTracks.energy?.album_art}></img>
-                                        
-                                            <div className={styles.itemPlayButton}>
-                                                <a href={closestTracks.energy?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
-                                            </div>
-
-                                    </div>
-
-                                        <div className={styles.imgSection}>
-                                            <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelLiving} src='/images/living-0.35-0.49.png' alt='apt_image'></img> 
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* OFFICE / DANCEBILITY */}
-
-                        <div className={styles.item}>
-
-                            <div className={styles.itemsHeader}> 
-                                <p className={styles.itemHeaderFont}>STUDIO - OFFICE</p>
-                            </div>
-                
                             <div className={styles.itemsBody}>
 
                                 <div className={styles.alignment}>
@@ -411,6 +368,54 @@ function profile() {
 
                                         <div className={styles.imgSection}>
                                             <div className={styles.itemFrame}>
+                                                    <img className={styles.pixelLiving} src='/images/living-0.35-0.49.png' alt='apt_image'></img> 
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* OFFICE / SPEECHINESS */}
+
+                        <div className={styles.item}>
+
+                            <div className={styles.itemsHeader}> 
+                                <p className={styles.itemHeaderFont}>STUDIO - OFFICE</p>
+                            </div>
+                
+                            <div className={styles.itemsBody}>
+
+                                <div className={styles.alignment}>
+                                    <div class={styles.itemsContent}>
+
+                                            <p className={styles.itemBodyTitle}> VALANCE </p>
+
+                                            <div className={styles.progresscontainer}>
+                                                <div className={styles.progressbar} style={{ width: widthDance}}>
+                                                    <p className={styles.progressPer}> {parseFloat(widthDance).toFixed(0)}% </p>
+                                                </div>
+                                            </div>
+
+                                            <p className={styles.itemPercDescription}> This Percentage Detects the occurence of Vocals in your 50 most Played Songs!</p>
+                                            
+                                            <div className={styles.bar}></div>
+
+                                            <p className={styles.songCloseFont}> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS:
+                                                {/* Closest Track: {closestTracks.valence?.track_name}    */}
+                                            </p>
+
+                                            <a href='#categ7ref' ref={categ7ref}></a>                                            
+                                            <p className={styles.closestByFont}>{closestTracks.speechiness?.track_name} By: {closestTracks.speechiness?.artist_names?.join(', ')}    </p>
+                                            <img className={styles.trackImg} src={closestTracks.speechiness?.album_art}></img>
+                                        
+                                            <div className={styles.itemPlayButton}>
+                                                <a href={closestTracks.speechiness?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
+                                            </div>
+
+                                    </div>
+
+                                        <div className={styles.imgSection}>
+                                            <div className={styles.itemFrame}>
                                                     <img className={styles.pixelOffice} src='/images/office-0.35-1.00.png' alt='apt_image'></img> 
                                             </div>
                                         </div>
@@ -429,7 +434,9 @@ function profile() {
                         
                         <div className={styles.pixelContainer}>
                             <div className={styles.pixelWindow}>
+                                <i><FontAwesomeIcon icon={faImages} className={styles.iconsFormater}/></i>
                                 <p className={styles.menuFont}> {profile.display_name} Studio - STUDIOIFY</p>
+                                <i> <FontAwesomeIcon icon={faEllipsis} className={styles.iconsFormater}></FontAwesomeIcon></i>
                             </div>
 
                             <div className={styles.pixelBorder} ref={aptRef}>
@@ -439,10 +446,13 @@ function profile() {
 
                         <div className={styles.interactContainer}>
                                 <button onClick={downloadApartmentHandler} className={styles.downloadAPT}>
+                                    <i><FontAwesomeIcon icon={faDownload} className={styles.iconsFormater}></FontAwesomeIcon></i>
                                     <p className={styles.shareFont}>SAVE YOUR STUDIO</p>
                                 </button>
 
                                 <button className={styles.shareLink}>
+                                    {/* <img src='/images/Copy Link.png' className={styles.iconsFormater}></img> */}
+                                    <i><FontAwesomeIcon icon={faShareFromSquare} className={styles.iconsFormater} /></i>
                                     <p className={styles.shareFont}>SHARE OUR SITE!</p>
                                 </button>
                         </div>

@@ -1,25 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metrophobic&family=Sora:wght@100..800&display=swap');
 
-
-.parent {
-    position: initial;
-    background-size: 100vw 100vh; /* Ensure the image covers the entire element */
-    height: 98vh; /* Full viewport height */
+.titleContainer {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    background-color: #739E82;
+    align-items: center;
+    justify-content: center;    
+    min-height: 100vh;
+    flex-direction: column;
+    max-width: 60rem;
 }
 
-.sections {
-    background-color:#D38B5D;
-}
-
-.profileimg {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background-size: cover;
+.titleText {
+    /* background-color: blue; */
+    font-size: 5vw;
+    width: 55vw;
+    text-align: center;
+    align-items:center;    
+    justify-content: center;
+    display: flex;
+    letter-spacing: 0.4em;
+    font-family: "Inter", sans-serif;
+    font-style:bold;
+    font-weight: 750;
 }
 
 .button {
@@ -37,19 +39,16 @@
     font-size: 1.1rem;
     user-select: none;
     transition: background-color 0.3s;
-    border-style: none;
+    background-color:#FFFFFF;
+    border-style: solid;
     z-index: 3;
-  }
-
-.spans {
-    position: initial;
 }
 
 .button:hover {
     background-color: white;
 }
 
-.dropdown {
+.buttonDropDown {
     position: absolute;
     top: 9.5%;
     width: 130px;
@@ -59,13 +58,21 @@
     padding: 0.5rem 0 0.5rem 1rem;
     background-color: white;
     cursor: pointer;
-    background-color: #F6F3E0;
+    background-color: #FFFFFF;
+    border-style: solid;
     list-style-type: none;
     z-index: 3;
     font-size: large
 }
 
-.font {
+.profileimg {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.menuFont {
     font-family: "Sora", sans-serif;
     font-weight: 500;
     font-style: bold;
@@ -73,86 +80,785 @@
     text-decoration: none;
 }
 
-.font1 {
-    font-size: 75px;
-    color: #739E82;
-    font-style: bold;
-    font-weight: 700;
-}
-
-.pixel {
-    position: absolute;
-    top: 18%;
-    width: 500px;
-    height: 500px;
-    z-index: 0;
-} /* ADD MEDIA TAG SO THIS ADJUSTS TO SCREEN SIZE*/
-
-.pixelborder {
-    position: absolute;
-    align-items: center;
-    justify-content: center;
+.main {
     background-color: #F6F3E0;
-    top: 20%;
-    height: 450px;
-    width: 650px;
-    border-radius: 50px;
-    z-index: 0;
-}
-
-.pixelfooter {
-    height: 18vh;
     width: 100%;
-    position: absolute;
-    bottom: 0%;
-    background-color: #F6F3E0;
-    z-index: 0;
-    align-items: center;
     justify-content: center;
-    display: flex;
-}
-
-.container {
-    display: flex;
-    height: 1920px;
-    width: 100%;
-    background-color: red;
+    align-items: center; 
     flex-direction: column;
-    justify-content: baseline; /*vertically*/
-    align-items: left; /*horizontally*/
+    display: flex;
+}
+
+.pixelContainer {
+
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: #F6F3E0;
+}
+
+.pixelFinal {
+    position: absolute;
+    z-index: 0;
+    width: 50%;
+    object-fit: cover;
+}
+
+.pixelRoom {
+    top: 3%;
+    left: 7.5%;
+    width: 824px;
+    height: 522px;
+    z-index: 0;
+}
+
+.pixelWindow {
+    /* position: absolute; */
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    height: 47px;
+    width: 50vw;
+    border-radius:50px 50px 0px 0px;
+    border-style: solid; 
+    border-bottom: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    justify-content: space-evenly;
+    gap: 10vw;
+}
+.pixelBorder {
+    /* position: absolute; */
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    /* top: 10vh; */
+    height: auto;
+    width: 50vw;
+    border-radius: 0px 0px 30px 30px;
+    /* margin-bottom: 10vh; */
+    z-index: 0;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+}
+
+.titleDescription {
+    margin-top: 10%;
+    height: 8vw;
+    width: 70vw;
+    margin-bottom: 50px;
+    bottom: 5%;
+    /* background-color: blue; */
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+.circleDown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3.5vw;
+    width: 3.5vw;
+    background-color: #FFFFFF;
+    border-style: solid;
+    position: absolute;
+    margin-bottom: 8.5vw;
+}
+
+.item {
+    /* background-color: black; */
+    margin: 1%;
+    margin-bottom: 2.5%;
+}
+
+.itemBodyTitle {
+    font-family: "Inter", sans-serif;
+    font-weight: 490;
+    font-size: 1em;
+    margin: 5%;
+}
+
+.itemsContainer {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.itemsHeader {
+    background-color: white;
+    width: 45vw;
+    height: 46px;
+    border-style: solid;
+    border-bottom: none;
+    border-radius: 40px 40px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 90%;
+    /* margin: 8% 5% 0% 0%; */
+}
+
+.itemHeaderFont {
+    font-family: "Inter", sans-serif;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+}
+
+.itemsBody {
+    /* flex-wrap: wrap; */
+    background-color: white;
+    /* max-width: 700px; */
+    /* height: 60%; */
+    border-radius: 0px 0px 40px 40px;
+    border-style: solid;
+    overflow: hidden;
+    opacity: 90%;
+    /* margin: 0% 5% 5% 0%; */
+    /* align-items: center;
+    justify-content: center; */
+
+}
+
+.alignment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemsContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    height: auto;
+    flex-wrap: wrap;
+    /* background-color: blue; */
+    width:20vw;
+}
+
+.imgSection {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: yellow; */
+    width: 20vw;
+}
+
+.itemFrame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    border-radius: 50px;
+    height: 20vh;
+    width: 80%;
+    z-index: 0;
+    margin: 5%;
+
+    /* margin-top: 10%;
+    height: 8vw;
+    width: 70vw;
+    margin-bottom: 50px;
+    bottom: 5%;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    border-style: solid;
+    overflow: hidden; */
     
 }
 
-.item1 {
-    position: inherit;
-    background-color: yellow;
-    width: 50%;
-    height: 350px;
+/* ADJUSTMENT FOR IMGS INSIDE THE BODY ITEMS */
+.pixelBedroom {
+    /* background-color: #F6F3E0; */
+    position: relative;
+    right: 35%;
+    width: 155%;
+    /* top: 140%; */
 }
 
-.item2 {
-    position: inherit;
-    background-color: purple;
-    width: 50%;
-    height: 350px;
+.pixelEntrance {
+    position: relative;
+    right: -55%;
+    width: 155%;
+    bottom: 75%;
+}
+.pixelKitchen {
+    position:relative;
+    right: -45%;
+    width: 155%;
+}
+.pixelLiving {
+    position:relative;
+    right: 1%;
+    width: 155%;
+    top: 3vh;
 }
 
-.item3 {
-    position: inherit;
-    background-color: blue;
-    width: 50%;
-    height: 350px;
+.pixelOffice {
+    position:relative;
+    right: 5%;
+    width: 230%;
+    align-items: center;
+    top: -12vh;
 }
 
-/*.fadein {
-    animation: fade-in 1s forwards;
-    animation-timeline: view();
+/*  */
+
+
+.itemPlayButton {
+    display: flex;
+    height: 4vh;
+    width: 20vw;
+    border-radius: 50px;
+    background-color: white;
+    border-style: solid;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+.bar {
+    background-color: black;
+    height: 0.3vh;
+    width: 20vw;
+    border-radius: 50px;
+}
+
+.songCloseFont {
+    font-size: 0.9em;
+    font-weight: 550;
+    font-family: "Inter", sans-serif;
+
+}
+.closestByFont {
+    font-size: 0.8em;
+    font-family: "Inter", sans-serif;   
+}
+
+.playButtonFont {
+    font-size: 0.8em;
+    font-family: "Inter", sans-serif;
+    color: black;
+    text-decoration: none;
+    font-weight: 550;
+    padding: 5%;
 
 }
 
-@keyframes fade-in {
-    from {scale: .5; opacity:0;}
-    to {scale: 1.2; opacity: 1;}
+.progresscontainer {
+    /* margin-top: 5%; */
+    display: flex;
+    width: 95%;
+    /* background-color: #F6F3E0; */
+    border-style: solid;
+    border-radius: 40px;
+    height: 3vh;
+  }
+  
+.progressbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 0%; /* Initial width set to 0% */
+    background-color: black;
+    border-radius: 40px;
+    overflow: hidden;
+    padding-left: 0.8vw;
+    padding-right: 0.8vw;
+  }
+  
+.progressPer {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1.1em; /* Adjust font size as needed */
+    z-index: 1001; /* Ensure text appears above the progress bar */
+    color: white;
 }
-/*add @media tag to change login button/background img size depending on width/height (px wise) of browser like obscurify's*/
-/*gen guideline for breakout points for media tags: 600px, 601px+, 768px, 992px, 1200px */
+
+.trackImg {
+    width: 50%;  /* Make the image's width scale with the container */
+    height: auto; /* Maintain the aspect ratio according to parent */
+    border-style: solid;
+}
+
+.header1 {
+    display: absolute;
+    top: 0%;
+    margin-left: 10%;
+    margin-top: 12%;
+}
+
+.description {
+    font-size: 60px;
+    color: #F6F3E0;
+    font-style: bold;
+    font-weight: 550;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    padding: 0;
+}
+
+.fontTest {
+    font-family: "Inter", sans-serif;
+    font-size: 0.5em;
+    font-weight: 500;
+}
+
+/* .description1 {
+    font-size: 18px;
+    color: white;
+    font-style: bold;
+    padding: 0;
+    font-weight: 500;
+    margin-top: 1%;
+} */
+
+.fixedButtonContainer {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.interactContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #F6F3E0; */
+    bottom: 15%;
+    margin-top: 2%;;
+    width: 100vw;
+    flex-direction: row;
+    gap: 1%;
+}
+
+.downloadAPT {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    width: 30vw;
+    height: 5vh;
+    background-color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 1.2em;
+    font-weight: 550;
+    border-style: solid;
+}
+
+
+.shareLink {
+    border-radius: 40px;
+    width: 30vw;
+    height: 5vh;
+    background-color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 1.2em;
+    font-weight: 550;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+/* .footer {
+    background-color: black;
+    height: 18vh;
+    width: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+  } */
+
+.itemPercDescription {
+    font-family: "Inter", sans-serif;
+    font-size: 0.8em;
+    
+}
+
+.centerize {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -5%;
+}
+
+.resultContainer {
+    /* background-color: blue; */
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FooterDescription {
+    /* margin-top: 5vh; */
+    height: 8vw;
+    width: 70vw;
+    margin-bottom: 5vh;
+    /* background-color: red; */
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+.pixelFooterFont {
+    font-size: 3vw;
+    color: black;
+    font-style: bold;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.2em;
+}
+
+.circleDownFooter {
+    right: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3vw;
+    width: 3vw;
+    background-color: #FFFFFF;
+    border-style: solid;
+    position: absolute;
+    bottom: 1vw;
+}
+
+.iconsFormater {
+    height: 3.2vh;
+    width: 3.2vw;
+}
+
+/* MEDIA TAG FOR TITLE  */
+
+@media (max-width: 908px) {
+    .titleText {
+    font-size: 7vw;
+    letter-spacing: none;
+    }
+}
+@media (max-width: 608px) {
+    .titleText {
+    font-size: 10vw;
+    }
+}
+
+/* MEDIA TAG FOR RESULTS PG */
+@media (max-height: 830px){
+    .pixelBedroom {
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: 20%;
+    }
+    .pixelLiving{
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: -1%;
+    }
+    .pixelOffice {
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: 20%;
+    }
+    .pixelKitchen {
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: -25%;
+    }
+    .pixelEntrance {
+        height: 150px;
+        width: 200px;
+        position: relative;
+        right: 20%;
+    }
+    .trackImg {
+        width: 100px;
+        height: 100px;
+    }
+    .progressbar {
+        width: 10%;
+    }
+    .itemPlayButton {
+        width: 250px;
+    }
+}
+
+@media (max-width: 1450px) {
+    .progressbar {
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+    /* .progressPer {
+        font-size: 1.2em;
+    } */
+}
+/* MEDIA TAGS FOR PIXEL ROOM */
+
+@media (max-width: 1350px) {
+    .pixelRoom {
+        width: 624px;
+        height: 422px;
+    }
+    .pixelEntrance {
+        top: -60%;
+    }
+    .pixelOffice {
+        top: -45%;
+    }
+    /* .iconsFormater {
+        height: 2vh;
+        width: 2vw;
+    } */
+    .pixelWindow {
+        gap: 5vw;
+    }
+}
+
+@media (max-width: 1150px) {
+    .pixelRoom {
+        width: 580px;
+        height: 380px;
+    }
+    .pixelEntrance {
+        top: -40%;
+    }
+    .pixelOffice {
+        top: -35%;
+    }
+}
+
+@media (max-width: 950px) {
+    .pixelRoom {
+        width: 480px;
+        height: 280px;
+    }
+    .pixelWindow {
+        gap: 1vw;
+    }
+}
+
+@media (max-width: 750px) {
+    .pixelRoom {
+        width: 380px;
+        height: 240px;
+    }
+}
+
+/* @media (max-width: 650px) {
+    .pixelRoom {
+        width: 280px;
+        height: 200px;
+    }
+} */
+
+@media (max-width: 649px) {
+    /* .FooterDescription {
+        margin-top: 18vh;
+    } */
+    .pixelRoom {
+        width: 400px;
+        height: 280px;
+    }
+    .FooterDescription {
+        height: 8vh;
+        width: 90vw;
+    }
+    .pixelBorder {
+        width: 90vw;
+        height: 50vh;
+    }
+    .pixelWindow {
+        width: 90vw;
+        gap: 8vw;
+    }
+    .iconsFormater {
+        height: 3vh;
+        width: 5vw;
+    }
+    /* .shareFont {
+        font-size:0.8em;
+    } */
+}
+
+
+
+/* Play on Spotify Edit */
+
+@media (min-width: 768px) {
+    .itemPlayButton {
+        width: 10vw;
+    }
+    
+}
+
+/* SMALL ADJUSTMENTS FOR TRANSITION TO MOBILE */
+
+@media (max-width: 767px) {
+    .alignment {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .progressbar {
+        padding-left: 0.1vw;
+        padding-right: 0.1vw;
+    }
+
+    /* .progressPer {
+        font-size: 2.5vw;
+    } */
+
+    .shareFont {
+        font-size: 2vw;
+    }
+    .itemsContainer {
+        flex-direction: column;
+    }
+
+    .itemsContent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+        height: auto;
+        flex-wrap: wrap;
+        /* background-color: blue; */
+        width:300px;
+    }
+    .imgSection {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+    }
+    .itemsHeader {
+        width: 300px;
+    }
+    .itemFrame {
+        width: 80%;
+        height: auto;
+    }
+    .itemsBody {
+        height: 90vh;
+    }
+    .titleDescription {
+        height: 10vh;
+    }
+    .circleDown {
+        width:5vw;
+        height: 5vh;
+        margin-bottom: 9.5vh;
+    }
+    .pixelOffice {
+        top: -7vh;
+        height: 25vh;
+        width: 270%;
+        right: -0.1vw;
+    }
+    .pixelEntrance {
+        top: -5vh;
+        right: -12vw;
+        height: 25vh;
+    }
+}
+
+@media (max-width: 672px) {
+    .shareFont {
+        font-size: 2.5vw;
+    }
+    .interactContainer {
+        gap: 8%;
+    }
+}
+
+@media (max-width: 520px) {
+    .iconsFormater {
+        height: 4vh;
+        width: 4vh;
+    }
+    .pixelWindow {
+        gap: 1vw;
+    }
+   
+/* FIX THIS MF LINE SO LOW %%%% APPEAR CORRECTLY ON MOBILE */
+    /* .progressbar {
+        padding-right: 3vw;
+        padding-left: 3vw;
+    } */
+}
+
+@media (max-width:420px) {
+    .pixelRoom {
+        width: 95vw;
+        height: 35vh;
+    }
+    .circleDownFooter {
+        height: 3vh;
+        width: 6vw;
+        bottom: 3%;
+    }
+    .iconsFormater {
+        height: 3vh;
+        width: 4vh;
+    }
+    .pixelWindow {
+        gap: 0%;
+    }
+}
+
+@media (max-width: 380px) {
+    .iconsFormater {
+        display: none;
+    }
+}
+.hardCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3.5vw;
+    width: 3.5vw;
+    background-color: #FFFFFF;
+    border-style: dashed;
+    position: absolute;
+    margin-bottom: 13vw;
+}
+/*  */

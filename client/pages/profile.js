@@ -447,12 +447,15 @@ function profile() {
                         <div className={styles.interactContainer}>
                                 <button onClick={downloadApartmentHandler} className={styles.downloadAPT}>
                                     <i><FontAwesomeIcon icon={faDownload} className={styles.iconsFormater}></FontAwesomeIcon></i>
+                                    {/* <img className={styles.shareImg}src='/images/Copy Link.png'></img> */}
+
                                     <p className={styles.shareFont}>SAVE YOUR STUDIO</p>
                                 </button>
 
                                 <button className={styles.shareLink}>
                                     {/* <img src='/images/Copy Link.png' className={styles.iconsFormater}></img> */}
                                     <i><FontAwesomeIcon icon={faShareFromSquare} className={styles.iconsFormater} /></i>
+                                    {/* <img className={styles.shareImg}src='/images/Copy Link.png'></img> */}
                                     <p className={styles.shareFont}>SHARE OUR SITE!</p>
                                 </button>
                         </div>

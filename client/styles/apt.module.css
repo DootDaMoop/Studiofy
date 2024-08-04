@@ -98,6 +98,13 @@
     background-color: #F6F3E0;
 }
 
+.pixelFinal {
+    position: absolute;
+    z-index: 0;
+    width: 50%;
+    object-fit: cover;
+}
+
 .pixelRoom {
     top: 3%;
     left: 7.5%;

@@ -84,12 +84,61 @@ def get_user_top_tracks():
             'track_link': top_tracks_json['items'][track_ids.index(song['id'])]['external_urls']['spotify']
             } for feature, song in closest_tracks.items()
         }
+    
+    image_sets = {
+        'energy': [
+            (0.0, 0.34, '/images/apt_images/lighting/lighting-0.00-0.34.png'),
+            (0.35, 0.49, '/images/apt_images/lighting/lighting-0.35-0.49.png'),
+            (0.5, 0.64, '/images/apt_images/lighting/lighting-0.50-0.64.png'),
+            (0.65, 1, '/images/apt_images/lighting/lighting-0.65-1.00.png')
+        ],
+        'speechiness': [
+            (0, 0.34, '/images/apt_images/office/office-0.00-0.34.png'),
+            (0.35, 0.49, '/images/apt_images/office/office-0.35-0.49.png')
+        ],
+        'instrumentalness': [
+            (0.65, 1, '/images/apt_images/entrance/entrance-0.65-1.00.png'),
+            (0.0, 0.34, '/images/apt_images/entrance/entrance-0.00-0.34.png')
+        ],
+        'liveness': [
+            (0, 0.34, '/images/apt_images/kitchen/kitchen-0.00-0.34.png'),
+            (0.35, 0.49, '/images/apt_images/kitchen/kitchen-0.35-0.49.png'),
+            (0.5, 0.64, '/images/apt_images/kitchen/kitchen-0.50-0.64.png'),
+            (0.65, 1, '/images/apt_images/kitchen/kitchen-0.65-1.00.png')
+        ],
+        'acousticness': [
+            (0.0, 0.34, '/images/apt_images/bedroom/bedroom-0.00-0.34.png'),
+            (0.5, 0.64, '/images/apt_images/bedroom/bedroom-0.50-0.64.png'),
+            (0.65, 1, '/images/apt_images/bedroom/bedroom-0.65-1.00.png')
+        ],
+        'danceability': [
+            (0.5, 0.64, '/images/apt_images/livingroom/living-0.50-0.64.png')
+        ],
+        'valence': [
+            (0, 0.34, '/images/apt_images/wallfloor/wallfloor-0.00-0.34.png'),
+            (0.35, 0.49, '/images/apt_images/wallfloor/wallfloor-0.35-0.49.png'),
+            (0.5, 0.64, '/images/apt_images/wallfloor/wallfloor-0.50-0.64.png'),
+            (0.65, 1, '/images/apt_images/wallfloor/wallfloor-0.65-1.00.png')
+        ]
+    }
+
+    def get_image_for_feature(feature, average):
+        for(low, high, image) in image_sets.get(feature, []):
+            if low <= average < high:
+                return image
+        return None
+    
+    selected_images_json = {
+        feature: get_image_for_feature(feature, avg)
+        for feature, avg in feature_averages_json.items()
+    }
 
     return jsonify({
         'top_tracks': top_tracks_json,
         'audio_features': audio_features_json,
         'feature_averages': feature_averages_json,
-        'closest_tracks': closest_tracks_json
+        'closest_tracks': closest_tracks_json,
+        'selected_images': selected_images_json
         })
 
 if __name__ == '__main__':

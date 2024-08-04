@@ -11,17 +11,8 @@ function profile() {
     const [audioFeatures, setAudioFeatures] = useState([]);
     const [featureAverages, setFeatureAverages] = useState({});
     const [closestTracks, setClosestTracks] = useState({});
-    const [toggle, setToggle] = useState(false);
+    const [selectedImages, setSelectedImages] = useState({});
     const aptRef = useRef(null);
-    const categ1ref = useRef(null);
-    const categ2ref = useRef(null);
-    const categ3ref = useRef(null);
-    const categ4ref = useRef(null);
-    const categ5ref = useRef(null);
-    const categ6ref = useRef(null);
-    const categ7ref = useRef(null);
-    const columnRefs = [categ1ref, categ2ref, categ3ref, categ4ref, categ5ref, categ6ref, categ7ref];
-    const [currentColumn, setCurrentColumn] = useState(6);
     const widthDance = `${parseFloat(featureAverages.danceability) * 100}%`;
     const widthAcoustic = `${parseFloat(featureAverages.acousticness) * 100}%`;
     const widthEnergy = `${parseFloat(featureAverages.energy) * 100}%`;
@@ -63,6 +54,7 @@ function profile() {
             setAudioFeatures(data.audio_features.audio_features);
             setFeatureAverages(data.feature_averages);
             setClosestTracks(data.closest_tracks);
+            setSelectedImages(data.selected_images);
         })
         .catch((error) => {
             console.log(error);
@@ -80,27 +72,8 @@ function profile() {
             });
         }
     }
-    
 
-    const handleScrollToNextColumn = () => {
-        const nextColumn = (currentColumn + 1) % columnRefs.length;
-        if(columnRefs[nextColumn].current) {
-            columnRefs[nextColumn].current.scrollIntoView({behavior: 'smooth'});
-        }
-        setCurrentColumn(nextColumn);
-        console.log(currentColumn);
-    };
-
-    const handleScrollToPrevColumn = () => {
-        const prevColumn = (currentColumn - 1 + columnRefs.length) % columnRefs.length;
-            if(columnRefs[prevColumn].current) {
-                columnRefs[prevColumn].current.scrollIntoView({behavior: 'smooth'});
-            }
-            setCurrentColumn(prevColumn);
-            console.log(currentColumn);
-    };
-
-    if(!profile || !topTracks || !audioFeatures || !featureAverages || !closestTracks) {
+    if(!profile || !topTracks || !audioFeatures || !featureAverages || !closestTracks || !selectedImages) {
         return <h1>Loading...</h1>;
     }
 
@@ -143,7 +116,7 @@ function profile() {
                                 <div className={styles.alignment}>
                                     <div class={styles.itemsContent}>
 
-                                            <p className={styles.itemBodyTitle}> VALANCE </p>
+                                            <p className={styles.itemBodyTitle}> ACOUSTICNESS </p>
 
                                             <div className={styles.progresscontainer}>
                                                 <div className={styles.progressbar} style={{ width: widthAcoustic}}>
@@ -151,15 +124,12 @@ function profile() {
                                                 </div>
                                             </div>
 
-                                            <p className={styles.itemPercDescription}> This Percentage Detects the occurence of Vocals in your 50 most Played Songs!</p>
+                                            <p className={styles.itemPercDescription}> Represents the average confidence measure of your music being acoustic!</p>
                                             
                                             <div className={styles.bar}></div>
 
-                                            <p className={styles.songCloseFont}> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS:
-                                                {/* Closest Track: {closestTracks.valence?.track_name}    */}
-                                            </p>
+                                            <p className={styles.songCloseFont}> SONG CLOSEST TO YOUR ACOUSTICNESS SCORE:</p>
 
-                                            <a href='#categ7ref' ref={categ7ref}></a>                                            
                                             <p className={styles.closestByFont}>{closestTracks.acousticness?.track_name} By: {closestTracks.acousticness?.artist_names?.join(', ')}    </p>
                                             <img className={styles.trackImg} src={closestTracks.acousticness?.album_art}></img>
                                         
@@ -175,8 +145,7 @@ function profile() {
                                                     <i ><FontAwesomeIcon icon={faImage} /></i>
                                                 </div> */}
                                             <div className={styles.itemFrame}>
-                                                <img className={styles.pixelBedroom} src='/images/bedroom-0.65-1.00.png' alt='apt_image'></img> 
-                                                
+                                                <img className={styles.pixelBedroom} src={selectedImages.acousticness} alt='apt_image'></img> 
                                             </div>
                                         </div>
                                 </div>
@@ -205,15 +174,12 @@ function profile() {
                                             </div>
                                         </div>
 
-                                        <p className={styles.itemPercDescription}> This Percentage Detects the occurence of Vocals in your 50 most Played Songs!</p>
+                                        <p className={styles.itemPercDescription}>Represents the average occurance of vocals in your music!</p>
                                         
                                         <div className={styles.bar}></div>
 
-                                        <p className={styles.songCloseFont}> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS:
-                                            {/* Closest Track: {closestTracks.valence?.track_name}    */}
-                                        </p>
+                                        <p className={styles.songCloseFont}>SONG CLOSEST TO YOUR INSTRUMENTALNESS SCORE:</p>
 
-                                        <a href='#categ7ref' ref={categ7ref}></a>                                            
                                         <p className={styles.closestByFont}>{closestTracks.instrumentalness?.track_name} By: {closestTracks.instrumentalness?.artist_names?.join(', ')}    </p>
                                         <img className={styles.trackImg} src={closestTracks.instrumentalness?.album_art}></img>
                                     
@@ -225,7 +191,7 @@ function profile() {
 
                                         <div className={styles.imgSection}>
                                             <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelEntrance} src='/images/entrance-0.65-1.00.png' alt='apt_image'></img> 
+                                                    <img className={styles.pixelEntrance} src={selectedImages.instrumentalness} alt='apt_image'></img> 
                                             </div>
                                         </div>
                                 </div>
@@ -245,7 +211,7 @@ function profile() {
                                 <div className={styles.alignment}>
                                     <div class={styles.itemsContent}>
 
-                                            <p className={styles.itemBodyTitle}> LIVEINESS </p>
+                                            <p className={styles.itemBodyTitle}>LIVEINESS</p>
 
                                             <div className={styles.progresscontainer}>
                                                 <div className={styles.progressbar} style={{ width: widthLiveness}}>
@@ -253,15 +219,12 @@ function profile() {
                                                 </div>
                                             </div>
 
-                                            <p className={styles.itemPercDescription}> This Percentage Detects the occurence of Vocals in your 50 most Played Songs!</p>
+                                            <p className={styles.itemPercDescription}>Represents the likeliness that your music is being performed live!</p>
                                             
                                             <div className={styles.bar}></div>
 
-                                            <p className={styles.songCloseFont}> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS:
-                                                {/* Closest Track: {closestTracks.valence?.track_name}    */}
-                                            </p>
-
-                                            <a href='#categ7ref' ref={categ7ref}></a>                                            
+                                            <p className={styles.songCloseFont}> CLOSEST TO YOUR LIVENESS SCORE:</p>
+                                     
                                             <p className={styles.closestByFont}>{closestTracks.liveness?.track_name} By: {closestTracks.liveness?.artist_names?.join(', ')}    </p>
                                             <img className={styles.trackImg} src={closestTracks.liveness?.album_art}></img>
                                         
@@ -273,7 +236,7 @@ function profile() {
 
                                         <div className={styles.imgSection}>
                                             <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelKitchen} src='/images/kitchen-0.35-0.49.png' alt='apt_image'></img> 
+                                                    <img className={styles.pixelKitchen} src={selectedImages.liveness} alt='apt_image'></img> 
                                             </div>
                                         </div>
                                 </div>
@@ -294,7 +257,7 @@ function profile() {
                                 <div className={styles.alignment}>
                                     <div class={styles.itemsContent}>
 
-                                            <p className={styles.itemBodyTitle}> VALANCE </p>
+                                            <p className={styles.itemBodyTitle}>DANCEABILITY </p>
 
                                             <div className={styles.progresscontainer}>
                                                 <div className={styles.progressbar} style={{ width: widthDance}}>
@@ -302,15 +265,12 @@ function profile() {
                                                 </div>
                                             </div>
 
-                                            <p className={styles.itemPercDescription}> This Percentage Detects the occurence of Vocals in your 50 most Played Songs!</p>
+                                            <p className={styles.itemPercDescription}>Represents how suitable your music is for dancing!</p>
                                             
                                             <div className={styles.bar}></div>
 
-                                            <p className={styles.songCloseFont}> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS:
-                                                {/* Closest Track: {closestTracks.valence?.track_name}    */}
-                                            </p>
-
-                                            <a href='#categ7ref' ref={categ7ref}></a>                                            
+                                            <p className={styles.songCloseFont}>SONG CLOSEST TO YOUR DANCEABILITY SCORE:</p>
+                                           
                                             <p className={styles.closestByFont}>{closestTracks.danceability?.track_name} By: {closestTracks.danceability?.artist_names?.join(', ')}    </p>
                                             <img className={styles.trackImg} src={closestTracks.danceability?.album_art}></img>
                                         
@@ -322,7 +282,7 @@ function profile() {
 
                                         <div className={styles.imgSection}>
                                             <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelLiving} src='/images/living-0.35-0.49.png' alt='apt_image'></img> 
+                                                    <img className={styles.pixelLiving} src={selectedImages.danceability} alt='apt_image'></img> 
                                             </div>
                                         </div>
                                 </div>
@@ -342,7 +302,7 @@ function profile() {
                                 <div className={styles.alignment}>
                                     <div class={styles.itemsContent}>
 
-                                            <p className={styles.itemBodyTitle}> VALANCE </p>
+                                            <p className={styles.itemBodyTitle}>SPEECHINESS</p>
 
                                             <div className={styles.progresscontainer}>
                                                 <div className={styles.progressbar} style={{ width: widthDance}}>
@@ -350,15 +310,12 @@ function profile() {
                                                 </div>
                                             </div>
 
-                                            <p className={styles.itemPercDescription}> This Percentage Detects the occurence of Vocals in your 50 most Played Songs!</p>
+                                            <p className={styles.itemPercDescription}>Represents the average presence of spoken words in your music and audios!</p>
                                             
                                             <div className={styles.bar}></div>
 
-                                            <p className={styles.songCloseFont}> THE SONG CLOSEST TO YOUR AVERAGE VOCAL LEVEL IS:
-                                                {/* Closest Track: {closestTracks.valence?.track_name}    */}
-                                            </p>
-
-                                            <a href='#categ7ref' ref={categ7ref}></a>                                            
+                                            <p className={styles.songCloseFont}>SONG CLOSEST TO YOUR SPEECHINESS SCORE:</p>
+                                     
                                             <p className={styles.closestByFont}>{closestTracks.speechiness?.track_name} By: {closestTracks.speechiness?.artist_names?.join(', ')}    </p>
                                             <img className={styles.trackImg} src={closestTracks.speechiness?.album_art}></img>
                                         
@@ -370,7 +327,7 @@ function profile() {
 
                                         <div className={styles.imgSection}>
                                             <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelOffice} src='/images/office-0.35-1.00.png' alt='apt_image'></img> 
+                                                    <img className={styles.pixelOffice} src={selectedImages.speechiness} alt='apt_image'></img> 
                                             </div>
                                         </div>
                                 </div>
@@ -394,13 +351,19 @@ function profile() {
                             </div>
 
                             <div className={styles.pixelBorder} ref={aptRef}>
-                                <img className={styles.pixelRoom} src='/images/TestRoomExport.png' alt='apt_image'></img>
+                                <img className={styles.pixelFinal} src={selectedImages.valence} alt={`wallfloor`}></img>
+                                <img className={styles.pixelFinal} src={selectedImages.danceability} alt={`livingroom`}></img>
+                                <img className={styles.pixelFinal} src={selectedImages.acousticness} alt={`bedroom`}></img>
+                                <img className={styles.pixelFinal} src={selectedImages.liveness} alt={`kitchen`}></img>
+                                <img className={styles.pixelFinal} src={selectedImages.instrumentalness} alt={`entrance`}></img>
+                                <img className={styles.pixelFinal} src={selectedImages.speechiness} alt={`office`}></img>
+                                <img className={styles.pixelFinal} src={selectedImages.energy} style={{mixBlendMode: 'multiply'}} alt={`lighting`}></img>
                             </div>          
                         </div> 
 
                         <div className={styles.interactContainer}>
-                                <button onClick={downloadApartmentHandler} className={styles.downloadAPT}>
-                                    <i><FontAwesomeIcon icon={faDownload} className={styles.iconsFormater}></FontAwesomeIcon></i>
+                                <button onClick={downloadApartmentHandler} style={{cursor: 'pointer'}} className={styles.downloadAPT}>
+                                    <img style={{height: '75%'}} src='/images/Download.png'></img>
                                     {/* <img className={styles.shareImg}src='/images/Copy Link.png'></img> */}
 
                                     <p className={styles.shareFont}>SAVE YOUR STUDIO</p>
@@ -420,15 +383,6 @@ function profile() {
                     
                 </main>
             </body>
-
-
-            {/* <footer> 
-                <div className={styles.fixedButtonContainer}>
-                    <button onClick={handleScrollToNextColumn}>Next Col</button>
-                    <button onClick={handleScrollToPrevColumn}>Prev Col</button>
-                </div>
-            </footer> */}
-                
         </>
     );
 }

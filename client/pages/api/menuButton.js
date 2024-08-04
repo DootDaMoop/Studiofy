@@ -44,23 +44,23 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
         </button>
         
         {toggle && 
-                <ul className={styles.dropdown} style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
+                <ul className={styles.buttonDropDown} style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
                     onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 
                     <li>
-                        <a className={styles.font}  href='/privacy' style={{ color: isHovered ? hoverTextColor : textColor }}>
+                        <a className={styles.menuFont}  href='/privacy' style={{ color: isHovered ? hoverTextColor : textColor }}>
                             <p>Privacy </p>     
                         </a>
                     </li>
 
                     <li >
-                        <a className={styles.font}  href='/about' style={{ color: isHovered ? hoverTextColor : textColor }}>
+                        <a className={styles.menuFont}  href='/about' style={{ color: isHovered ? hoverTextColor : textColor }}>
                             <p>About</p>
                         </a>
                     </li>
 
                     <li >
-                        <a className={styles.font}  href='http://localhost:3000/' style={{ color: isHovered ? hoverTextColor : textColor }}>
+                        <a className={styles.menuFont}  href='http://localhost:3000/' style={{ color: isHovered ? hoverTextColor : textColor }}>
                             <p>Logout</p>
                         </a>  
                     </li>

@@ -1,49 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Sora:wght@100..800&display=swap');
+
+
+
+.menuContainer {
+    position: fixed;
+    top: 20px; 
+    right: 25px; 
+}
+
 .container {
-    background-color: #303030;
-    min-height: 100vh;
+    background-color: #F6F3E0;
+    min-height: 97.8vh;
     padding: 10px;
     text-align: center;
+    
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 35px 30px;
 }
 
 .header {
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    color: white;
+    font-family: "Sora","Inter",Helvetica, sans-serif;
+    font-weight: 700;
+    color: black;
+    font-size: 40px; 
+    margin-bottom: 5px;
+    margin-top: -10px;
+}
+
+@media (max-width: 767px) {
+    .header{
+        margin-top: 60px;
+    }
+}
+.line {
+    width: 50%;
+    border: 3px solid black;
+    border-radius: 25px;
+    margin-bottom: -5px;
 }
 
 .aboutText {
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-left: 285px;
-    margin-right: 285px;
-    padding-left: 285px;
-    padding-right: 285px;
+    font-family: "Sora","Inter",Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: black;
+    margin: 20px auto;
+    max-width: 75%;
 }
 
 .profileContainer {
     display: flex;
+    margin: 0 auto;
+    justify-content: center; 
+    gap: 0px;
+    flex-wrap: wrap; 
 }
 
 .profileContent {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding: 20px 80px 20px 80px;
 }
 
 .profilePicture {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
+    margin-bottom: -50px;
     border-radius: 50%;
+    transition: 1s ease;
+    border: 3px solid black;
 }
 
-.profileText {
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
+.profilePicture:hover{
+    -webkit-transform: rotateZ(-10deg);
+    -ms-transform: rotateZ(-10deg);
+    transform: rotateZ(-10deg);
 }
+
+.profileText{
+    text-align: center;
+}
+
+.profileName{
+    font-family: "Sora", "Inter",Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: black;
+    padding-top: 50px;
+    font-size: 32px;
+}
+
+.profileRole {
+    font-family: "Sora","Inter",Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: black;
+    margin-top: -20px;
+    font-weight: 300;
+}
+
+.socialLinks{
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 30px;
+}
+
+

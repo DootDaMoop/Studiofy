@@ -3,7 +3,7 @@ import styles from "../styles/apt.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faAngleDown, faAngleUp, faImages, faExclamation, faEllipsis, faDownload, faShare,faShareFromSquare} from '@fortawesome/free-solid-svg-icons'
 import html2canvas from 'html2canvas';
-
+import MenuButton from './api/menuButton';
 
 function profile() {
     const [profile, setProfile] = useState(null);
@@ -29,8 +29,6 @@ function profile() {
     const widthLiveness = `${parseFloat(featureAverages.liveness) * 100}%`;
     const widthSpeech = `${parseFloat(featureAverages.speechiness) * 100}%`;
     const widthValence = `${parseFloat(featureAverages.valence) * 100}%`;
-
-
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -102,57 +100,13 @@ function profile() {
             console.log(currentColumn);
     };
 
-    // useEffect(() => {
-    //     const handleWheel = (e) => {
-    //         if(e.deltaY > 0) {
-    //             handleScrollToNextColumn();
-    //         } else {
-    //             handleScrollToPrevColumn();
-    //         }
-    //         console.log(e.deltaY);
-    //     };
-    //     window.addEventListener('wheel', handleWheel);
-    //     return () => {
-    //         window.removeEventListener('wheel', handleWheel);
-    //     };
-    // }, [currentColumn]);
-
     if(!profile || !topTracks || !audioFeatures || !featureAverages || !closestTracks) {
         return <h1>Loading...</h1>;
     }
 
     return (
         <>
-            <header>
-                <button onClick={() => setToggle(!toggle)} className={styles.button}>
-                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0]?.url})` }}></div>
-                    <p className={styles.menuFont} >Menu</p>  
-                    <i><FontAwesomeIcon icon={faAngleDown} /></i>
-                </button>
-                
-                {toggle && 
-                        <ul className={styles.buttonDropDown}>
-                            <li>
-                                <a className={styles.menuFont}  href='/privacy'>
-                                    <p>Privacy </p>     
-                                </a>
-                            </li>
-
-                            <li >
-                                <a className={styles.menuFont}  href='/about'>
-                                    <p>About</p>
-                                </a>
-                            </li>
-
-                            {/* TODO: Backend Logout! This wont actually log the user out, just go back to the login page. */}
-                            <li >
-                                <a className={styles.menuFont}  href='http://localhost:3000/'>
-                                    <p>Logout</p>
-                                </a>  
-                            </li>
-                        </ul> }
-            </header>
-
+            <MenuButton />
             <body className={styles.main}>
                 <section>    
                         <div className={styles.titleContainer}>

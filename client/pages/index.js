@@ -47,14 +47,14 @@ function index() {
             <img src='images/mainWindow.png' alt='Main Window' className={styles.mainWindowImage}></img>
 
             <div className={styles.pixelborder}>
-              <img className={`${styles.pixel}`} src={aptImages.randomAptBase} alt='apt_image'></img>
-              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.2s"}} src={aptImages.randomAptWindows} alt='apt_image'></img>
-              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.2s"}} src={aptImages.randomAptBedroom} alt='apt_image'></img>
-              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.3s"}} src={aptImages.randomAptEntrance} alt='apt_image'></img>
-              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.5s"}} src={aptImages.randomAptLivingRoom} alt='apt_image'></img>
-              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.4s"}} src={aptImages.randomAptKitchen} alt='apt_image'></img>
-              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.6s"}} src={aptImages.randomAptOffice} alt='apt_image'></img>
-              <div className={styles.dayNightOverlay}></div>
+              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} src={aptImages.randomAptWallFloor} alt='apt_wallfloor'></img>
+              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.1s"}} src={aptImages.randomAptLivingRoom} alt='apt_living'></img>
+              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.2s"}} src={aptImages.randomAptBedroom} alt='apt_bedroom'></img>
+              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.3s"}} src={aptImages.randomAptKitchen} alt='apt_kitchen'></img>
+              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.4s"}} src={aptImages.randomAptEntrance} alt='apt_entrance'></img>
+              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.5s"}} src={aptImages.randomAptOffice} alt='apt_office'></img>
+              <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{mixBlendMode: "multiply"}} src={aptImages.randomAptLighting} alt='apt_lighting'></img>
+              {/* <div className={styles.dayNightOverlay}></div> */}
             </div>
           </div>
           

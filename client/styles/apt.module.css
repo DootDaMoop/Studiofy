@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metrophobic&family=Sora:wght@100..800&display=swap');
 
+.body{
+    min-width: 420px;
+}
 .titleContainer {
     display: flex;
     align-items: center;
@@ -90,7 +93,6 @@
 }
 
 .pixelContainer {
-
     flex-direction: column;
     display: flex;
     align-items: center;
@@ -175,21 +177,7 @@
     margin-bottom: 8.5vw;
 }
 
-.item {
-    /* background-color: black; */
-    margin: 1%;
-    margin-bottom: 2.5%;
-}
-
-.itemBodyTitle {
-    font-family: "Inter", sans-serif;
-    font-weight: 490;
-    font-size: 1em;
-    margin: 5%;
-}
-
 .itemsContainer {
-    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,210 +185,326 @@
     flex-direction: row;
 }
 
-.itemsHeader {
-    background-color: white;
-    width: 45vw;
-    height: 46px;
-    border-style: solid;
-    border-bottom: none;
-    border-radius: 40px 40px 0px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 90%;
-    /* margin: 8% 5% 0% 0%; */
-}
+/*Lena's Implementation*/
+.statsBox {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: "Inter",Arial, sans-serif;
+    margin-top: 5%;
+  }
 
-.itemHeaderFont {
-    font-family: "Inter", sans-serif;
-    font-size: 1em;
-    letter-spacing: 0.2em;
-}
+  .statsBoxImage {
+    width: 100%;
+    height: auto;
+  }
 
-.itemsBody {
-    /* flex-wrap: wrap; */
-    background-color: white;
-    /* max-width: 700px; */
-    /* height: 60%; */
-    border-radius: 0px 0px 40px 40px;
-    border-style: solid;
-    overflow: hidden;
-    opacity: 90%;
-    /* margin: 0% 5% 5% 0%; */
-    /* align-items: center;
-    justify-content: center; */
-
-}
-
-.alignment {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-.itemsContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
+  .statsBoxHeader {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
     text-align: center;
-    height: auto;
-    flex-wrap: wrap;
-    /* background-color: blue; */
-    width:20vw;
-}
+  }
 
-.imgSection {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: yellow; */
-    width: 20vw;
-}
+  .roomSectionTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
 
-.itemFrame {
+  }
+
+  .statsBody {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-style: dashed;
-    border-radius: 50px;
-    height: 20vh;
-    width: 80%;
-    z-index: 0;
-    margin: 5%;
+  }
 
-    /* margin-top: 10%;
-    height: 8vw;
-    width: 70vw;
-    margin-bottom: 50px;
-    bottom: 5%;
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 80px;
+  .statsContent {
+    position: absolute;
+    left: 8px;
+    width: 45%;
+    height: 100%;
+    max-width: 250px;
+  }
+
+  .categoryName {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: "Inter",Arial, sans-serif;
+  }
+
+  .barContainer {
+    height: 30px;
+    width: 70%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
     border-style: solid;
-    overflow: hidden; */
-    
-}
-
-/* ADJUSTMENT FOR IMGS INSIDE THE BODY ITEMS */
-.pixelBedroom {
-    /* background-color: #F6F3E0; */
+    margin-left: 12%;
     position: relative;
-    right: 35%;
-    width: 155%;
-    /* top: 140%; */
-}
+  }
 
-.pixelEntrance {
-    position: relative;
-    right: -55%;
-    width: 155%;
-    bottom: 75%;
-}
-.pixelKitchen {
-    position:relative;
-    right: -45%;
-    width: 155%;
-}
-.pixelLiving {
-    position:relative;
-    right: 1%;
-    width: 155%;
-    top: 3vh;
-}
-
-.pixelOffice {
-    position:relative;
-    right: 5%;
-    width: 230%;
-    align-items: center;
-    top: -12vh;
-}
-
-/*  */
-
-
-.itemPlayButton {
+  .averageBar {
+    background-color: black;
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease;
     display: flex;
-    height: 4vh;
-    width: 20vw;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+  }
+
+  .averagePercentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin: 0;
+    z-index: 1;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+    font-family: "Inter"
+  }
+
+  .averageDescription {
+    font-size: 0.8rem;
+    color: black;
+    margin-bottom: 50px;
+    margin-top: 25px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .closeSongContainer {
+    margin-bottom: 20px;
+  }
+
+  .songCloseTitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .songCloseDetails {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+    flex-grow: 1;
+    min-height: 2.5em;
+  }
+
+  .albumArt {
+    width: 125px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-left: 25%;
+    border-style: solid;
+  }
+
+  .spotifyButton {
+    position: absolute;
+    display: flex;
+    height: 45px;
+    width: 100px;
     border-radius: 50px;
     background-color: white;
     border-style: solid;
     justify-content: center;
     align-items: center;
-    margin: 5%;
-}
+    left: 28.5%;
+    bottom: -3.5%;
+    text-align: center;
+ 
+  }
 
-.bar {
+  .spotifyButton:hover{
+    cursor: pointer;
     background-color: black;
-    height: 0.3vh;
-    width: 20vw;
-    border-radius: 50px;
-}
+  }
 
-.songCloseFont {
-    font-size: 0.9em;
-    font-weight: 550;
-    font-family: "Inter", sans-serif;
-
-}
-.closestByFont {
-    font-size: 0.8em;
-    font-family: "Inter", sans-serif;   
-}
-
-.playButtonFont {
-    font-size: 0.8em;
-    font-family: "Inter", sans-serif;
-    color: black;
+  .spotifyButtonText{
     text-decoration: none;
-    font-weight: 550;
-    padding: 5%;
-
-}
-
-.progresscontainer {
-    /* margin-top: 5%; */
-    display: flex;
-    width: 95%;
-    /* background-color: #F6F3E0; */
-    border-style: solid;
-    border-radius: 40px;
-    height: 3vh;
-  }
-  
-.progressbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    width: 0%; /* Initial width set to 0% */
-    background-color: black;
-    border-radius: 40px;
-    overflow: hidden;
-    padding-left: 0.8vw;
-    padding-right: 0.8vw;
-  }
-  
-.progressPer {
-    font-family: "Inter", sans-serif;
+    color: black;
     font-weight: 600;
-    font-size: 1.1em; /* Adjust font size as needed */
-    z-index: 1001; /* Ensure text appears above the progress bar */
-    color: white;
-}
+  }
 
-.trackImg {
-    width: 50%;  /* Make the image's width scale with the container */
-    height: auto; /* Maintain the aspect ratio according to parent */
-    border-style: solid;
-}
+  .spotifyButtonText:hover{
+    color: white;
+  }
+
+  .artContent {
+    position: absolute;
+    top: 25%;
+    right: 0%;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .pixelBedroom, .pixelOffice, .pixelEntrance, .pixelKitchen, .pixelLivingRoom, .pixelWallFloor {
+    max-width: none;
+    max-height: none;
+    transform-origin: center center;
+    height: auto;
+    width: 100%;
+    position: relative;
+  }
+
+  .pixelBedroom { transform: scale(2); left: -50%; }
+
+  .pixelOffice { transform: scale(2); top: -40%; right: -5%;}
+
+  .pixelEntrance { transform: scale(2.5); top: -40%; left: 35%;}
+
+  .pixelKitchen { transform: scale(2.5); top: -30%; left: 50%;}
+
+  .pixelLivingRoom { transform: scale(2); top:15%;}
+
+  .pixelWallFloor { transform: scale(1); }
+
+  /* MEDIA LAYOUT OF RESULT BOXES FOR MOBILE PHONES */
+  @media (max-width: 650px){
+    .itemsContainer {
+        align-items: center;
+    }
+
+    .statsBox {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 15px;
+    }
+
+    .statsBoxImage {
+        max-width: 600px;
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10%;
+    }
+  
+    .roomSectionTitle{
+        font-size: 1.4rem;
+    }
+    
+
+    .statsContent {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px; 
+        max-width: 300px;
+        position: relative;
+    }
+
+    .categoryName{
+        font-size: 1.6rem;
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    .barContainer{
+        width: 90%;
+        height: 30px;
+        border-radius: 25px;
+        margin-left: 12px;
+        margin-top: -5px;
+    }
+
+    .averagePercentage{
+        font-size: 1.8rem;
+    }
+
+    .averageDescription{
+        font-size: 1.3rem;
+        margin-top: -5px;
+    }
+
+    .decorBar{
+        border-top: 6px solid #000;
+        border-radius: 25px;
+        margin-top: -15%;
+        width: 100%;
+        margin-left: 2%;
+    }
+
+    .songCloseTitle{
+        font-size: 1.2rem;
+        margin-top: 5px;
+    }
+
+    .songCloseDetails{
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-top: 0px;
+        min-height: 4rem;
+    }
+
+    .albumArt{
+        margin-left: 28%;
+        margin-right: auto;
+        margin-top: -10%;
+        height: 16%;
+        width: auto;
+        position: absolute;
+    }
+
+    .spotifyButton{
+        bottom: 35.5%;
+        left: 18%;
+        width: 65%;
+        height: 5%;
+        max-height: 50px;
+        position: absolute;
+    }
+    
+    .spotifyButtonText{
+        font-size: 1.2rem;
+    }
+
+    .artContent{
+        position: absolute;
+        bottom: -2%; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%; 
+        height: 23%; 
+        top: 69%; 
+        right: auto; 
+    }
+
+    .pixelBedroom{transform: scale(1.4); left: -35%; top: -5%;}
+
+    .pixelOffice{ transform: scale(1.3); top: -20%; right: 0%;}
+
+    .pixelKitchen{ transform: scale(1.6); right: 25%; top: -15%;}
+
+    .pixelLivingRoom{transform: scale(1.3); top: 10%;}
+
+    .pixelWallFloor{ transform: scale(0.7);}
+  }
+  /*End of Lena's Implementation */
 
 .header1 {
     display: absolute;
@@ -573,59 +677,7 @@
     }
 }
 
-/* MEDIA TAG FOR RESULTS PG */
-@media (max-height: 830px){
-    .pixelBedroom {
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: 20%;
-    }
-    .pixelLiving{
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: -1%;
-    }
-    .pixelOffice {
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: 20%;
-    }
-    .pixelKitchen {
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: -25%;
-    }
-    .pixelEntrance {
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: 20%;
-    }
-    .trackImg {
-        width: 100px;
-        height: 100px;
-    }
-    .progressbar {
-        width: 10%;
-    }
-    .itemPlayButton {
-        width: 250px;
-    }
-}
 
-@media (max-width: 1450px) {
-    .progressbar {
-        padding-left: 1vw;
-        padding-right: 1vw;
-    }
-    /* .progressPer {
-        font-size: 1.2em;
-    } */
-}
 /* MEDIA TAGS FOR PIXEL ROOM */
 
 @media (max-width: 1350px) {
@@ -633,16 +685,7 @@
         width: 624px;
         height: 422px;
     }
-    .pixelEntrance {
-        top: -60%;
-    }
-    .pixelOffice {
-        top: -45%;
-    }
-    /* .iconsFormater {
-        height: 2vh;
-        width: 2vw;
-    } */
+
     .pixelWindow {
         gap: 5vw;
     }
@@ -652,12 +695,6 @@
     .pixelRoom {
         width: 580px;
         height: 380px;
-    }
-    .pixelEntrance {
-        top: -40%;
-    }
-    .pixelOffice {
-        top: -35%;
     }
 }
 
@@ -677,6 +714,9 @@
         height: 240px;
     }
 }
+
+/*END OF MEDIA TAGS FOR PIXEL ROOM */
+
 
 /* @media (max-width: 650px) {
     .pixelRoom {
@@ -712,92 +752,6 @@
     /* .shareFont {
         font-size:0.8em;
     } */
-}
-
-
-
-/* Play on Spotify Edit */
-
-@media (min-width: 768px) {
-    .itemPlayButton {
-        width: 10vw;
-    }
-    
-}
-
-/* SMALL ADJUSTMENTS FOR TRANSITION TO MOBILE */
-
-@media (max-width: 767px) {
-    .alignment {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-    }
-    .progressbar {
-        padding-left: 0.1vw;
-        padding-right: 0.1vw;
-    }
-
-    /* .progressPer {
-        font-size: 2.5vw;
-    } */
-
-    .shareFont {
-        font-size: 2vw;
-    }
-    .itemsContainer {
-        flex-direction: column;
-    }
-
-    .itemsContent {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: auto;
-        text-align: center;
-        height: auto;
-        flex-wrap: wrap;
-        /* background-color: blue; */
-        width:300px;
-    }
-    .imgSection {
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        width: 300px;
-    }
-    .itemsHeader {
-        width: 300px;
-    }
-    .itemFrame {
-        width: 80%;
-        height: auto;
-    }
-    .itemsBody {
-        height: 90vh;
-    }
-    .titleDescription {
-        height: 10vh;
-    }
-    .circleDown {
-        width:5vw;
-        height: 5vh;
-        margin-bottom: 9.5vh;
-    }
-    .pixelOffice {
-        top: -7vh;
-        height: 25vh;
-        width: 270%;
-        right: -0.1vw;
-    }
-    .pixelEntrance {
-        top: -5vh;
-        right: -12vw;
-        height: 25vh;
-    }
 }
 
 @media (max-width: 672px) {
@@ -848,17 +802,5 @@
     .iconsFormater {
         display: none;
     }
-}
-.hardCode {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    height: 3.5vw;
-    width: 3.5vw;
-    background-color: #FFFFFF;
-    border-style: dashed;
-    position: absolute;
-    margin-bottom: 13vw;
 }
 /*  */

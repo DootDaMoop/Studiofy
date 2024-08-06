@@ -95,245 +95,308 @@ function profile() {
 
                 <main>
                     <section className={styles.itemsContainer}>
-                        {/* 
-                            TODO: ADD ADJUSTMENTS FOR EACH FURNITURE PIECE
-                            TODO: ADD WIDTH CONTAINER FOR LEFT SIDE OF ITEMS
-                            TODO: ADD IMG for FURNITURE FRAME
-                            TODO: ADD IMG BESIDE SAVE STUDIO / SHARE SITE
-                            TO-FIX: ALIGNMENT FOR ENTRANCE/OFFICE ARE NOT WORKING
-                          
-                        
-                        {/*  BEDROOM / ACOUSTICNESS */}
-
-                        <div className={styles.item}>
-
-                            <div className={styles.itemsHeader}> 
-                                <p className={styles.itemHeaderFont}>STUDIO - BEDROOM</p>
+                    
+                    {/* BEDROOM - ACOUSTICNESS*/}
+                    <div className={styles.statsBox}>
+                        <picture>
+                            <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                            <img src="images/statsBox.png" alt="statsBox" className={styles.statsBoxImage}></img>
+                        </picture>
+                            <div className={styles.statsBoxHeader}>
+                                <p className={styles.roomSectionTitle}>STUDIO - BEDROOM</p>
                             </div>
-                
-                            <div className={styles.itemsBody}>
 
-                                <div className={styles.alignment}>
-                                    <div class={styles.itemsContent}>
+                            <div className={styles.statsBody}>
+                                <div className={styles.statsContent}>
+                                    <p className={styles.categoryName}> ACOUSTICNESS </p>
 
-                                            <p className={styles.itemBodyTitle}> ACOUSTICNESS </p>
-
-                                            <div className={styles.progresscontainer}>
-                                                <div className={styles.progressbar} style={{ width: widthAcoustic}}>
-                                                    <p className={styles.progressPer}> {parseFloat(widthAcoustic).toFixed(0)}% </p>
-                                                </div>
+                                        <div className={styles.barContainer}>
+                                            <div className={styles.averageBar} style={{ width: widthAcoustic}}>
+                                                <p className={styles.averagePercentage}> {parseFloat(widthAcoustic).toFixed(0)}% </p>
                                             </div>
+                                        </div>
 
-                                            <p className={styles.itemPercDescription}> Represents the average confidence measure of your music being acoustic!</p>
-                                            
-                                            <div className={styles.bar}></div>
+                                        <p className={styles.averageDescription}> Represents the average confidence measure of your music being acoustic!</p>
 
-                                            <p className={styles.songCloseFont}> SONG CLOSEST TO YOUR ACOUSTICNESS SCORE:</p>
+                                        {/* decorBar only used in mobile */}
+                                        <div className={styles.decorBar}></div>
 
-                                            <p className={styles.closestByFont}>{closestTracks.acousticness?.track_name} By: {closestTracks.acousticness?.artist_names?.join(', ')}    </p>
-                                            <img className={styles.trackImg} src={closestTracks.acousticness?.album_art}></img>
-                                        
-                                            <div className={styles.itemPlayButton}>
-                                                <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
-                                            </div>
+                                        <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR ACOUSTICNESS SCORE:</p>
 
-                                    </div>
+                                        <p className={styles.songCloseDetails}>{closestTracks.acousticness?.track_name} By: {closestTracks.acousticness?.artist_names?.join(', ')}    </p>
+                                        <img className={styles.albumArt} src={closestTracks.acousticness?.album_art}></img>
 
-                                        <div className={styles.imgSection}>
-                                            {/* TEST */}
-                                                {/* <div className={styles.hardCode}>
-                                                    <i ><FontAwesomeIcon icon={faImage} /></i>
-                                                </div> */}
-                                            <div className={styles.itemFrame}>
-                                                <img className={styles.pixelBedroom} src={selectedImages.acousticness} alt='apt_image'></img> 
-                                            </div>
+                                        <div className={styles.spotifyButton}>
+                                            <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
                                 </div>
-                            </div>
-                            
-                        </div>
 
-                        {/* ENTRANCE / INSTRUMENTALNESS */}
-
-                        <div className={styles.item}>
-
-                            <div className={styles.itemsHeader}> 
-                                <p className={styles.itemHeaderFont}>STUDIO - ENTRANCE</p>
-                            </div>
-
-                                <div className={styles.itemsBody}>
-
-                                    <div className={styles.alignment}>
-                                        <div class={styles.itemsContent}>
-
-                                        <p className={styles.itemBodyTitle}> INSTRUMENTALNESS </p>
-
-                                        <div className={styles.progresscontainer}>
-                                            <div className={styles.progressbar} style={{ width: widthInstrument}}>
-                                                <p className={styles.progressPer}> {parseFloat(widthInstrument).toFixed(0)}% </p>
-                                            </div>
-                                        </div>
-
-                                        <p className={styles.itemPercDescription}>Represents the average occurance of vocals in your music!</p>
-                                        
-                                        <div className={styles.bar}></div>
-
-                                        <p className={styles.songCloseFont}>SONG CLOSEST TO YOUR INSTRUMENTALNESS SCORE:</p>
-
-                                        <p className={styles.closestByFont}>{closestTracks.instrumentalness?.track_name} By: {closestTracks.instrumentalness?.artist_names?.join(', ')}    </p>
-                                        <img className={styles.trackImg} src={closestTracks.instrumentalness?.album_art}></img>
-                                    
-                                        <div className={styles.itemPlayButton}>
-                                            <a href={closestTracks.instrumentalness?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
-                                        </div>
-
-                                    </div>
-
-                                        <div className={styles.imgSection}>
-                                            <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelEntrance} src={selectedImages.instrumentalness} alt='apt_image'></img> 
-                                            </div>
-                                        </div>
+                                <div className={styles.artContent}>
+                                            <img className={styles.pixelBedroom} src={selectedImages.acousticness} alt='apt_image'></img> 
                                 </div>
                             </div>
                         </div>
 
-                        {/* KITCHEN / LIVEINESS*/}
+                        {/* OFFICE - VOCAL */}
+                        <div className={styles.statsBox}>
+                            <picture>
+                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <img src="images/statsBox.png" alt="statsBox" className={styles.statsBoxImage}></img>
+                            </picture>
 
-                        <div className={styles.item}>
-
-                            <div className={styles.itemsHeader}> 
-                                <p className={styles.itemHeaderFont}>STUDIO - KITCHEN</p>
+                            <div className={styles.statsBoxHeader}>
+                                <p className={styles.roomSectionTitle}>STUDIO - OFFICE</p>
                             </div>
-                
-                            <div className={styles.itemsBody}>
 
-                                <div className={styles.alignment}>
-                                    <div class={styles.itemsContent}>
+                            <div className={styles.statsBody}>
+                                <div className={styles.statsContent}>
+                                    <p className={styles.categoryName}> VOCALNESS </p>
 
-                                            <p className={styles.itemBodyTitle}>LIVEINESS</p>
-
-                                            <div className={styles.progresscontainer}>
-                                                <div className={styles.progressbar} style={{ width: widthLiveness}}>
-                                                    <p className={styles.progressPer}> {parseFloat(widthLiveness).toFixed(0)}% </p>
-                                                </div>
+                                        <div className={styles.barContainer}>
+                                            <div className={styles.averageBar} style={{ width: widthSpeech}}>
+                                                <p className={styles.averagePercentage}> {parseFloat(widthSpeech).toFixed(0)}% </p>
                                             </div>
+                                        </div>
 
-                                            <p className={styles.itemPercDescription}>Represents the likeliness that your music is being performed live!</p>
-                                            
-                                            <div className={styles.bar}></div>
+                                        <p className={styles.averageDescription}> Represents the average presence of spoken words in your music and audios </p>
 
-                                            <p className={styles.songCloseFont}> CLOSEST TO YOUR LIVENESS SCORE:</p>
-                                     
-                                            <p className={styles.closestByFont}>{closestTracks.liveness?.track_name} By: {closestTracks.liveness?.artist_names?.join(', ')}    </p>
-                                            <img className={styles.trackImg} src={closestTracks.liveness?.album_art}></img>
-                                        
-                                            <div className={styles.itemPlayButton}>
-                                                <a href={closestTracks.liveness?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
-                                            </div>
+                                        {/* decorBar only used in mobile */}
+                                        <div className={styles.decorBar}></div>
 
-                                    </div>
+                                        <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR SPEECHINESS SCORE: </p>
 
-                                        <div className={styles.imgSection}>
-                                            <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelKitchen} src={selectedImages.liveness} alt='apt_image'></img> 
-                                            </div>
+                                        <p className={styles.songCloseDetails}>{closestTracks.speechiness?.track_name} By: {closestTracks.speechiness?.artist_names?.join(', ')}    </p>
+                                        <img className={styles.albumArt} src={closestTracks.speechiness?.album_art}></img>
+
+                                        <div className={styles.spotifyButton}>
+                                            <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
                                 </div>
-                            </div>
-                            
-                        </div>
 
-                        {/* LIVING ROOM / DANCIBILITY */}
-
-                        <div className={styles.item}>
-
-                            <div className={styles.itemsHeader}> 
-                                <p className={styles.itemHeaderFont}>STUDIO - LIVING ROOM</p>
-                            </div>
-
-                            <div className={styles.itemsBody}>
-
-                                <div className={styles.alignment}>
-                                    <div class={styles.itemsContent}>
-
-                                            <p className={styles.itemBodyTitle}>DANCEABILITY </p>
-
-                                            <div className={styles.progresscontainer}>
-                                                <div className={styles.progressbar} style={{ width: widthDance}}>
-                                                    <p className={styles.progressPer}> {parseFloat(widthDance).toFixed(0)}% </p>
-                                                </div>
-                                            </div>
-
-                                            <p className={styles.itemPercDescription}>Represents how suitable your music is for dancing!</p>
-                                            
-                                            <div className={styles.bar}></div>
-
-                                            <p className={styles.songCloseFont}>SONG CLOSEST TO YOUR DANCEABILITY SCORE:</p>
-                                           
-                                            <p className={styles.closestByFont}>{closestTracks.danceability?.track_name} By: {closestTracks.danceability?.artist_names?.join(', ')}    </p>
-                                            <img className={styles.trackImg} src={closestTracks.danceability?.album_art}></img>
-                                        
-                                            <div className={styles.itemPlayButton}>
-                                                <a href={closestTracks.danceability?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
-                                            </div>
-
-                                    </div>
-
-                                        <div className={styles.imgSection}>
-                                            <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelLiving} src={selectedImages.danceability} alt='apt_image'></img> 
-                                            </div>
-                                        </div>
+                                <div className={styles.artContent}>
+                                            <img className={styles.pixelOffice} src={selectedImages.speechiness} alt='apt_image'></img> 
                                 </div>
                             </div>
                         </div>
 
-                        {/* OFFICE / SPEECHINESS */}
+                        {/* ENTRANCE - INSTURMENTALNESS */}
+                        <div className={styles.statsBox}>
+                            <picture>
+                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <img src="images/statsBox.png" alt="statsBox" className={styles.statsBoxImage}></img>
+                            </picture>
 
-                        <div className={styles.item}>
-
-                            <div className={styles.itemsHeader}> 
-                                <p className={styles.itemHeaderFont}>STUDIO - OFFICE</p>
+                            <div className={styles.statsBoxHeader}>
+                                <p className={styles.roomSectionTitle}>STUDIO - ENTRANCE</p>
                             </div>
-                
-                            <div className={styles.itemsBody}>
 
-                                <div className={styles.alignment}>
-                                    <div class={styles.itemsContent}>
+                            <div className={styles.statsBody}>
+                                <div className={styles.statsContent}>
+                                    <p className={styles.categoryName}> INSTURMENTALNESS </p>
 
-                                            <p className={styles.itemBodyTitle}>SPEECHINESS</p>
-
-                                            <div className={styles.progresscontainer}>
-                                                <div className={styles.progressbar} style={{ width: widthDance}}>
-                                                    <p className={styles.progressPer}> {parseFloat(widthDance).toFixed(0)}% </p>
-                                                </div>
-                                            </div>
-
-                                            <p className={styles.itemPercDescription}>Represents the average presence of spoken words in your music and audios!</p>
-                                            
-                                            <div className={styles.bar}></div>
-
-                                            <p className={styles.songCloseFont}>SONG CLOSEST TO YOUR SPEECHINESS SCORE:</p>
-                                     
-                                            <p className={styles.closestByFont}>{closestTracks.speechiness?.track_name} By: {closestTracks.speechiness?.artist_names?.join(', ')}    </p>
-                                            <img className={styles.trackImg} src={closestTracks.speechiness?.album_art}></img>
-                                        
-                                            <div className={styles.itemPlayButton}>
-                                                <a href={closestTracks.speechiness?.track_link} target='_blank' className={styles.playButtonFont}>PLAY ON SPOTIFY</a>
-                                            </div>
-
-                                    </div>
-
-                                        <div className={styles.imgSection}>
-                                            <div className={styles.itemFrame}>
-                                                    <img className={styles.pixelOffice} src={selectedImages.speechiness} alt='apt_image'></img> 
+                                        <div className={styles.barContainer}>
+                                            <div className={styles.averageBar} style={{ width: widthInstrument}}>
+                                                <p className={styles.averagePercentage}> {parseFloat(widthInstrument).toFixed(0)}% </p>
                                             </div>
                                         </div>
+
+                                        <p className={styles.averageDescription}>  Represents the average occurance of vocals in your music </p>
+
+                                        {/* decorBar only used in mobile */}
+                                        <div className={styles.decorBar}></div>
+
+                                        <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR INSTURMENTALNESS SCORE: </p>
+
+                                        <p className={styles.songCloseDetails}>{closestTracks.instrumentalness?.track_name} By: {closestTracks.instrumentalness?.artist_names?.join(', ')}    </p>
+                                        <img className={styles.albumArt} src={closestTracks.instrumentalness?.album_art}></img>
+
+                                        <div className={styles.spotifyButton}>
+                                            <a href={closestTracks.instrumentalness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                        </div>
+                                </div>
+
+                                <div className={styles.artContent}>
+                                            <img className={styles.pixelEntrance} src={selectedImages.instrumentalness} alt='apt_image'></img> 
                                 </div>
                             </div>
-                            
                         </div>
+
+                        {/*KITCHEN - LIVENESS */ }
+                        <div className={styles.statsBox}>
+                            <picture>
+                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <img src="images/statsBox.png" alt="statsBox" className={styles.statsBoxImage}></img>
+                            </picture>
+
+                            <div className={styles.statsBoxHeader}>
+                                <p className={styles.roomSectionTitle}>STUDIO - KITCHEN</p>
+                            </div>
+
+                            <div className={styles.statsBody}>
+                                <div className={styles.statsContent}>
+                                    <p className={styles.categoryName}> LIVENESS </p>
+
+                                        <div className={styles.barContainer}>
+                                            <div className={styles.averageBar} style={{ width: widthLiveness}}>
+                                                <p className={styles.averagePercentage}> {parseFloat(widthLiveness).toFixed(0)}% </p>
+                                            </div>
+
+                                        </div>
+
+                                        <p className={styles.averageDescription}> Represents the likeliness that your music is being performed live </p>
+
+                                        {/* decorBar only used in mobile */}
+                                        <div className={styles.decorBar}></div>
+
+                                        <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR LIVENESS SCORE: </p>
+
+                                        <p className={styles.songCloseDetails}>{closestTracks.liveness?.track_name} By: {closestTracks.liveness?.artist_names?.join(', ')}    </p>
+                                        <img className={styles.albumArt} src={closestTracks.liveness?.album_art}></img>
+
+                                        <div className={styles.spotifyButton}>
+                                            <a href={closestTracks.liveness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                        </div>
+                                </div>
+
+                                <div className={styles.artContent}>
+                                            <img className={styles.pixelKitchen} src={selectedImages.liveness} alt='apt_image'></img> 
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* LIVING ROOM - DANCEABILITY */}
+                        <div className={styles.statsBox}>
+                            <picture>
+                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <img src="images/statsBox.png" alt="statsBox" className={styles.statsBoxImage}></img>
+                            </picture>
+
+                            <div className={styles.statsBoxHeader}>
+                                <p className={styles.roomSectionTitle}>STUDIO - LIVING ROOM</p>
+                            </div>
+
+                            <div className={styles.statsBody}>
+                                <div className={styles.statsContent}>
+                                    <p className={styles.categoryName}> DANCEABILITY </p>
+
+                                        <div className={styles.barContainer}>
+                                            <div className={styles.averageBar} style={{ width: widthLiveness}}>
+                                                <p className={styles.averagePercentage}> {parseFloat(widthLiveness).toFixed(0)}% </p>
+                                            </div>
+
+                                        </div>
+
+                                        <p className={styles.averageDescription}> Represents How Suitable Your Music Is For Dancing </p>
+
+                                        {/* decorBar only used in mobile */}
+                                        <div className={styles.decorBar}></div>
+
+                                        <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR DANCEABILITY SCORE: </p>
+
+                                        <p className={styles.songCloseDetails}>{closestTracks.danceability?.track_name} By: {closestTracks.danceability?.artist_names?.join(', ')}    </p>
+                                        <img className={styles.albumArt} src={closestTracks.danceability?.album_art}></img>
+
+                                        <div className={styles.spotifyButton}>
+                                            <a href={closestTracks.danceability?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                        </div>
+                                </div>
+
+                                <div className={styles.artContent}>
+                                            <img className={styles.pixelLivingRoom} src={selectedImages.danceability} alt='apt_image'></img> 
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* WALLPAPER/FLOOR - VALENCE*/}
+                        <div className={styles.statsBox}>
+                            <picture>
+                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <img src="images/statsBox.png" alt="statsBox" className={styles.statsBoxImage}></img>
+                            </picture>
+
+                            <div className={styles.statsBoxHeader}>
+                                <p className={styles.roomSectionTitle}>STUDIO - WALLPAPER/FLOOR</p>
+                            </div>
+
+                            <div className={styles.statsBody}>
+                                <div className={styles.statsContent}>
+                                    <p className={styles.categoryName}> VALENCE </p>
+
+                                        <div className={styles.barContainer}>
+                                            <div className={styles.averageBar} style={{ width: widthValence}}>
+                                            <p className={styles.averagePercentage}> {parseFloat(widthValence).toFixed(0)}% </p>
+                                            </div>
+                                        </div>
+
+                                        <p className={styles.averageDescription}> Represents the average positivity in your music </p>
+
+                                        {/* decorBar only used in mobile */}
+                                        <div className={styles.decorBar}></div>
+
+                                        <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR VALENCE SCORE: </p>
+
+                                        <p className={styles.songCloseDetails}>{closestTracks.valence?.track_name} By: {closestTracks.valence?.artist_names?.join(', ')}    </p>
+                                        <img className={styles.albumArt} src={closestTracks.valence?.album_art}></img>
+
+                                        <div className={styles.spotifyButton}>
+                                            <a href={closestTracks.valence?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                        </div>
+                                </div>
+
+                                <div className={styles.artContent}>
+                                            <img className={styles.pixelWallFloor} src={selectedImages.valence} alt='apt_image'></img> 
+                                </div>
+                            </div>
+                        </div>
+
+                        {/*ENERGY -  LIGHTING */}
+                        <div className={styles.statsBox}>
+                            <picture>
+                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <img src="images/statsBox.png" alt="statsBox" className={styles.statsBoxImage}></img>
+                            </picture>
+
+                            <div className={styles.statsBoxHeader}>
+                                <p className={styles.roomSectionTitle}>STUDIO - LIGHTING</p>
+                            </div>
+
+                            <div className={styles.statsBody}>
+                                <div className={styles.statsContent}>
+                                    <p className={styles.categoryName}> ENERGY </p>
+
+                                        <div className={styles.barContainer}>
+                                            <div className={styles.averageBar} style={{ width: widthEnergy}}>
+                                                <p className={styles.averagePercentage}> {parseFloat(widthEnergy).toFixed(0)}% </p>
+                                            </div>
+
+                                        </div>
+
+                                        <p className={styles.averageDescription}> Represents the average measure of intensity and activity in your music </p>
+
+                                        {/* decorBar only used in mobile */}
+                                        <div className={styles.decorBar}></div>
+
+                                    <div className={styles.closeSongContainer}>
+                                        <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR ENERGY SCORE: </p>
+
+                                        <p className={styles.songCloseDetails}>{closestTracks.energy?.track_name} By: {closestTracks.energy?.artist_names?.join(', ')}</p>
+                                        <img className={styles.albumArt} src={closestTracks.energy?.album_art}></img>
+
+                                        <div className={styles.spotifyButton}>
+                                            <a href={closestTracks.energy?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                        </div>
+                                    </div>
+
+                                        
+                                    </div>
+
+                                <div className={styles.artContent}>
+                                            <img className={styles.pixelWallFloor} src={selectedImages.energy} alt='apt_image'></img> 
+                                </div>
+                            </div>
+                        </div>
+
+
 
                     </section>
 

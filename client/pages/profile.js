@@ -333,11 +333,13 @@ function profile() {
                                         {/* decorBar only used in mobile */}
                                         <div className={styles.decorBar}></div>
 
-                                        <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR VALENCE SCORE: </p>
+                                        <div className={styles.closeSongContainer}>
+                                            <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR VALENCE SCORE: </p>
 
-                                        <p className={styles.songCloseDetails}>{closestTracks.valence?.track_name} By: {closestTracks.valence?.artist_names?.join(', ')}    </p>
-                                        <img className={styles.albumArt} src={closestTracks.valence?.album_art}></img>
-
+                                            <p className={styles.songCloseDetails}>{closestTracks.valence?.track_name} By: {closestTracks.valence?.artist_names?.join(', ')}    </p>
+                                            <img className={styles.albumArt} src={closestTracks.valence?.album_art}></img>
+                                        </div>
+                                        
                                         <div className={styles.spotifyButton}>
                                             <a href={closestTracks.valence?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
@@ -380,22 +382,19 @@ function profile() {
                                         <p className={styles.songCloseTitle}> SONG CLOSEST TO YOUR ENERGY SCORE: </p>
 
                                         <p className={styles.songCloseDetails}>{closestTracks.energy?.track_name} By: {closestTracks.energy?.artist_names?.join(', ')}</p>
-                                        <img className={styles.albumArt} src={closestTracks.energy?.album_art}></img>
-
-                                        <div className={styles.spotifyButton}>
-                                            <a href={closestTracks.energy?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
-                                        </div>
+                                        <img className={styles.albumArt} src={closestTracks.energy?.album_art}></img> 
                                     </div>
 
-                                        
+                                    <div className={styles.spotifyButton}>
+                                        <a href={closestTracks.energy?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                     </div>
+                                </div>
 
                                 <div className={styles.artContent}>
                                             <img className={styles.pixelWallFloor} src={selectedImages.energy} alt='apt_image'></img> 
                                 </div>
                             </div>
                         </div>
-
 
 
                     </section>

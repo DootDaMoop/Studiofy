@@ -194,12 +194,14 @@
     font-family: "Inter",Arial, sans-serif;
     margin-top: 5%;
   }
-
+  
+  /*BASE IMAGE */
   .statsBoxImage {
     width: 100%;
     height: auto;
   }
 
+  /*CONTAINER OF ONLY ROOM SECTION TITLE */
   .statsBoxHeader {
     position: absolute;
     top: 10px;
@@ -208,6 +210,7 @@
     text-align: center;
   }
 
+  /*EX OF TEXT: STUDIO - LIGHTING*/
   .roomSectionTitle {
     font-size: 14px;
     font-weight: 500;
@@ -216,6 +219,7 @@
 
   }
 
+  /*Container that includes all the data including art content */
   .statsBody {
     position: absolute;
     top: 40px;
@@ -225,6 +229,7 @@
     display: flex;
   }
 
+  /*Includes All API Data Except Pixel Art Content (basically only left side in desktop version)*/ 
   .statsContent {
     position: absolute;
     left: 8px;
@@ -233,6 +238,8 @@
     max-width: 250px;
   }
 
+
+  /*EX OF TEXT: ENERGY */
   .categoryName {
     font-size: 1rem;
     font-weight: 600;
@@ -242,6 +249,7 @@
     font-family: "Inter",Arial, sans-serif;
   }
 
+  /*OUTER LINE OF BAR */
   .barContainer {
     height: 30px;
     width: 70%;
@@ -253,6 +261,7 @@
     position: relative;
   }
 
+  /* INSIDE COLOR OF BAR */
   .averageBar {
     background-color: black;
     height: 100%;
@@ -264,6 +273,7 @@
     padding-right: 5px;
   }
 
+  /*PERCENTAGES EX: 50% */
   .averagePercentage {
     position: absolute;
     top: 50%;
@@ -279,6 +289,8 @@
     font-family: "Inter"
   }
 
+
+/* EXAMPLE OF TEXT: "Represents the average positivity in your music" */
   .averageDescription {
     font-size: 0.8rem;
     color: black;
@@ -288,10 +300,12 @@
     font-weight: 500;
   }
 
+  /*Container for Song Closest to Category */
   .closeSongContainer {
     margin-bottom: 20px;
   }
 
+  /* EXAMPLE OF TEXT: "SONG CLOSEST TO YOUR VALENCE SCORE:" */
   .songCloseTitle {
     font-size: 0.9rem;
     font-weight: 600;
@@ -299,6 +313,9 @@
     margin-bottom: 5px;
     text-align: center;
   }
+
+
+ /* EXAMPLE OF TEXT: "{SONG} By: {ARTIST}" */
 
   .songCloseDetails {
     font-size: 0.9rem;
@@ -318,6 +335,7 @@
     border-style: solid;
   }
 
+  /*Button of Play On Spotify */
   .spotifyButton {
     position: absolute;
     display: flex;
@@ -339,6 +357,7 @@
     background-color: black;
   }
 
+  /* Text of Play On Spotify Button */
   .spotifyButtonText{
     text-decoration: none;
     color: black;
@@ -349,6 +368,8 @@
     color: white;
   }
 
+
+  /*Container For Pixel Furniture */
   .artContent {
     position: absolute;
     top: 25%;
@@ -361,6 +382,8 @@
     overflow: hidden;
   }
 
+  /*pixelWallFloor HAS THE SAME CSS FOR THE WALLPAPER AND THE LIGHTING. temporary until angela makes the icons*/
+
   .pixelBedroom, .pixelOffice, .pixelEntrance, .pixelKitchen, .pixelLivingRoom, .pixelWallFloor {
     max-width: none;
     max-height: none;
@@ -370,6 +393,7 @@
     position: relative;
   }
 
+  /* Adjust Positioning As Art Is Installed */
   .pixelBedroom { transform: scale(2); left: -50%; }
 
   .pixelOffice { transform: scale(2); top: -40%; right: -5%;}
@@ -407,7 +431,6 @@
         font-size: 1.4rem;
     }
     
-
     .statsContent {
         left: 0;
         right: 0;

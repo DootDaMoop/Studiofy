@@ -28,6 +28,23 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
         });
     }, []);
 
+    const handleLogout = async () => {
+        try {
+            const response = await fetch('http://localhost:8080/logout', {
+                method: 'GET',
+                credentials: 'include'
+            });
+            if (!response.ok) {
+                throw new Error('Logout failed');
+            }
+            console.log('Logout successful');
+            window.location.href = 'http://localhost:3000/';
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+
     if (!profile) {
         return null;
     }
@@ -60,7 +77,7 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
                     </li>
 
                     <li >
-                        <a className={styles.menuFont}  href='http://localhost:3000/' style={{ color: isHovered ? hoverTextColor : textColor }}>
+                        <a className={styles.menuFont}  onClick={handleLogout} style={{ color: isHovered ? hoverTextColor : textColor }}>
                             <p>Logout</p>
                         </a>  
                     </li>

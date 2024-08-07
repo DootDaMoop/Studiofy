@@ -30,6 +30,14 @@ def profile():
     user_profile = get('https://api.spotify.com/v1/me',headers=headers).json()
     return jsonify(user_profile)
 
+@app.get('/logout')
+def logout():
+    session.clear()
+    response = jsonify(message="Logged out successfully")
+    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    return response
+
 @app.get('/top-tracks')
 def get_user_top_tracks():
     token = session['token']

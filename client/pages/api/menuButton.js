@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import styles from '../../styles/apt.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/router';
 
 const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverTextColor}) => {
     const [profile, setProfile] = useState(null);
     const [toggle, setToggle] = useState(false);
-    const [isHovered, setIsHovered] = useState(false); 
+    const [isHovered, setIsHovered] = useState(false);
+    const router = useRouter();
 
 
     useEffect(() => {
@@ -38,50 +40,62 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
                 throw new Error('Logout failed');
             }
             console.log('Logout successful');
-            window.location.href = 'http://localhost:3000/';
+            window.location.href = 'https://www.spotify.com/logout/';
+
+            setTimeout(function() {
+                window.location.href = 'http://localhost:3000/';
+            }, 500);
         } catch (error) {
             console.error('Error:', error);
         }
     };
 
 
-    if (!profile) {
-        return null;
-    }
+    const menuItems = [
+        {path: '/profile', label: 'Profile', show: !!profile},
+        {path: '/privacy', label: 'Privacy', show: true},
+        {path: '/about', label: 'About', show: true},
+        {path: '/', label: 'Logout', show: !!profile, onClick: handleLogout},
+        {path: '/', label: 'Back', show: !profile}
+    ];
 
     return (
         <header>
-        <button onClick={() => setToggle(!toggle)} className={styles.button} 
-        style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
-            onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
+            <button onClick={() => setToggle(!toggle)} className={styles.button} style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor, cursor: 'pointer'}} 
+                onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
                 
-            <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
-            <p className={styles.font}  style={{ color: isHovered ? hoverTextColor : textColor }}>Menu</p>  
-            <i><FontAwesomeIcon icon={faAngleDown} style={{ color: isHovered ? hoverTextColor : textColor }}/></i>
-        </button>
+                {profile && (
+                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
+                )}
+                
+                <p className={styles.menuFont}  style={{ color: isHovered ? hoverTextColor : textColor }}>Menu</p>  
+                <i><FontAwesomeIcon icon={faAngleDown} style={{ color: isHovered ? hoverTextColor : textColor }}/></i>
+            </button>
         
-        {toggle && 
+            {toggle && 
                 <ul className={styles.buttonDropDown} style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
                     onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 
-                    <li>
-                        <a className={styles.menuFont}  href='/privacy' style={{ color: isHovered ? hoverTextColor : textColor }}>
-                            <p>Privacy </p>     
-                        </a>
-                    </li>
-
-                    <li >
-                        <a className={styles.menuFont}  href='/about' style={{ color: isHovered ? hoverTextColor : textColor }}>
-                            <p>About</p>
-                        </a>
-                    </li>
-
-                    <li >
-                        <a className={styles.menuFont}  onClick={handleLogout} style={{ color: isHovered ? hoverTextColor : textColor }}>
-                            <p>Logout</p>
-                        </a>  
-                    </li>
-                </ul> }
+                        {menuItems.map(
+                            (item) => 
+                                item.show && (
+                                    <li key={item.path}>
+                                        {item.onClick ? (
+                                            <a className={styles.menuFont} onClick={item.onClick} style={{ color: isHovered ? hoverTextColor : textColor}}>
+                                                <p>{item.label}</p>
+                                            </a>
+                                        ) : (
+                                            item.path !== router.pathname && (
+                                                <a className={styles.menuFont} href={item.path} style={{ color: isHovered ? hoverTextColor : textColor}}>
+                                                    <p>{item.label}</p>
+                                                </a>
+                                            )
+                                        )}
+                                    </li>
+                                )
+                        )}
+                </ul>
+            }
         </header>
     );
 };

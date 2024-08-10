@@ -23,7 +23,7 @@ function profile() {
     const widthSpeech = `${parseFloat(featureAverages.speechiness) * 100}%`;
     const widthValence = `${parseFloat(featureAverages.valence) * 100}%`;
     // DAY & NIGHT MODES
-    const timeOfDay = widthEnergy >= 49 ? "day" : "night"; // : 
+    const timeOfDay = featureAverages.energy >= .50 ? "day" : "night"; 
     const backgroundColor = timeOfDay === "day" ?  "#F6F3E0": "#031521";
     const borderColor = timeOfDay === "night" ? "#FFFFFF" : "#000000";
     const textColor = timeOfDay === "night" ? "#FFFFFF" : "#000000";

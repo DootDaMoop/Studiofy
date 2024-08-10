@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../../styles/apt.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faBorderStyle } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
 
 const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverTextColor}) => {

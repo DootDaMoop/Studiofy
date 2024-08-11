@@ -17,13 +17,13 @@ function profile() {
     const widthDance = `${parseFloat(featureAverages.danceability) * 100}%`;
     const widthAcoustic = `${parseFloat(featureAverages.acousticness) * 100}%`;
     const widthEnergy = `${parseFloat(featureAverages.energy) * 100}%`;
-    // const widthEnergy = 41;  // USE THIS LINE TO TEST DAY/NIGHT CYCLES and COMMENT LINE ABOVE OUT
+    const dayNight = .4;  // USE THIS LINE TO TEST DAY/NIGHT CYCLES and COMMENT LINE ABOVE OUT
     const widthInstrument = `${parseFloat(featureAverages.instrumentalness) * 100}%`;
     const widthLiveness = `${parseFloat(featureAverages.liveness) * 100}%`;
     const widthSpeech = `${parseFloat(featureAverages.speechiness) * 100}%`;
     const widthValence = `${parseFloat(featureAverages.valence) * 100}%`;
     // DAY & NIGHT MODES
-    const timeOfDay = featureAverages.energy >= .50 ? "day" : "night"; 
+    const timeOfDay = dayNight >= .50 ? "day" : "night"; 
     const backgroundColor = timeOfDay === "day" ?  "#F6F3E0": "#031521";
     const borderColor = timeOfDay === "night" ? "#FFFFFF" : "#000000";
     const textColor = timeOfDay === "night" ? "#FFFFFF" : "#000000";
@@ -99,7 +99,7 @@ function profile() {
                             <p className={styles.titleText} style={{ color: textColor}}>WELCOME TO STUDIOFY</p>
 
                             <div className={styles.titleDescription} style={{color: borderColor}}>
-                                <p className={styles.pixelFooterFont} style={{ color: textColor}}> LET'S GO ON A ROOM TOUR...</p>
+                                <p className={styles.terminusFont} style={{ color: textColor}}> LET'S GO ON A ROOM TOUR...</p>
                                 <i className={styles.circleDown} style={{ fontSize: '2vw', color: iconColor, backgroundColor: backgroundColor }}><FontAwesomeIcon icon={faAngleDown} /></i>
                             </div>
                         </div> 
@@ -415,7 +415,7 @@ function profile() {
 
                     <div className={styles.resultContainer}>
                         <div className={styles.FooterDescription} style={{ color: borderColor}}>
-                                <p className={styles.pixelFooterFont} style={{color: textColor}} >THE FINAL RESULT</p>
+                                <p className={styles.terminusFont} style={{color: textColor}} >THE FINAL RESULT</p>
                                 <i className={styles.circleDown} style={{ color: iconColor, backgroundColor: backgroundColor}}><FontAwesomeIcon icon={faExclamation} style={{ fontSize: '2.5vw' }}/></i>
                         </div>
                         

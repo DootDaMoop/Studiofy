@@ -83,9 +83,8 @@
         top: 5vh;
     }
     .cloudRight {
-        width: 190px;
-        height: 110px;
-        /* right: -6vh; */
+        width: 210px;
+        height: 170px;
         top: 68vh;
     }
 }
@@ -260,7 +259,7 @@
 }
 
 .titleDescription {
-    margin-top: 10%;
+    /* margin-top: 10%; */
     height: 8vw;
     width: 70vw;
     margin-bottom: 50px;
@@ -294,7 +293,7 @@
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    margin-bottom: 2vw;
+    margin-bottom: 5vw;
 }
 
 /*Lena's Implementation*/
@@ -520,9 +519,9 @@
 
   /* MEDIA LAYOUT OF RESULT BOXES FOR MOBILE PHONES */
   @media (max-width: 650px){
-    .itemsContainer {
+    /* .itemsContainer {
         align-items: center;
-    }
+    } */
 
     .statsBox {
         align-items: center;
@@ -642,15 +641,6 @@
   }
   /*End of Lena's Implementation */
 
-.fixedButtonContainer {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .interactContainer {
     display: flex;
     align-items: center;
@@ -692,12 +682,6 @@
 
 }
 
-.itemPercDescription {
-    font-family: "Inter", sans-serif;
-    font-size: 0.8em;
-    
-}
-
 .centerize {
     display:flex;
     align-items: center;
@@ -716,10 +700,10 @@
 }
 
 .FooterDescription {
-    /* margin-top: 5vh; */
+    margin-top: 2vh;
     height: 8vw;
     width: 70vw;
-    margin-bottom: 5vh;
+    margin-bottom: 3vw;
     /* background-color: red; */
     z-index: 0;
     display: flex;
@@ -730,9 +714,9 @@
     overflow: hidden;
 }
 
-.pixelFooterFont {
+.terminusFont {
     font-size: 3vw;
-    color: black;
+    /* color: red; */
     font-style: bold;
     font-weight: 700;
     font-family: "Inter", sans-serif;
@@ -758,117 +742,74 @@
     width: 3.2vw;
 }
 
-
-
-
 /* MEDIA TAGS FOR PIXEL ROOM */
+/* 1400, 992, 768 + Mobile px*/
 
-@media (max-width: 1350px) {
+@media (max-width: 1400px) {
     .pixelFinal {
         width: 624px;
         height: 422px;
     }
-
+    .pixelBorder {
+        width: 680px;
+        height: 480px;
+    }
     .pixelWindow {
         gap: 5vw;
+        width: 680px;
     }
 }
 
-@media (max-width: 1150px) {
-    .pixelFinal {
-        width: 550px;
-        height: 340px;
-    }
-}
-
-@media (max-width: 950px) {
-    .pixelFinal {
-        width: 420px;
-        height: 280px;
-    }
-    .pixelWindow {
-        gap: 1vw;
-    }
-}
-
-@media (max-width: 750px) {
-    .pixelFinal {
-        width: 380px;
-        height: 240px;
-    }
-}
-
-/*END OF MEDIA TAGS FOR PIXEL ROOM */
-
-
-/* MEDIA TAGS FOR FINAL RESULTS PIXELROOM */
-@media (max-width: 649px) {
-    .pixelFinal {
-        width: 400px;
-        height: 280px;
-    }
+@media (max-width: 992px) {
     .FooterDescription {
-        height: 8vh;
-        width: 90vw;
+        width: 85vw;
     }
+}
+
+@media (max-width: 768px) {
     .pixelBorder {
-        width: 90vw;
-        height: 50vh;
+        width: 349px;
+        height: 273.5px;
+    }
+    .pixelFinal {
+        width: 350px;
+        height: 250px;
     }
     .pixelWindow {
-        width: 90vw;
-        gap: 8vw;
+        width: 350px;
+    }
+    .shareFont {
+        font-size: 0.8em;
+    }
+    .interactContainer {
+        flex-direction: column;
+        gap: 1vh;
     }
     .iconsFormater {
         height: 3vh;
-        width: 5vw;
-    }
-    /* .shareFont {
-        font-size:0.8em;
-    } */
-}
-
-@media (max-width: 672px) {
-    .shareFont {
-        font-size: 2.5vw;
-    }
-    .interactContainer {
-        gap: 8%;
-    }
-}
-
-@media (max-width: 520px) {
-    .iconsFormater {
-        height: 4vh;
-        width: 4vh;
+        width: 3vw;
     }
     .pixelWindow {
         gap: 1vw;
     }
+    .shareLink {
+        width: 40vw;
+    }
+    .downloadAPT {
+        width: 50vw;
+    }
 }
 
-@media (max-width:420px) {
-    .pixelFinal {
-        width: 95vw;
-        height: 35vh;
+@media (max-width: 420px) {
+    .shareFont {
+        font-size: 0.8em;
+    }
+    .iconsFormater {
+        display: none;
     }
     .circleDownFooter {
         height: 3vh;
         width: 6vw;
         bottom: 3%;
     }
-    .iconsFormater {
-        height: 3vh;
-        width: 4vh;
-    }
-    .pixelWindow {
-        gap: 0%;
-    }
 }
-
-@media (max-width: 380px) {
-    .iconsFormater {
-        display: none;
-    }
-}
-/*  */

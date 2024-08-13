@@ -133,12 +133,13 @@ function profile() {
 
                                         {/* decorBar only used in mobile */}
                                         <div className={styles.decorBar} style={{backgroundColor: borderColor}}></div>
+                                    <div className={styles.closeSongContainer}>
 
                                         <p className={styles.songCloseTitle} style={{color: textColor}} > SONG CLOSEST TO YOUR ACOUSTICNESS SCORE:</p>
 
                                         <p className={styles.songCloseDetails} style={{color: textColor}}> {closestTracks.acousticness?.track_name} By: {closestTracks.acousticness?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.acousticness?.album_art}></img>
-
+                                    </div>
                                         <div className={styles.spotifyButton}>
                                             <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
@@ -176,11 +177,12 @@ function profile() {
                                         {/* decorBar only used in mobile */}
                                         <div className={styles.decorBar}></div>
 
+                                    <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: textColor}}> SONG CLOSEST TO YOUR SPEECHINESS SCORE: </p>
 
                                         <p className={styles.songCloseDetails} style={{color: textColor}}>{closestTracks.speechiness?.track_name} By: {closestTracks.speechiness?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.speechiness?.album_art}></img>
-
+                                    </div>
                                         <div className={styles.spotifyButton}>
                                             <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
@@ -218,12 +220,13 @@ function profile() {
 
                                         {/* decorBar only used in mobile */}
                                         <div className={styles.decorBar}></div>
-
+                                        
+                                    <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: textColor}}> SONG CLOSEST TO YOUR INSTURMENTALNESS SCORE: </p>
 
                                         <p className={styles.songCloseDetails} style={{color: textColor}}>{closestTracks.instrumentalness?.track_name} By: {closestTracks.instrumentalness?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.instrumentalness?.album_art}></img>
-
+                                    </div>
                                         <div className={styles.spotifyButton}>
                                             <a href={closestTracks.instrumentalness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
@@ -261,12 +264,13 @@ function profile() {
 
                                         {/* decorBar only used in mobile */}
                                         <div className={styles.decorBar}></div>
+                                    <div className={styles.closeSongContainer}>
 
                                         <p className={styles.songCloseTitle} style={{color: textColor}}> SONG CLOSEST TO YOUR LIVENESS SCORE: </p>
 
                                         <p className={styles.songCloseDetails} style={{color: textColor}}>{closestTracks.liveness?.track_name} By: {closestTracks.liveness?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.liveness?.album_art}></img>
-
+                                    </div>
                                         <div className={styles.spotifyButton}>
                                             <a href={closestTracks.liveness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
@@ -305,11 +309,12 @@ function profile() {
                                         {/* decorBar only used in mobile */}
                                         <div className={styles.decorBar}></div>
 
+                                    <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: textColor}}> SONG CLOSEST TO YOUR DANCEABILITY SCORE: </p>
 
                                         <p className={styles.songCloseDetails} style={{color: textColor}}>{closestTracks.danceability?.track_name} By: {closestTracks.danceability?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.danceability?.album_art}></img>
-
+                                    </div>
                                         <div className={styles.spotifyButton}>
                                             <a href={closestTracks.danceability?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
@@ -346,7 +351,7 @@ function profile() {
 
                                         {/* decorBar only used in mobile */}
                                         <div className={styles.decorBar}></div>
-
+                                    
                                         <div className={styles.closeSongContainer}>
                                             <p className={styles.songCloseTitle} style={{color: textColor}}> SONG CLOSEST TO YOUR VALENCE SCORE: </p>
 

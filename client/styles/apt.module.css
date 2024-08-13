@@ -104,7 +104,6 @@
     }
 }
  
- 
 .titleContainer {
     display: flex;
     align-items: center;
@@ -320,12 +319,17 @@
     left: 0;
     right: 0;
     text-align: center;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
   }
 
   /*EX OF TEXT: STUDIO - LIGHTING*/
   .roomSectionTitle {
     font-size: 14px;
-    font-weight: 500;
+    font-family: "Inter", sans-serif;
+    /* font-weight: 500; */
+    letter-spacing: 0.5vw;
     color: #333;
     margin: 0;
 
@@ -354,11 +358,12 @@
   /*EX OF TEXT: ENERGY */
   .categoryName {
     font-size: 1rem;
-    font-weight: 600;
+    /* font-weight: 600; */
     color: #333;
     text-align: center;
     margin-bottom: 5px;
-    font-family: "Inter",Arial, sans-serif;
+    font-family: "Inter", sans-serif;
+    margin: 10px 10px 5px 10px;
   }
 
   /*OUTER LINE OF BAR */
@@ -398,18 +403,20 @@
     z-index: 1;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
-    font-family: "Inter"
+    font-family: "Inter", sans-serif;
   }
 
 
 /* EXAMPLE OF TEXT: "Represents the average positivity in your music" */
   .averageDescription {
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: black;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     margin-top: 25px;
     text-align: center;
-    font-weight: 500;
+    /* font-weight: 500; */
+    font-family: "Inter", sans-serif;
+
   }
 
   /*Container for Song Closest to Category */
@@ -419,8 +426,8 @@
 
   /* EXAMPLE OF TEXT: "SONG CLOSEST TO YOUR VALENCE SCORE:" */
   .songCloseTitle {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 400;
     color: #333;
     margin-bottom: 5px;
     text-align: center;
@@ -431,11 +438,11 @@
 
   .songCloseDetails {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 350;
     color: black;
     text-align: center;
     flex-grow: 1;
-    min-height: 2.5em;
+    min-height: 2.em;
   }
 
   .albumArt {
@@ -532,14 +539,17 @@
 
     .statsBoxImage {
         max-width: 600px;
-        width: 90%;
+        width: 360px; /*Changed to fixed (90% width messes w/ text*/
         display: block;
         margin: 0 auto;
         margin-bottom: 10%;
     }
+    .statsBoxHeader {
+        top: 12px;
+    }
   
     .roomSectionTitle{
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     
     .statsContent {
@@ -553,8 +563,9 @@
     }
 
     .categoryName{
-        font-size: 1.6rem;
-        margin-top: 25px;
+        font-size: 1.5rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
         text-align: center;
     }
 
@@ -567,40 +578,42 @@
     }
 
     .averagePercentage{
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .averageDescription{
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        font-weight: 350;
         margin-top: -5px;
     }
 
     .decorBar{
         background-color: black;
-        border-top: 6px solid;
+        border-top: 4px solid;
         border-radius: 25px;
-        margin-top: -15%;
+        margin-top: -8%;
         width: 100%;
         margin-left: 2%;
     }
 
     .songCloseTitle{
         font-size: 1.2rem;
-        margin-top: 5px;
+        margin-top: 10px;
     }
 
     .songCloseDetails{
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-top: 0px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 20px;
         min-height: 4rem;
+        /* padding-bottom: 20px; */
     }
-
+    
     .albumArt{
-        margin-left: 28%;
+        margin-left: 25%;
         margin-right: auto;
         margin-top: -10%;
-        height: 16%;
+        height: 19%;
         width: auto;
         position: absolute;
     }

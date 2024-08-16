@@ -3,3 +3,33 @@ html, body {
     padding: 0;
     height: 100%;
 }
+
+:root {
+    --background-color-day: #F6F3E0;
+    --background-color-night: #031521;
+    --border-color-day: #000000;
+    --border-color-night: #FFFFFF;
+    --border-text-color-day: #000000;
+    --border-text-color-night: #FFFFFF;
+    --color-text-percentage-day: #FFFFFF;
+    --color-text-percentage-night: #000000;
+    /* --border-icon-color-day: #FFFFFF;
+    --border-icon-color-night: #000000; */
+}
+
+[data-mode="day"] {
+    --background-color: var(--background-color-day);
+    --text-color: var(--border-text-color-day);
+    --border-color: var(--border-color-day);
+    --color: var(--color-text-percentage-day);
+    /* --icon-color: var(--border-icon-color-day); */
+}
+
+[data-mode="night"] {
+    --background-color: var(--background-color-night);
+    --text-color: var(--border-text-color-night);
+    --border-color: var(--border-color-night);
+    --color: var(--color-text-percentage-night);
+    /* --icon-color: var(--border-icon-color-night); */
+}
+

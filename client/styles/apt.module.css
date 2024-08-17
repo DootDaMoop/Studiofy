@@ -160,7 +160,7 @@
     transition: background-color 0.3s;
     /* background-color:#FFFFFF; */
     /* border-style: solid; */
-    border-style: none;
+    border-style: solid;
     z-index: 3;
 }
 

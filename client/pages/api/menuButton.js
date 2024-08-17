@@ -5,10 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faBorderStyle } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
 
-const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverTextColor}) => {
+const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverTextColor, borderColor}) => {
     const [profile, setProfile] = useState(null);
     const [toggle, setToggle] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
+    const [isButtonHovered, setIsButtonHovered] = useState(false);
+    const [isItemHovered, setIsItemHovered] = useState(false);
     const router = useRouter();
 
 
@@ -61,58 +62,78 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
 
     return (
         <header>
-            <button onClick={() => setToggle(!toggle)} className={styles.button} style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor, cursor: 'pointer'}} 
-                onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+            <button onClick={() => setToggle(!toggle)} className={styles.button} 
+            style={{ 
+                backgroundColor: isButtonHovered ? hoverBackgroundColor : backgroundColor,
+                textColor: isButtonHovered ? hoverTextColor : textColor,
+                borderColor: borderColor,
+                cursor: 'pointer'
+            }}
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
+            >
                 
                 {profile && (
                     <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
                 )}
                 
-                <p className={styles.menuFont}  style={{ color: isHovered ? hoverTextColor : textColor }}>Menu</p>  
-                <i><FontAwesomeIcon icon={faAngleDown} style={{ color: isHovered ? hoverTextColor : textColor }}/></i>
+                <p className={styles.menuFont}  style={{ color: isButtonHovered ? hoverTextColor : textColor }}>Menu</p>  
+                <i><FontAwesomeIcon icon={faAngleDown} style={{ color: isButtonHovered ? hoverTextColor : textColor }}/></i>
             </button>
         
             {toggle && 
-                <ul className={styles.buttonDropDown} style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
-                    onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-
-                        {menuItems.map(
-                            (item) => 
-                                item.show && (
-                                    <li key={item.path}>
-                                        {item.onClick ? (
-                                            <a className={styles.menuFont} onClick={item.onClick} style={{ color: isHovered ? hoverTextColor : textColor}}>
+                <ul 
+                className={styles.buttonDropDown} 
+                style={{
+                    backgroundColor: backgroundColor,
+                    textColor: textColor,
+                    borderColor: borderColor
+                }} 
+                >
+                    {menuItems.map(
+                        (item) => 
+                            item.show && (
+                                <li 
+                                key={item.path}
+                                onMouseEnter={() => setIsItemHovered(item.path)}
+                                onMouseLeave={() => setIsItemHovered(null)}
+                                style={{
+                                    backgroundColor: isItemHovered === item.path ? hoverBackgroundColor : backgroundColor,
+                                    cursor: 'pointer'
+                                }}
+                                >
+                                    {item.onClick ? (
+                                        <a
+                                        className={styles.menuFont}
+                                        onClick={item.onClick}
+                                        style={{
+                                        // TODO: Ben, add some css here to make the hover over background more fuller and takes up more of the <a></a> tag.
+                                        //       Copy them to the other one too.
+                                            color: isItemHovered ? hoverTextColor : textColor,
+                                            textDecoration: 'none',
+                                            }}>
+                                            <p>{item.label}</p>
+                                        </a>
+                                    ) : (
+                                        item.path !== router.pathname && (
+                                            <a
+                                            className={styles.menuFont}
+                                            href={item.path}
+                                            style={{
+                                                color: isItemHovered ? hoverTextColor : textColor,
+                                                textDecoration: 'none',
+                                                }}>
                                                 <p>{item.label}</p>
                                             </a>
-                                        ) : (
-                                            item.path !== router.pathname && (
-                                                <a className={styles.menuFont} href={item.path} style={{ color: isHovered ? hoverTextColor : textColor}}>
-                                                    <p>{item.label}</p>
-                                                </a>
-                                            )
-                                        )}
-                                    </li>
-                                )
-                        )}
+                                        )
+                                    )}
+                                </li>
+                            )
+                    )}
                 </ul>
             }
         </header>
     );
 };
-
-MenuButton.propTypes = {
-    textColor: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    hoverBackgroundColor: PropTypes.string, 
-    hoverTextColor: PropTypes.string, 
-};
-
-MenuButton.defaultProps = {
-    textColor: '#000', 
-    backgroundColor: '#F6F3E0', 
-    hoverBackgroundColor: 'white', 
-    hoverTextColor: "black",
-};
-
 
 export default MenuButton;

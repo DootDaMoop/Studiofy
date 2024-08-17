@@ -5,11 +5,11 @@ import {faAngleDown, faAngleUp, faImages, faExclamation, faEllipsis, faDownload,
 import html2canvas from 'html2canvas';
 import MenuButton from './api/menuButton';
 import { DayNightContext } from './api/DayNightMode';
+import DayNightToggleButton from './api/DayNightToggleButton';
 // import { icon } from '@fortawesome/fontawesome-svg-core';
 
 function profile() {
-    const {mode, toggleMode} = useContext(DayNightContext);
-    const [reRender, setReRender] = useState(false);
+    const {mode, toggleMode, stylesList} = useContext(DayNightContext);
     const [profile, setProfile] = useState(null);
     const [topTracks, setTopTracks] = useState([]);
     const [audioFeatures, setAudioFeatures] = useState([]);
@@ -26,42 +26,6 @@ function profile() {
     const widthValence = `${parseFloat(featureAverages.valence) * 100}%`;
 
     // DAY & NIGHT MODES
-    const getCssVariableVal = (varName) => {
-        if(typeof window !== undefined) {
-            return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-        }
-        return '';
-    };
-
-    const [stylesList, setStylesList] = useState({});
-
-    const updateStylesList = () => {
-        const backgroundColor = getCssVariableVal('--background-color');
-        const borderColor = getCssVariableVal('--border-color');
-        const textColor = getCssVariableVal('--text-color');
-        const iconColor = getCssVariableVal('--text-color');
-        const percentColor = getCssVariableVal('--color');
-        const statsBoxImageSrc = mode === 'day' ? '/images/statsBox.png' : '/images/nightStatsBox.png';
-
-        console.log('Updating styles:', { backgroundColor, borderColor, textColor, statsBoxImageSrc });
-
-        setStylesList({backgroundColor,borderColor,textColor,iconColor,percentColor,statsBoxImageSrc});
-    };
-
-    // Initial style (day)
-    useEffect(() => {
-        console.log('Mode changed:', mode);
-        updateStylesList();
-    }, [mode, reRender]);
-
-    const handleToggleMode = () => {
-        console.log('Toggling mode from', mode);
-        toggleMode();
-        setTimeout(() => {
-            updateStylesList();
-            setReRender(!reRender);
-        },0);
-    };
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -121,15 +85,12 @@ function profile() {
 
     return (
         <>
-            <MenuButton  textColor={stylesList.textColor} backgroundColor={stylesList.backgroundColor} borderColor={stylesList.borderColor}/>
-            <div>
-                <button onClick={handleToggleMode} style={{ backgroundColor: stylesList.backgroundColor, color: stylesList.textColor }}>
-                    Toggle {mode === 'day' ? 'Night' : 'Day'} Mode
-                </button>
-                <button onClick={updateStylesList}>
-                    Check style.
-                </button>
-            </div>
+            {mode === 'day' ? 
+                <MenuButton textColor='black' backgroundColor='white' borderColor='black' hoverBackgroundColor='gray' hoverTextColor='black'/>
+                :
+                <MenuButton textColor='white' backgroundColor='#1a2c3d' borderColor='white' hoverBackgroundColor='gray' hoverTextColor='white'></MenuButton>
+            }
+            <DayNightToggleButton></DayNightToggleButton>
             <body className={styles.main} style={{ backgroundColor: stylesList.backgroundColor}}>
                 <div>     
                         <img className={styles.cloudLeft} src='/images/cloud.png'></img>

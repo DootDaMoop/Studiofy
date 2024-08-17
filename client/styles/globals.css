@@ -13,6 +13,8 @@ html, body {
     --border-text-color-night: #FFFFFF;
     --color-text-percentage-day: #FFFFFF;
     --color-text-percentage-night: #000000;
+    --color-menu-button-day: #FFFFFF;
+    --color-menu-button-night: #000000;
     /* --border-icon-color-day: #FFFFFF;
     --border-icon-color-night: #000000; */
 }
@@ -22,6 +24,7 @@ html, body {
     --text-color: var(--border-text-color-day);
     --border-color: var(--border-color-day);
     --color: var(--color-text-percentage-day);
+    --outline-color: var(--color-menu-button-day)
     /* --icon-color: var(--border-icon-color-day); */
 }
 
@@ -30,6 +33,7 @@ html, body {
     --text-color: var(--border-text-color-night);
     --border-color: var(--border-color-night);
     --color: var(--color-text-percentage-night);
+    --outline-color: var(--color-menu-button-night)
     /* --icon-color: var(--border-icon-color-night); */
 }
 

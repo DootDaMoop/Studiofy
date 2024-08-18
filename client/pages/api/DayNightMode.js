@@ -27,11 +27,30 @@ export const DayNightMode = ({children}) => {
         const iconColor = getCssVariableVal('--text-color');
         const percentColor = getCssVariableVal('--color');
         const statsBoxImageSrc = mode === 'day' ? '/images/statsBox.png' : '/images/nightStatsBox.png';
-        const mobileStatsBoxImageSrc = mode === 'day' ? '/images/mobileStatsBox.png' : '/images/nightMobileStatsBox.png'
+        const mobileStatsBoxImageSrc = mode === 'day' ? '/images/mobileStatsBox.png' : '/images/nightMobileStatsBox.png';
+        const githubImageSrc = mode === 'day' ? '/images/dayGithub.png' : 'images/nightGithub.png'
+        const linkedinImageSrc = mode === 'day' ? '/images/dayLinkedin.png' : 'images/nightLinkedin.png'
+        const caardImageSrc = mode === 'day' ? '/images/dayCaard.png' : '/images/nightCaard.png';
+        const mailImageSrc = mode === 'day' ? '/images/dayMail.png' : '/images/nightMail.png';
+        //const bgSquareWindowImageSrc = mode === 'day' ? '/images/dayMail.png' : '/images/nightMail.png';
+        const bgTallWindowImageSrc = mode === 'day' ? '/images/dayBgWindowTall.png' : '/images/nightBgWindowTall.png';
+        const bgWideWindowImageSrc = mode === 'day' ? '/images/dayBgWindowWide.png' : '/images/nightBgWindowWide.png';
 
         //console.log('Updating styles:', { backgroundColor, borderColor, textColor, statsBoxImageSrc, mobileStatsBoxImageSrc});
 
-        setStylesList({backgroundColor,borderColor,textColor,iconColor,percentColor,statsBoxImageSrc,mobileStatsBoxImageSrc});
+        setStylesList({backgroundColor,
+            borderColor,
+            textColor,
+            iconColor,
+            percentColor,
+            statsBoxImageSrc,
+            mobileStatsBoxImageSrc,
+            bgTallWindowImageSrc,
+            bgWideWindowImageSrc,
+            githubImageSrc,
+            linkedinImageSrc,
+            caardImageSrc,
+            mailImageSrc});
     };
 
     useEffect(() => {

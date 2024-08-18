@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from "../styles/login_page.module.css";
 import RandomizeLoginApt from './api/RandomizeLoginApt';
+import { DayNightContext } from './api/DayNightMode';
+import DayNightToggleButton from "./api/DayNightToggleButton";
+import MenuButton from './api/menuButton';
 
 function index() {
 
@@ -13,6 +16,8 @@ function index() {
   const [aptImages, setAptImages] = useState({});
   const [loadedImages, setLoadedImages] = useState(false);
   const [switchAnimation, setSwitchAnimation] = useState(false);
+  const {mode, stylesList} = useContext(DayNightContext);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect (() => {
     const updateFurniture = () => {
@@ -34,14 +39,23 @@ function index() {
     return () => clearInterval(intervalID);
   }, []);
 
+    useEffect(() => {
+        setIsMounted(true);
+    },[]);
+
+    if(!isMounted) {
+        return null;
+    }
+
   return (
     <>
+      <DayNightToggleButton></DayNightToggleButton>
       <div className={styles.contentWrapper}>
-        <div className={styles.container}>
+        <div className={styles.container} style={{backgroundColor: stylesList.backgroundColor}}>
 
           <div className={styles.mainWindow}>
-            <img src='images/bgWindowTall.png' alt='Tall Background Window' className={styles.bgWindowTall}></img>
-            <img src='images/bgWindowWide.png' alt='Wide Background Window' className={styles.bgWindowWide}></img>
+            <img src={stylesList.bgTallWindowImageSrc} alt='Tall Background Window' className={styles.bgWindowTall}></img>
+            <img src={stylesList.bgWideWindowImageSrc} alt='Wide Background Window' className={styles.bgWindowWide}></img>
             <img src='images/bgWindowSquare.png' alt='Square Background Window' className={styles.bgWindowSquare}></img>
 
             <img src='images/mainWindow.png' alt='Main Window' className={styles.mainWindowImage}></img>

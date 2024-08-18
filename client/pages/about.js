@@ -48,8 +48,8 @@ function about() {
                     <div className={aboutStyles.profileText}>
                         <h2 className={aboutStyles.profileName} style={{ color: stylesList.textColor}}>Jason Khotsombath</h2>
                         <p className={aboutStyles.profileRole} style={{ color: stylesList.textColor}}>Project Manager / Back-End Dev</p>
-                        <a href="https://github.com/DootDaMoop"><img className={aboutStyles.socialLinks} src='images/github.png' alt='Github Icon'></img></a>
-                        <a href="https://www.linkedin.com/in/jason-khotsombath/"><img className={aboutStyles.socialLinks} src='images/linkedin.png' alt='LinkedIn Icon'></img></a>
+                        <a href="https://github.com/DootDaMoop"><img className={aboutStyles.socialLinks} src={stylesList.githubImageSrc} alt='Github Icon'></img></a>
+                        <a href="https://www.linkedin.com/in/jason-khotsombath/"><img className={aboutStyles.socialLinks} src={stylesList.linkedinImageSrc} alt='LinkedIn Icon'></img></a>
                     </div>
 
                 </div>
@@ -60,8 +60,8 @@ function about() {
                     <div className={aboutStyles.profileText}>
                         <h2 className={aboutStyles.profileName} style={{ color: stylesList.textColor}}>Lena Mai</h2>
                         <p className={aboutStyles.profileRole} style={{ color: stylesList.textColor}}>Product Manager / Front-End Dev</p>
-                        <a href="https://github.com/LenoMai"><img className={aboutStyles.socialLinks} src='images/github.png' alt='Github Icon'></img></a>
-                        <a href="https://www.linkedin.com/in/lenamai/"><img className={aboutStyles.socialLinks} src='images/linkedin.png' alt='LinkedIn Icon'></img></a>
+                        <a href="https://github.com/LenoMai"><img className={aboutStyles.socialLinks} src={stylesList.githubImageSrc} alt='Github Icon'></img></a>
+                        <a href="https://www.linkedin.com/in/lenamai/"><img className={aboutStyles.socialLinks} src={stylesList.linkedinImageSrc} alt='LinkedIn Icon'></img></a>
                     </div>
 
                 </div>
@@ -71,8 +71,8 @@ function about() {
                     <div className={aboutStyles.profileText}>
                         <h2 className={aboutStyles.profileName} style={{ color: stylesList.textColor}}>Ben Tong</h2>
                         <p className={aboutStyles.profileRole} style={{ color: stylesList.textColor}}>Lead Front-End Dev</p>
-                        <a href="https://github.com/benzo1233"><img className={aboutStyles.socialLinks} src='images/github.png' alt='Github Icon'></img></a>
-                        <a href="https://www.linkedin.com/in/anh-kiet-tong/"><img className={aboutStyles.socialLinks} src='images/linkedin.png' alt='LinkedIn Icon'></img></a>
+                        <a href="https://github.com/benzo1233"><img className={aboutStyles.socialLinks} src={stylesList.githubImageSrc} alt='Github Icon'></img></a>
+                        <a href="https://www.linkedin.com/in/anh-kiet-tong/"><img className={aboutStyles.socialLinks} src={stylesList.linkedinImageSrc} alt='LinkedIn Icon'></img></a>
                     </div>
 
                 </div>
@@ -82,8 +82,8 @@ function about() {
                     <div className={aboutStyles.profileText}>
                         <h2 className={aboutStyles.profileName} style={{ color: stylesList.textColor}}>Angela Yang</h2>
                         <p className={aboutStyles.profileRole} style={{ color: stylesList.textColor}}>Lead UI/UX Designer / Artist</p>
-                        <a href="https://jinyayuu.carrd.co/"><img className={aboutStyles.socialLinks} src='images/caard.png' alt='Carrd Icon'></img></a>
-                        <a href= "mailto: jinya.art@gmail.com"><img className={aboutStyles.socialLinks} src='images/mail.png' alt='Mail Icon'></img></a>
+                        <a href="https://jinyayuu.carrd.co/"><img className={aboutStyles.socialLinks} src={stylesList.caardImageSrc} alt='Carrd Icon'></img></a>
+                        <a href= "mailto: jinya.art@gmail.com"><img className={aboutStyles.socialLinks} src={stylesList.mailImageSrc} alt='Mail Icon'></img></a>
                     </div>
 
                 </div>

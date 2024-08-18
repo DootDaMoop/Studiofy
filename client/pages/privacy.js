@@ -29,7 +29,7 @@ function privacy(){
             <div className={privacyStyles.container} style={{backgroundColor: stylesList.backgroundColor}}>
                 <div className={privacyStyles.headerContainer}>
                     <h1 className={privacyStyles.header} style={{color: stylesList.textColor}}>Privacy Policy</h1>
-                    <div className={privacyStyles.line}></div>
+                    <div className={privacyStyles.line} style={{ borderColor: stylesList.borderColor}}></div>
                 </div>
 
                 <div className={privacyStyles.detailsContainer}>

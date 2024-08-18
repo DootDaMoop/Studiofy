@@ -56,7 +56,8 @@ function index() {
           <div className={styles.mainWindow}>
             <img src={stylesList.bgTallWindowImageSrc} alt='Tall Background Window' className={styles.bgWindowTall}></img>
             <img src={stylesList.bgWideWindowImageSrc} alt='Wide Background Window' className={styles.bgWindowWide}></img>
-            <img src='images/bgWindowSquare.png' alt='Square Background Window' className={styles.bgWindowSquare}></img>
+            <img src={stylesList.bgWideWindowImageSrc} alt='Square Background Window' className={styles.bgWindowSquare}></img>
+            {/* <img src='images/bgWindowSquare.png' alt='Square Background Window' className={styles.bgWindowSquare}></img> */}
 
             <img src='images/mainWindow.png' alt='Main Window' className={styles.mainWindowImage}></img>
 

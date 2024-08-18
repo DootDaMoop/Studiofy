@@ -57,7 +57,7 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
         {path: '/privacy', label: 'Privacy', show: true},
         {path: '/about', label: 'About', show: true},
         {path: '/', label: 'Logout', show: !!profile, onClick: handleLogout},
-        {path: '/', label: 'Back', show: !profile}
+        {path: '/', label: 'Login', show: !profile}
     ];
 
     return (

@@ -32,9 +32,10 @@ export const DayNightMode = ({children}) => {
         const linkedinImageSrc = mode === 'day' ? '/images/dayLinkedin.png' : 'images/nightLinkedin.png'
         const caardImageSrc = mode === 'day' ? '/images/dayCaard.png' : '/images/nightCaard.png';
         const mailImageSrc = mode === 'day' ? '/images/dayMail.png' : '/images/nightMail.png';
-        //const bgSquareWindowImageSrc = mode === 'day' ? '/images/dayMail.png' : '/images/nightMail.png';
+        const bgSquareWindowImageSrc = mode === 'day' ? '/images/dayBgWindowSquare.png' : '/images/nightBgWindowSquare.png';
         const bgTallWindowImageSrc = mode === 'day' ? '/images/dayBgWindowTall.png' : '/images/nightBgWindowTall.png';
         const bgWideWindowImageSrc = mode === 'day' ? '/images/dayBgWindowWide.png' : '/images/nightBgWindowWide.png';
+        const loginPageImageSrc = mode === 'day' ? '/images/dayLoginWindow.png' : '/images/nightLoginWindow.png';
 
         //console.log('Updating styles:', { backgroundColor, borderColor, textColor, statsBoxImageSrc, mobileStatsBoxImageSrc});
 
@@ -45,8 +46,10 @@ export const DayNightMode = ({children}) => {
             percentColor,
             statsBoxImageSrc,
             mobileStatsBoxImageSrc,
+            bgSquareWindowImageSrc,
             bgTallWindowImageSrc,
             bgWideWindowImageSrc,
+            loginPageImageSrc,
             githubImageSrc,
             linkedinImageSrc,
             caardImageSrc,

@@ -28,8 +28,16 @@ function privacy(){
 
             <div className={privacyStyles.container} style={{backgroundColor: stylesList.backgroundColor}}>
                 <div className={privacyStyles.headerContainer}>
-                    <h1 className={privacyStyles.header} style={{color: stylesList.textColor}}>Privacy Policy</h1>
-                    <div className={privacyStyles.line} style={{ borderColor: stylesList.borderColor}}></div>
+                    <h1 className={privacyStyles.header} style={{color: stylesList.textColor}}>Privacy Policy
+                        <span style={{
+                            content: '',
+                            display: 'block',
+                            width: '100%',
+                            height: '8px',
+                            backgroundColor: stylesList.textColor,
+                            marginTop: '5px',
+                        }}></span>
+                    </h1>
                 </div>
 
                 <div className={privacyStyles.detailsContainer}>
@@ -52,12 +60,12 @@ function privacy(){
 
                     <h3 className={privacyStyles.detailHeader} style={{color: stylesList.textColor}}>Revoking Studiofy's Data Permissions</h3>
                     <p className={privacyStyles.details} style={{color: stylesList.textColor}}>If you no longer want Studiofy to have access to your data, please visit your&nbsp; 
-                    <a href="http://www.spotify.com/account/apps/?_ga=2.57194153.2059435232.1677244602-1044990631.1616788427">Spotify's app page</a>&nbsp;and 
+                    <a href="http://www.spotify.com/account/apps/?_ga=2.57194153.2059435232.1677244602-1044990631.1616788427" style={{ color: stylesList.textColor, fontWeight: 'bold' }}>Spotify's app page</a>&nbsp;and 
                     click "REMOVE ACCESS" on Studiofy.</p>
 
                      <h3 className={privacyStyles.detailHeader} style={{color: stylesList.textColor}}>Questions or Concerns?</h3>
                     <p className={privacyStyles.details} style={{color: stylesList.textColor}}>We would love to hear your input! Please don't hesitate to contact us by reaching out to any of the developers. 
-                        You can find our contact information through the <a href="/about">About</a> page or email us at <a href="mailto: studiofy.team@gmail.com">studiofy.team@gmail.com</a>. 
+                        You can find our contact information through the <a href="/about" style={{ color: stylesList.textColor, fontWeight: 'bold' }}>About</a> page or email us at <a href="mailto: studiofy.team@gmail.com" style={{ color: stylesList.textColor, fontWeight: 'bold' }}>studiofy.team@gmail.com</a>. 
                         Thank you for checking out Studiofy! 
                     </p>
                 </div>

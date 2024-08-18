@@ -56,10 +56,9 @@ function index() {
           <div className={styles.mainWindow}>
             <img src={stylesList.bgTallWindowImageSrc} alt='Tall Background Window' className={styles.bgWindowTall}></img>
             <img src={stylesList.bgWideWindowImageSrc} alt='Wide Background Window' className={styles.bgWindowWide}></img>
-            <img src={stylesList.bgWideWindowImageSrc} alt='Square Background Window' className={styles.bgWindowSquare}></img>
-            {/* <img src='images/bgWindowSquare.png' alt='Square Background Window' className={styles.bgWindowSquare}></img> */}
+            <img src={stylesList.bgSquareWindowImageSrc} alt='Square Background Window' className={styles.bgWindowSquare}></img>
 
-            <img src='images/mainWindow.png' alt='Main Window' className={styles.mainWindowImage}></img>
+            <img src={stylesList.loginPageImageSrc} alt='Main Window' className={styles.mainWindowImage}></img>
 
             <div className={styles.pixelborder}>
               <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} src={aptImages.randomAptWallFloor} alt='apt_wallfloor'></img>
@@ -69,7 +68,6 @@ function index() {
               <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.4s"}} src={aptImages.randomAptEntrance} alt='apt_entrance'></img>
               <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{animationDelay: "0.5s"}} src={aptImages.randomAptOffice} alt='apt_office'></img>
               <img className={`${styles.pixel} ${switchAnimation ? styles.switch : styles.drop}`} style={{mixBlendMode: "multiply"}} src={aptImages.randomAptLighting} alt='apt_lighting'></img>
-              {/* <div className={styles.dayNightOverlay}></div> */}
             </div>
           </div>
           

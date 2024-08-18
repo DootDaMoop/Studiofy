@@ -9,7 +9,7 @@ import DayNightToggleButton from './api/DayNightToggleButton';
 // import { icon } from '@fortawesome/fontawesome-svg-core';
 
 function profile() {
-    const {mode, toggleMode, stylesList} = useContext(DayNightContext);
+    const {mode, stylesList} = useContext(DayNightContext);
     const [profile, setProfile] = useState(null);
     const [topTracks, setTopTracks] = useState([]);
     const [audioFeatures, setAudioFeatures] = useState([]);
@@ -24,8 +24,6 @@ function profile() {
     const widthLiveness = `${parseFloat(featureAverages.liveness) * 100}%`;
     const widthSpeech = `${parseFloat(featureAverages.speechiness) * 100}%`;
     const widthValence = `${parseFloat(featureAverages.valence) * 100}%`;
-
-    // DAY & NIGHT MODES
 
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
@@ -113,7 +111,7 @@ function profile() {
                     {/* BEDROOM - ACOUSTICNESS*/}
                     <div className={styles.statsBox}>
                         <picture>
-                            <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                            <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
                             <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
                         </picture>
                             <div className={styles.statsBoxHeader}>
@@ -155,7 +153,7 @@ function profile() {
                         {/* OFFICE - VOCAL */}
                         <div className={styles.statsBox}>
                             <picture>
-                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
                                 <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
                             </picture>
 
@@ -198,7 +196,7 @@ function profile() {
                         {/* ENTRANCE - INSTURMENTALNESS */}
                         <div className={styles.statsBox}>
                             <picture>
-                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
                                 <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
                             </picture>
 
@@ -242,7 +240,7 @@ function profile() {
                         {/*KITCHEN - LIVENESS */ }
                         <div className={styles.statsBox}>
                             <picture>
-                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
                                 <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
                             </picture>
 
@@ -286,7 +284,7 @@ function profile() {
                         {/* LIVING ROOM - DANCEABILITY */}
                         <div className={styles.statsBox}>
                             <picture>
-                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
                                 <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
                             </picture>
 
@@ -330,7 +328,7 @@ function profile() {
                         {/* WALLPAPER/FLOOR - VALENCE*/}
                         <div className={styles.statsBox}>
                             <picture>
-                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
                                 <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
                             </picture>
 
@@ -374,7 +372,7 @@ function profile() {
                         {/*ENERGY -  LIGHTING */}
                         <div className={styles.statsBox}>
                             <picture>
-                                <source media="(max-width: 650px)" srcset="images/mobileStatsBox.png"></source>
+                                <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
                                 <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
                             </picture>
 

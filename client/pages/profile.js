@@ -323,8 +323,9 @@ function profile() {
                                     </div>     
 
                                     <div className={styles.artContent}>
-                                        {/* TEST CASE MAKE SURE TO CHANGE BACK to src={selectedImages.danceability} */}
-                                        <img src='/images/apt_images/livingroom/living-0.50-0.64.png' className={styles.pixelLivingRoom} alt='apt_image'></img> 
+                                        {/* HARDCODED IMG FOR TESTING PURPOSES FOR WHEN ONE HAS NO FURNITURE PIECE /}
+                                        {/*<img src='/images/apt_images/livingroom/living-0.50-0.64.png' className={styles.pixelLivingRoom} alt='apt_image'></img> */}
+                                        <img src={selectedImages.danceability} className={styles.pixelLivingRoom} alt='apt_image'></img> 
                                     </div>                                
                                 </div>
                             </div>

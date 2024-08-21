@@ -82,24 +82,29 @@ function profile() {
     }
 
     return (
-        <>
+        <>            
+            <DayNightToggleButton></DayNightToggleButton>
             {mode === 'day' ? 
                 <MenuButton textColor='black' backgroundColor='white' borderColor='black' hoverBackgroundColor='gray' hoverTextColor='black'/>
                 :
                 <MenuButton textColor='white' backgroundColor='#1a2c3d' borderColor='white' hoverBackgroundColor='gray' hoverTextColor='white'></MenuButton>
             }
-            <DayNightToggleButton></DayNightToggleButton>
+
             <body className={styles.main} style={{ backgroundColor: stylesList.backgroundColor}}>
+
                 <div>     
                         <img className={styles.cloudLeft} src='/images/cloud.png'></img>
                         <img className={styles.cloudRight} src='/images/cloud.png'></img>
 
                         <div className={styles.titleContainer}>
-                            <p className={styles.titleText} style={{ color: stylesList.textColor}}>WELCOME TO STUDIOFY</p>
+                            <div className={styles.mover}>
+                                <p className={styles.titleText} style={{ color: stylesList.textColor}}>WELCOME TO STUDIOFY</p>
 
-                            <div className={styles.titleDescription} style={{color: stylesList.borderColor}}>
-                                <p className={styles.terminusFont} style={{ color: stylesList.textColor}}> LET'S GO ON A ROOM TOUR...</p>
-                                <i className={styles.circleDown} style={{ fontSize: '2vw', color: stylesList.iconColor, backgroundColor: stylesList.backgroundColor }}><FontAwesomeIcon icon={faAngleDown} /></i>
+                                <div className={styles.titleDescription} style={{color: stylesList.borderColor}}>
+                                    <p className={styles.terminusFont} style={{ color: stylesList.textColor}}> LET'S GO ON A ROOM TOUR...</p>
+                                    <i className={styles.circleDown} style={{ fontSize: '2vw', color: stylesList.iconColor, backgroundColor: stylesList.backgroundColor }}><FontAwesomeIcon icon={faAngleDown} /></i>
+                                
+                                </div>
                             </div>
                         </div> 
                 </div>
@@ -122,30 +127,31 @@ function profile() {
                                 <div className={styles.statsContent}>
                                     <p className={styles.categoryName} style={{color: stylesList.textColor}}> ACOUSTICNESS </p>
 
-                                        <div className={styles.barContainer}>
-                                            <div className={styles.averageBar} style={{ width: widthAcoustic , backgroundColor: stylesList.borderColor}}>
-                                                <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthAcoustic).toFixed(0)}% </p>
-                                            </div>
+                                    <div className={styles.barContainer}>
+                                        <div className={styles.averageBar} style={{ width: widthAcoustic , backgroundColor: stylesList.borderColor}}>
+                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthAcoustic).toFixed(0)}% </p>
                                         </div>
+                                    </div>
 
-                                        <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average confidence measure of your music being acoustic!</p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average confidence measure of your music being acoustic!</p>
 
-                                        {/* decorBar only used in mobile */}
-                                        <div className={styles.decorBar} style={{backgroundColor: stylesList.borderColor}}></div>
+                                    {/* decorBar only used in mobile */}
+                                    <div className={styles.decorBar} style={{backgroundColor: stylesList.borderColor}}></div>
+
                                     <div className={styles.closeSongContainer}>
-
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}} > SONG CLOSEST TO YOUR ACOUSTICNESS SCORE:</p>
 
                                         <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}> {closestTracks.acousticness?.track_name} By: {closestTracks.acousticness?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.acousticness?.album_art}></img>
                                     </div>
-                                        <div className={styles.spotifyButton}>
-                                            <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
-                                        </div>
-                                </div>
 
-                                <div className={styles.artContent}>
-                                            <img className={styles.pixelBedroom} src={selectedImages.acousticness} alt='apt_image'></img> 
+                                    <div className={styles.spotifyButton}>
+                                        <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                    </div>
+
+                                    <div className={styles.artContent}>
+                                        <img className={styles.pixelBedroom} src={selectedImages.acousticness} alt='apt_image'></img> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -165,16 +171,16 @@ function profile() {
                                 <div className={styles.statsContent}>
                                     <p className={styles.categoryName} style={{color: stylesList.textColor}}> VOCALNESS </p>
 
-                                        <div className={styles.barContainer}>
-                                            <div className={styles.averageBar} style={{ width: widthSpeech , backgroundColor: stylesList.borderColor}}>
-                                                <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthSpeech).toFixed(0)}% </p>
-                                            </div>
+                                    <div className={styles.barContainer}>
+                                        <div className={styles.averageBar} style={{ width: widthSpeech , backgroundColor: stylesList.borderColor}}>
+                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthSpeech).toFixed(0)}% </p>
                                         </div>
+                                    </div>
 
-                                        <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average presence of spoken words in your music and audios </p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average presence of spoken words in your music and audios </p>
 
-                                        {/* decorBar only used in mobile */}
-                                        <div className={styles.decorBar}></div>
+                                    {/* decorBar only used in mobile */}
+                                    <div className={styles.decorBar}></div>
 
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR SPEECHINESS SCORE: </p>
@@ -185,10 +191,9 @@ function profile() {
                                         <div className={styles.spotifyButton}>
                                             <a href={closestTracks.acousticness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                         </div>
-                                </div>
-
-                                <div className={styles.artContent}>
-                                            <img className={styles.pixelOffice} src={selectedImages.speechiness} alt='apt_image'></img> 
+                                    <div className={styles.artContent}>
+                                        <img className={styles.pixelOffice} src={selectedImages.speechiness} alt='apt_image'></img> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -208,17 +213,16 @@ function profile() {
                                 <div className={styles.statsContent}>
                                     <p className={styles.categoryName} style={{color: stylesList.textColor}}> INSTRUMENTALNESS </p>
 
-                                        <div className={styles.barContainer}>
-                                            <div className={styles.averageBar} style={{ width: widthInstrument , backgroundColor: stylesList.borderColor}}>
-                                                <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthInstrument).toFixed(0)}% </p>
-                                            </div>
-
+                                    <div className={styles.barContainer}>
+                                        <div className={styles.averageBar} style={{ width: widthInstrument , backgroundColor: stylesList.borderColor}}>
+                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthInstrument).toFixed(0)}% </p>
                                         </div>
+                                    </div>
 
-                                        <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average occurance of vocals in your music  </p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average occurance of vocals in your music  </p>
 
-                                        {/* decorBar only used in mobile */}
-                                        <div className={styles.decorBar}></div>
+                                    {/* decorBar only used in mobile */}
+                                    <div className={styles.decorBar}></div>
                                         
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR INSTURMENTALNESS SCORE: </p>
@@ -226,13 +230,14 @@ function profile() {
                                         <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.instrumentalness?.track_name} By: {closestTracks.instrumentalness?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.instrumentalness?.album_art}></img>
                                     </div>
-                                        <div className={styles.spotifyButton}>
-                                            <a href={closestTracks.instrumentalness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
-                                        </div>
-                                </div>
 
-                                <div className={styles.artContent}>
-                                            <img className={styles.pixelEntrance} src={selectedImages.instrumentalness} alt='apt_image'></img> 
+                                    <div className={styles.spotifyButton}>
+                                        <a href={closestTracks.instrumentalness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                    </div>
+
+                                    <div className={styles.artContent}>
+                                        <img className={styles.pixelEntrance} src={selectedImages.instrumentalness} alt='apt_image'></img> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -252,31 +257,30 @@ function profile() {
                                 <div className={styles.statsContent}>
                                     <p className={styles.categoryName} style={{color: stylesList.textColor}}> LIVENESS </p>
 
-                                        <div className={styles.barContainer}>
-                                            <div className={styles.averageBar} style={{ width: widthLiveness , backgroundColor: stylesList.borderColor}}>
-                                                <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthLiveness).toFixed(0)}% </p>
-                                            </div>
-
+                                    <div className={styles.barContainer}>
+                                        <div className={styles.averageBar} style={{ width: widthLiveness , backgroundColor: stylesList.borderColor}}>
+                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthLiveness).toFixed(0)}% </p>
                                         </div>
+                                    </div>
 
-                                        <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the likeliness that your music is being performed live </p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the likeliness that your music is being performed live </p>
 
-                                        {/* decorBar only used in mobile */}
-                                        <div className={styles.decorBar}></div>
+                                    {/* decorBar only used in mobile */}
+                                    <div className={styles.decorBar}></div>
+
                                     <div className={styles.closeSongContainer}>
-
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR LIVENESS SCORE: </p>
-
                                         <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.liveness?.track_name} By: {closestTracks.liveness?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.liveness?.album_art}></img>
                                     </div>
-                                        <div className={styles.spotifyButton}>
-                                            <a href={closestTracks.liveness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
-                                        </div>
-                                </div>
 
-                                <div className={styles.artContent}>
-                                            <img className={styles.pixelKitchen} src={selectedImages.liveness} alt='apt_image'></img> 
+                                    <div className={styles.spotifyButton}>
+                                        <a href={closestTracks.liveness?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                    </div>
+
+                                    <div className={styles.artContent}>
+                                        <img className={styles.pixelKitchen} src={selectedImages.liveness} alt='apt_image'></img> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -296,31 +300,32 @@ function profile() {
                                 <div className={styles.statsContent}>
                                     <p className={styles.categoryName} style={{color: stylesList.textColor}}> DANCEABILITY </p>
 
-                                        <div className={styles.barContainer}>
-                                            <div className={styles.averageBar} style={{ width: widthLiveness , backgroundColor: stylesList.borderColor}}>
-                                                <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthLiveness).toFixed(0)}% </p>
-                                            </div>
-
+                                    <div className={styles.barContainer}>
+                                        <div className={styles.averageBar} style={{ width: widthLiveness , backgroundColor: stylesList.borderColor}}>
+                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthLiveness).toFixed(0)}% </p>
                                         </div>
 
-                                        <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents How Suitable Your Music Is For Dancing </p>
+                                    </div>
 
-                                        {/* decorBar only used in mobile */}
-                                        <div className={styles.decorBar}></div>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents How Suitable Your Music Is For Dancing </p>
+
+                                    {/* decorBar only used in mobile */}
+                                    <div className={styles.decorBar}></div>
 
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR DANCEABILITY SCORE: </p>
-
                                         <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.danceability?.track_name} By: {closestTracks.danceability?.artist_names?.join(', ')}    </p>
                                         <img className={styles.albumArt} src={closestTracks.danceability?.album_art}></img>
                                     </div>
-                                        <div className={styles.spotifyButton}>
-                                            <a href={closestTracks.danceability?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
-                                        </div>
-                                </div>
 
-                                <div className={styles.artContent}>
-                                            <img className={styles.pixelLivingRoom} src={selectedImages.danceability} alt='apt_image'></img> 
+                                    <div className={styles.spotifyButton}>
+                                        <a href={closestTracks.danceability?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                    </div>     
+
+                                    <div className={styles.artContent}>
+                                        {/* TEST CASE MAKE SURE TO CHANGE BACK to src={selectedImages.danceability} */}
+                                        <img src='/images/apt_images/livingroom/living-0.50-0.64.png' className={styles.pixelLivingRoom} alt='apt_image'></img> 
+                                    </div>                                
                                 </div>
                             </div>
                         </div>
@@ -340,31 +345,30 @@ function profile() {
                                 <div className={styles.statsContent}>
                                     <p className={styles.categoryName} style={{color: stylesList.textColor}}> VALENCE </p>
 
-                                        <div className={styles.barContainer}>
-                                            <div className={styles.averageBar} style={{ width: widthValence , backgroundColor: stylesList.borderColor}}>
-                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthValence).toFixed(0)}% </p>
-                                            </div>
+                                    <div className={styles.barContainer}>
+                                        <div className={styles.averageBar} style={{ width: widthValence , backgroundColor: stylesList.borderColor}}>
+                                        <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthValence).toFixed(0)}% </p>
                                         </div>
+                                    </div>
 
-                                        <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average positivity in your music </p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average positivity in your music </p>
 
-                                        {/* decorBar only used in mobile */}
-                                        <div className={styles.decorBar}></div>
+                                    {/* decorBar only used in mobile */}
+                                    <div className={styles.decorBar}></div>
+                                
+                                    <div className={styles.closeSongContainer}>
+                                        <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR VALENCE SCORE: </p>
+                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.valence?.track_name} By: {closestTracks.valence?.artist_names?.join(', ')}    </p>
+                                        <img className={styles.albumArt} src={closestTracks.valence?.album_art}></img>
+                                    </div>
                                     
-                                        <div className={styles.closeSongContainer}>
-                                            <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR VALENCE SCORE: </p>
+                                    <div className={styles.spotifyButton}>
+                                        <a href={closestTracks.valence?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
+                                    </div>
 
-                                            <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.valence?.track_name} By: {closestTracks.valence?.artist_names?.join(', ')}    </p>
-                                            <img className={styles.albumArt} src={closestTracks.valence?.album_art}></img>
-                                        </div>
-                                        
-                                        <div className={styles.spotifyButton}>
-                                            <a href={closestTracks.valence?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
-                                        </div>
-                                </div>
-
-                                <div className={styles.artContent}>
-                                            <img className={styles.pixelWallFloor} src={selectedImages.valence} alt='apt_image'></img> 
+                                    <div className={styles.artContent}>
+                                        <img className={styles.pixelWallFloor} src={selectedImages.valence} alt='apt_image'></img> 
+                                    </div>                                
                                 </div>
                             </div>
                         </div>
@@ -384,21 +388,19 @@ function profile() {
                                 <div className={styles.statsContent}>
                                     <p className={styles.categoryName} style={{color: stylesList.textColor}}> ENERGY </p>
 
-                                        <div className={styles.barContainer}>
-                                            <div className={styles.averageBar} style={{ width: widthEnergy , backgroundColor: stylesList.borderColor}}>
-                                                <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthEnergy).toFixed(0)}% </p>
-                                            </div>
-
+                                    <div className={styles.barContainer}>
+                                        <div className={styles.averageBar} style={{ width: widthEnergy , backgroundColor: stylesList.borderColor}}>
+                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthEnergy).toFixed(0)}% </p>
                                         </div>
+                                    </div>
 
-                                        <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average measure of intensity and activity in your music </p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average measure of intensity and activity in your music </p>
 
-                                        {/* decorBar only used in mobile */}
-                                        <div className={styles.decorBar}></div>
+                                    {/* decorBar only used in mobile */}
+                                    <div className={styles.decorBar}></div>
 
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR ENERGY SCORE: </p>
-
                                         <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.energy?.track_name} By: {closestTracks.energy?.artist_names?.join(', ')}</p>
                                         <img className={styles.albumArt} src={closestTracks.energy?.album_art}></img> 
                                     </div>
@@ -406,10 +408,10 @@ function profile() {
                                     <div className={styles.spotifyButton}>
                                         <a href={closestTracks.energy?.track_link} target='_blank' className={styles.spotifyButtonText}>Play On Spotify</a>
                                     </div>
-                                </div>
 
-                                <div className={styles.artContent}>
-                                            <img className={styles.pixelWallFloor} src={selectedImages.energy} alt='apt_image'></img> 
+                                    <div className={styles.artContent}>
+                                                <img className={styles.pixelWallFloor} src={selectedImages.energy} alt='apt_image'></img> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -443,20 +445,15 @@ function profile() {
 
                         <div className={styles.interactContainer}>
                                 <button onClick={downloadApartmentHandler} style={{cursor: 'pointer'}} className={styles.downloadAPT}>
-                                    {/* <img style={{height: '75%'}} src='/images/Download.png'></img> */}
-                                    {/* <img className={styles.shareImg}src='/images/Copy Link.png'></img> */}
                                     <i><FontAwesomeIcon icon={faDownload} className={styles.iconsFormater} /></i>
                                     <p className={styles.shareFont}>SAVE YOUR STUDIO</p>
                                 </button>
 
                                 <button className={styles.shareLink}>
-                                    {/* <img src='/images/Copy Link.png' className={styles.iconsFormater}></img> */}
                                     <i><FontAwesomeIcon icon={faShareFromSquare} className={styles.iconsFormater} /></i>
-                                    {/* <img className={styles.shareImg}src='/images/Copy Link.png'></img> */}
                                     <p className={styles.shareFont} >SHARE OUR SITE!</p>
                                 </button>
                         </div>
-                            
                             <i className={styles.circleDownFooter}><FontAwesomeIcon icon={faAngleUp} style={{ fontSize: '2vw' }} /></i>
                     </div>
 

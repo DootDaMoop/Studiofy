@@ -23,8 +23,8 @@ function about() {
             :
             <MenuButton textColor='white' backgroundColor='#1a2c3d' borderColor='white' hoverBackgroundColor='gray' hoverTextColor='white'></MenuButton>
         }
-        <DayNightToggleButton></DayNightToggleButton>
         <div className={aboutStyles.container} style={{ backgroundColor: stylesList.backgroundColor}}>
+        <DayNightToggleButton></DayNightToggleButton>
 
             <div className={aboutStyles.headerContainer}>
                 <h1 className={aboutStyles.header} style={{ color: stylesList.textColor}}>About Studiofy</h1>

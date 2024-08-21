@@ -49,9 +49,9 @@ function index() {
 
   return (
     <>
-      <DayNightToggleButton></DayNightToggleButton>
       <div className={styles.contentWrapper}>
         <div className={styles.container} style={{backgroundColor: stylesList.backgroundColor}}>
+        <DayNightToggleButton></DayNightToggleButton>
 
           <div className={styles.mainWindow}>
             <img src={stylesList.bgTallWindowImageSrc} alt='Tall Background Window' className={styles.bgWindowTall}></img>

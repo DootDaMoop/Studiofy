@@ -10,7 +10,8 @@
 .headerContainer{
     position: relative;
     display: inline-block;
-    margin-left: 50px;
+    /* margin-left: 50px; */
+    left: 5%;
 }
 
 
@@ -20,6 +21,7 @@
     font-size: 6.5rem;
     text-align: left;
     margin: 80px auto 30px auto;
+    margin-top: 18%;
 }
 
 
@@ -35,6 +37,7 @@
 .detailsContainer{
     font-family: 'Sora', 'Inter', 'Helvetica Neue', sans-serif;
     width: 80%;
+    margin-left: 5%;
 }
 
 .detailHeader{

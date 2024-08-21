@@ -114,6 +114,14 @@
     z-index: 1;
 }
 
+.mover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* margin-top: -40%; */
+}
+
 .titleText {
     /* background-color: blue; */
     font-size: 5vw;
@@ -127,6 +135,7 @@
     font-style:bold;
     font-weight: 750;
     z-index: 1;
+    
 }
 
 /* MEDIA TAG FOR TITLE  */
@@ -490,14 +499,16 @@
   /*Container For Pixel Furniture */
   .artContent {
     position: absolute;
-    top: 25%;
-    right: 0%;
-    width: 50%;
-    height: 50%;
+    top: 20%;
+    right: -120%;
+    width: 275px;
+    height: 255px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    /* background-color: yellow; */
+
   }
 
   /*pixelWallFloor HAS THE SAME CSS FOR THE WALLPAPER AND THE LIGHTING. temporary until angela makes the icons*/
@@ -512,17 +523,37 @@
   }
 
   /* Adjust Positioning As Art Is Installed */
-  .pixelBedroom { transform: scale(2); left: -50%; }
+  .pixelBedroom { 
+    transform: scale(2);
+    left: -48%; 
+    top: -5%;
+    }
 
-  .pixelOffice { transform: scale(2); top: -40%; right: -5%;}
+  .pixelOffice { transform: scale(2.2);
+    top: -40%; 
+    right: 4%;
+    }
 
-  .pixelEntrance { transform: scale(2.5); top: -40%; left: 35%;}
+  .pixelEntrance {
+    transform: scale(2.5);
+    top: -40%; 
+    left: 36%;
+    }
 
-  .pixelKitchen { transform: scale(2.5); top: -30%; left: 50%;}
+  .pixelKitchen { 
+    transform: scale(2.5); 
+    top: -30%; 
+    left: 60%;
+}
 
-  .pixelLivingRoom { transform: scale(2); top:15%;}
+  .pixelLivingRoom { 
+    transform: scale(2);
+    top:15%;
+    }
 
-  .pixelWallFloor { transform: scale(1); }
+  .pixelWallFloor { 
+    transform: scale(1);
+ }
 
   /* MEDIA LAYOUT OF RESULT BOXES FOR MOBILE PHONES */
   @media (max-width: 650px){
@@ -633,25 +664,60 @@
 
     .artContent{
         position: absolute;
-        bottom: -2%; 
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%; 
+        left: 8%;
+        width: 250px; 
         height: 23%; 
         top: 69%; 
-        right: auto; 
+        /* background-color: yellow; */
+        /* opacity: 10%; */
     }
 
-    .pixelBedroom{transform: scale(1.4); left: -35%; top: -5%;}
+    .pixelBedroom {
+        position: absolute;
+        height: 150px;
+        width: 230px;
+        left: -40%;
+        top: 5%;
+    }
 
-    .pixelOffice{ transform: scale(1.3); top: -20%; right: 0%;}
+    .pixelOffice { 
+        position: absolute;
+        height: 160px;
+        width: 230px;
+        left: 0%;
+        top: -35%;
+    }
 
-    .pixelKitchen{ transform: scale(1.6); right: 25%; top: -15%;}
+    .pixelEntrance {
+        position: absolute;
+        height: 160px;
+        width: 230px;
+        left: 40%;
+        top: -35%;
+    }
 
-    .pixelLivingRoom{transform: scale(1.3); top: 10%;}
+    .pixelKitchen { 
+        position: absolute;
+        height: 180px;
+        width: 250px;
+        left: 60%; 
+        top: -35%;
+    }
 
-    .pixelWallFloor{ transform: scale(0.7);}
+    .pixelLivingRoom {
+        position: absolute;
+        top: 20%;
+        height: 160px;
+        width: 230px;
+
+    }
+
+    .pixelWallFloor {
+        height: 160px;
+        width: 230px;
+    }
   }
+
   /*End of Lena's Implementation */
 
 .interactContainer {
@@ -824,5 +890,17 @@
         height: 3vh;
         width: 6vw;
         bottom: 3%;
+    }
+    .FooterDescription {
+        width: 95vw;
+        height: 50px;
+    }
+    .circleDown {
+        margin-bottom: 14.5vw;
+        height: 20px;
+        width: 20px;
+    }
+    .terminusFont {
+        font-size: 1.2em;
     }
 }

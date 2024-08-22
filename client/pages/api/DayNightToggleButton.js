@@ -10,11 +10,6 @@ function DayNightToggleButton() {
                 <img src='/images/dayButton.png' onClick={toggleMode} alt='Day Night Mode Toggle Button'  style={{ width:'95px', height:'50px' ,display:'flex', position: 'absolute', top: '5%', left: '5%', zIndex: '1'}}></img>
                 :
                 <img src='/images/nightButton.png' onClick={toggleMode} alt='Day Night Mode Toggle Button'  style={{width:'95px', height:'50px' ,display:'flex', position: 'absolute', top: '5%', left: '5%', zIndex: '1'}}></img>
-                // top: 5%;
-    //right: 5%;
-    //padding: 1rem;
-    //width: 150px;
-    //height: 45px;
             }
         </>
         

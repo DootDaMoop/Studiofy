@@ -97,28 +97,27 @@ function profile() {
                         <img className={styles.cloudRight} src='/images/cloud.png'></img>
 
                         <div className={styles.titleContainer}>
-                            <div className={styles.mover}>
+                            <div className={styles.innerTitleContainer}>
                                 <p className={styles.titleText} style={{ color: stylesList.textColor}}>WELCOME TO STUDIOFY</p>
 
                                 <div className={styles.titleDescription} style={{color: stylesList.borderColor}}>
-                                    <p className={styles.terminusFont} style={{ color: stylesList.textColor}}> LET'S GO ON A ROOM TOUR...</p>
+                                    <p className={styles.titleDescriptionFont} style={{ color: stylesList.textColor}}> LET'S GO ON A ROOM TOUR...</p>
                                     <i className={styles.circleDown} style={{ fontSize: '2vw', color: stylesList.iconColor, backgroundColor: stylesList.backgroundColor }}><FontAwesomeIcon icon={faAngleDown} /></i>
-                                
                                 </div>
                             </div>
                         </div> 
                 </div>
             
-
+            {/* MAIN CONTENT SECTION */}
                 <main>
                     <section className={styles.itemsContainer}>
                     
-                    {/* BEDROOM - ACOUSTICNESS*/}
-                    <div className={styles.statsBox}>
-                        <picture>
-                            <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
-                            <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
-                        </picture>
+                        {/* BEDROOM - ACOUSTICNESS*/}
+                        <div className={styles.statsBox}>
+                            <picture>
+                                <source media="(max-width: 650px)" srcset={stylesList.mobileStatsBoxImageSrc}></source>
+                                <img src={stylesList.statsBoxImageSrc} alt="statsBox" className={styles.statsBoxImage}></img>
+                            </picture>
                             <div className={styles.statsBoxHeader}>
                                 <p className={styles.roomSectionTitle} style={{color: stylesList.textColor}}>STUDIO - BEDROOM</p>
                             </div>
@@ -304,7 +303,6 @@ function profile() {
                                         <div className={styles.averageBar} style={{ width: widthLiveness , backgroundColor: stylesList.borderColor}}>
                                             <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthLiveness).toFixed(0)}% </p>
                                         </div>
-
                                     </div>
 
                                     <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents How Suitable Your Music Is For Dancing </p>
@@ -416,14 +414,14 @@ function profile() {
                                 </div>
                             </div>
                         </div>
-
-
                     </section>
+                    {/* END OF MAIN CONTENT SECTION */}
 
+                    {/* BOTTOM OF THE PG CONTAINING RESULTS PIXELROOM && DOWNLOAD/SHARE BUTTONS */}
                     <div className={styles.resultContainer}>
-                        <div className={styles.FooterDescription} style={{ color: stylesList.borderColor}}>
-                                <p className={styles.terminusFont} style={{color: stylesList.textColor}} >THE FINAL RESULT</p>
-                                <i className={styles.circleDown} style={{ color: stylesList.iconColor, backgroundColor: stylesList.backgroundColor}}><FontAwesomeIcon icon={faExclamation} style={{ fontSize: '2.5vw' }}/></i>
+                        <div className={styles.finalDescription} style={{ color: stylesList.borderColor}}>
+                                <p className={styles.finalDescriptionFont} style={{color: stylesList.textColor}} >THE FINAL RESULT</p>
+                                <i className={styles.exclamationCircle} style={{ color: stylesList.iconColor, backgroundColor: stylesList.backgroundColor}}><FontAwesomeIcon icon={faExclamation} style={{ fontSize: '2.5vw' }}/></i>
                         </div>
                         
                         <div className={styles.pixelContainer}>
@@ -457,8 +455,6 @@ function profile() {
                         </div>
                             <i className={styles.circleDownFooter}><FontAwesomeIcon icon={faAngleUp} style={{ fontSize: '2vw' }} /></i>
                     </div>
-
-                    
                 </main>
             </body>
         </>

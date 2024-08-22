@@ -1,9 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metrophobic&family=Sora:wght@100..800&display=swap');
 
+/* START OF MENU BUTTON & DROPDOWN STYLING */
+.button {
+    position: absolute;
+    align-items: center;
+    border-radius: 60px;
+    display: flex;
+    top: 5%;
+    right: 5%;
+    padding: 1rem;
+    width: 150px;
+    height: 45px;
+    justify-content: space-around;
+    gap: 1px;
+    font-size: 1.1rem;
+    user-select: none;
+    transition: background-color 0.3s;
+    border-style: solid;
+    z-index: 3;
+}
+
+.button:hover {
+    background-color: white;
+}
+
+.buttonDropDown {
+    position: absolute;
+    top: 9.5%;
+    width: 130px;
+    right: 5%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 0.5rem 0 0.5rem 1rem;
+    background-color: white;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    border-style: solid;
+    list-style-type: none;
+    z-index: 3;
+    font-size: large
+}
+
+.profileimg {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.menuFont {
+    font-family: "Sora", sans-serif;
+    font-weight: 500;
+    font-style: bold;
+    font: size 100px;
+    text-decoration: none;
+}
+/* END OF BUTTON STYLING */
+
+/* BODY <-MAIN */
 .body{
     min-width: 420px;
 }
+
+.main {
+    /* background-color: #F6F3E0; */
+    width: 100%;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    display: flex;
+}
+
 
 .cloudLeft {
     position: absolute;
@@ -26,6 +94,8 @@
     animation: floatRight 2.3s infinite alternate-reverse ease-in-out;
 }
 
+/* FLOAT ANIMATION FOR CLOUDS */
+
 @keyframes floatLeft {
     0% { transform: translateY(0); }
     100% { transform: translateY(50px); }
@@ -36,7 +106,11 @@
     100% { transform: translateY(50px); }
 }
 
-/* 1400, 992, 767 + Mobile px*/
+/* CLOUD SIZING FOR DIFFERENT DEVICES 
+1400 Desktops & Laptops
+992 Tablets
+767 & 600 & 400 Mobile
+*/
 
 @media (max-width: 1399px) {
     .cloudLeft {
@@ -49,7 +123,6 @@
         top: 40vh;
     }
 }
-
 
 @media (max-width: 992px) {
     .cloudLeft {
@@ -103,198 +176,107 @@
         top: 68vh;
     }
 }
- 
-.titleContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-    min-height: 100vh;
-    flex-direction: column;
-    max-width: 60rem;
-    z-index: 1;
-}
 
-.mover {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* margin-top: -40%; */
-}
+/* START OF HERO SECTION*/
+/* HERO SECTION: Hooks the User w/ Welcome Msg || Call to Action Button */
 
-.titleText {
-    /* background-color: blue; */
-    font-size: 5vw;
-    width: 55vw;
-    text-align: center;
-    align-items:center;    
-    justify-content: center;
-    display: flex;
-    letter-spacing: 0.4em;
-    font-family: "Inter", sans-serif;
-    font-style:bold;
-    font-weight: 750;
-    z-index: 1;
-    
-}
-
-/* MEDIA TAG FOR TITLE  */
-
-@media (max-width: 1200px) {
-    .titleText {
-    font-size: 7vw;
-    letter-spacing: none;
+    .titleContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+        min-height: 100vh;
+        flex-direction: column;
+        max-width: 60rem;
+        z-index: 1;
     }
-}
-@media (max-width: 608px) {
-    .titleText {
-    font-size: 10vw;
+
+    .innerTitleContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
-}
 
-.button {
-    position: absolute;
-    align-items: center;
-    border-radius: 60px;
-    display: flex;
-    top: 5%;
-    right: 5%;
-    padding: 1rem;
-    width: 150px;
-    height: 45px;
-    justify-content: space-around;
-    gap: 1px;
-    font-size: 1.1rem;
-    user-select: none;
-    transition: background-color 0.3s;
-    /* background-color:#FFFFFF; */
-    /* border-style: solid; */
-    border-style: solid;
-    z-index: 3;
-}
+    .titleText {
+        /* background-color: blue; */
+        font-size: 5vw;
+        width: 55vw;
+        text-align: center;
+        align-items:center;    
+        justify-content: center;
+        display: flex;
+        letter-spacing: 0.4em;
+        font-family: "Inter", sans-serif;
+        font-style:bold;
+        font-weight: 750;
+        z-index: 1;
+        
+    }
 
-.button:hover {
-    background-color: white;
-}
+    /* MEDIA TAG FOR TITLE  */
+    @media (max-width: 1200px) {
+        .titleText {
+        font-size: 7vw;
+        letter-spacing: none;
+        }
+    }
+    @media (max-width: 608px) {
+        .titleText {
+        font-size: 10vw;
+        }
+    }
 
-.buttonDropDown {
-    position: absolute;
-    top: 9.5%;
-    width: 130px;
-    right: 5%;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    padding: 0.5rem 0 0.5rem 1rem;
-    background-color: white;
-    cursor: pointer;
-    background-color: #FFFFFF;
-    border-style: solid;
-    list-style-type: none;
-    z-index: 3;
-    font-size: large
-}
+    .titleDescription {
+        height: 8vw;
+        width: 70vw;
+        margin-bottom: 50px;
+        bottom: 5%;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 80px;
+        border-style: solid;
+        overflow: hidden;
+    }
 
-.profileimg {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background-size: cover;
-}
+    .titleDescriptionFont {
+        font-size: 3vw;
+        /* color: red; */
+        font-style: bold;
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+        letter-spacing: 0.2em;
+    }
 
-.menuFont {
-    font-family: "Sora", sans-serif;
-    font-weight: 500;
-    font-style: bold;
-    font: size 100px;
-    text-decoration: none;
-}
+    /* titleDescription FONT ex. Lets go on a Room Tour*/
+    .finalDescriptionFont {
+        font-size: 3vw;
+        /* color: red; */
+        font-style: bold;
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+        letter-spacing: 0.2em;
+    }
 
-.main {
-    /* background-color: #F6F3E0; */
-    width: 100%;
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column;
-    display: flex;
-}
+    /* CIRCLE W/ DOWN ARROW COMPONENT */
+    .circleDown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        height: 3.4vw;
+        width: 3.4vw;
+        /* background-color: #FFFFFF; */
+        border-style: solid;
+        position: absolute;
+        margin-bottom: 7.5vw;
+    }
 
-.pixelContainer {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    /* background-color: #F6F3E0; */
-}
+/******* END OF HERO SECTION *******/
 
-.pixelFinal {
-    position: absolute;
-    z-index: 0;
-    width: 40vw;
-    /* object-fit: cover; */
-}
 
-.pixelWindow {
-    /* position: absolute; */
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
-    height: 47px;
-    width: 50vw;
-    border-radius:50px 50px 0px 0px;
-    border-style: solid; 
-    border-bottom: 5px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    /* background-color: white; */
-    justify-content: space-evenly;
-    gap: 10vw;
-    /* background-color: red; */
-}
-.pixelBorder {
-    align-items: center;
-    justify-content: center;
-    /* background-color: #FFFFFF; */
-    height: 60vh;
-    width: 50vw;
-    border-radius: 0px 0px 30px 30px;
-    z-index: 0;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    /* background-color: yellow; */
-}
-
-.titleDescription {
-    /* margin-top: 10%; */
-    height: 8vw;
-    width: 70vw;
-    margin-bottom: 50px;
-    bottom: 5%;
-    /* background-color: blue; */
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 80px;
-    border-style: solid;
-    overflow: hidden;
-}
-
-.circleDown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    height: 3.5vw;
-    width: 3.5vw;
-    /* background-color: #FFFFFF; */
-    border-style: solid;
-    position: absolute;
-    margin-bottom: 8.5vw;
-}
-
+/* CONTAINS ALL STUDIO CARDS */
 .itemsContainer {
     display: flex;
     align-items: center;
@@ -304,8 +286,7 @@
     margin-bottom: 5vw;
 }
 
-/*Lena's Implementation*/
-
+/* INDIVIDUAL STUDIO CARDS */
 .statsBox {
     position: relative;
     width: 100%;
@@ -313,13 +294,15 @@
     margin: 0 auto;
     font-family: "Inter",Arial, sans-serif;
     margin-top: 5%;
-  }
-  
-  /*BASE IMAGE */
-  .statsBoxImage {
+}
+
+/*BASE IMAGE */
+.statsBoxImage {
     width: 100%;
     height: auto;
-  }
+}
+
+/*Lena's Implementation*/
 
   /*CONTAINER OF ONLY ROOM SECTION TITLE */
   .statsBoxHeader {
@@ -362,7 +345,6 @@
     height: 100%;
     max-width: 250px;
   }
-
 
   /*EX OF TEXT: ENERGY */
   .categoryName {
@@ -415,7 +397,6 @@
     font-family: "Inter", sans-serif;
   }
 
-
 /* EXAMPLE OF TEXT: "Represents the average positivity in your music" */
   .averageDescription {
     font-size: 1rem;
@@ -425,7 +406,6 @@
     text-align: center;
     /* font-weight: 500; */
     font-family: "Inter", sans-serif;
-
   }
 
   /*Container for Song Closest to Category */
@@ -442,9 +422,7 @@
     text-align: center;
   }
 
-
  /* EXAMPLE OF TEXT: "{SONG} By: {ARTIST}" */
-
   .songCloseDetails {
     font-size: 0.9rem;
     font-weight: 350;
@@ -507,8 +485,6 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* background-color: yellow; */
-
   }
 
   /*pixelWallFloor HAS THE SAME CSS FOR THE WALLPAPER AND THE LIGHTING. temporary until angela makes the icons*/
@@ -716,9 +692,99 @@
         height: 160px;
         width: 230px;
     }
+
   }
 
-  /*End of Lena's Implementation */
+  /******End of Lena's Implementation ********/
+
+/* CONTAINS ALL RESULTS INFO */
+.resultContainer {
+    /* background-color: blue; */
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exclamationCircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3.4vw;
+    width: 3.4vw;
+    /* background-color: #FFFFFF; */
+    border-style: solid;
+    position: absolute;
+    margin-bottom: 7.5vw;
+}
+
+.finalDescription {
+    margin-top: 2vh;
+    height: 7vw;
+    width: 65vw;
+    margin-bottom: 2vw;
+    /* background-color: red; */
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+/* CONTAINER FOR FINAL RESULT PIXEL ROOM */
+.pixelContainer {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+/* Top Window holding (username) Studio - STUDIOFY */
+.pixelWindow {
+    /* position: absolute; */
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    height: 47px;
+    width: 45vw;
+    border-radius:40px 40px 0px 0px;
+    border-style: solid; 
+    border-bottom: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    gap: 10vw;
+}
+
+/* Main Window Holding Final Pixel Room Art */
+.pixelBorder {
+    align-items: center;
+    justify-content: center;
+    /* background-color: #FFFFFF; */
+    height: 55vh;
+    width: 45vw;
+    border-radius: 0px 0px 30px 30px;
+    z-index: 0;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    /* background-color: yellow; */
+}
+
+/* STYLING FOR EACH INDIVIDUAL FURNITURE PIECE, CREATING THE CONCLUDING PIXEL ROOM ART */
+.pixelFinal {
+    position: absolute;
+    z-index: 0;
+    width: 38vw;
+    /* object-fit: cover; */
+}
 
 .interactContainer {
     display: flex;
@@ -726,7 +792,7 @@
     justify-content: center;
     /* background-color: #F6F3E0; */
     bottom: 15%;
-    margin-top: 2%;;
+    margin-top: 2%;
     width: 100vw;
     flex-direction: row;
     gap: 1%;
@@ -761,45 +827,14 @@
 
 }
 
-.centerize {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: -5%;
-}
+/* TODO: */
+/* .shareFont {
+    font-size: 5em;
+} */
 
-.resultContainer {
-    /* background-color: blue; */
-    height: 100vh;
-    flex-direction: column;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.FooterDescription {
-    margin-top: 2vh;
-    height: 8vw;
-    width: 70vw;
-    margin-bottom: 3vw;
-    /* background-color: red; */
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 80px;
-    border-style: solid;
-    overflow: hidden;
-}
-
-.terminusFont {
-    font-size: 3vw;
-    /* color: red; */
-    font-style: bold;
-    font-weight: 700;
-    font-family: "Inter", sans-serif;
-    letter-spacing: 0.2em;
+.iconsFormater {
+    height: 3.2vh;
+    width: 3.2vw;
 }
 
 .circleDownFooter {
@@ -816,12 +851,7 @@
     bottom: 1vw;
 }
 
-.iconsFormater {
-    height: 3.2vh;
-    width: 3.2vw;
-}
-
-/* MEDIA TAGS FOR PIXEL ROOM */
+/* RESPONSIVENESS FOR RESULTS SECTION ELEMENTS */
 /* 1400, 992, 768 + Mobile px*/
 
 @media (max-width: 1400px) {
@@ -840,12 +870,19 @@
 }
 
 @media (max-width: 992px) {
-    .FooterDescription {
-        width: 85vw;
+    .finalDescription {
+        width: 90vw;
+        height: 10vh;
+    }
+    .exclamationCircle {
+        margin-bottom: 10vh;
+    }
+    .finalDescriptionFont {
+        font-size: 4.5vw;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
     .pixelBorder {
         width: 349px;
         height: 273.5px;
@@ -877,30 +914,58 @@
     .downloadAPT {
         width: 50vw;
     }
+    .finalDescription {
+        width: 80vw;
+        height: 7vh;
+    }
+    .circleDown {
+        /* margin-bottom: 8vh; */
+        width: 30px auto;
+        height: 30px auto;
+    }
+    .finalDescriptionFont {
+        font-size: 4vw;
+    }
+    .exclamationCircle {
+        margin-bottom: 10.5vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .exclamationCircle {
+        margin-bottom: 13.5vw;
+        height: 15px;
+        width: 15px;
+    }
 }
 
 @media (max-width: 420px) {
     .shareFont {
         font-size: 0.8em;
     }
+
     .iconsFormater {
         display: none;
     }
+
     .circleDownFooter {
         height: 3vh;
         width: 6vw;
         bottom: 3%;
     }
-    .FooterDescription {
-        width: 95vw;
+
+    .finalDescription {
+        width: 90vw;
         height: 50px;
     }
+
     .circleDown {
-        margin-bottom: 14.5vw;
-        height: 20px;
-        width: 20px;
+        /* margin-bottom: 10.5vw; */
+        height: 10px ;
+        width: 10px ;
     }
-    .terminusFont {
+
+    .finalDescriptionFont {
         font-size: 1.2em;
     }
 }

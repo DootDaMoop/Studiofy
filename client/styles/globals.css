@@ -2,6 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    /* LINE BELOW RESOLVES ISSUE W/ WHITE LINE AT BOTTOM OF PG*/
+    background-color: var(--background-color);
 }
 
 :root {
@@ -24,7 +26,7 @@ html, body {
     --text-color: var(--border-text-color-day);
     --border-color: var(--border-color-day);
     --color: var(--color-text-percentage-day);
-    --outline-color: var(--color-menu-button-day)
+    --outline-color: var(--color-menu-button-day);
     /* --icon-color: var(--border-icon-color-day); */
 }
 
@@ -33,7 +35,7 @@ html, body {
     --text-color: var(--border-text-color-night);
     --border-color: var(--border-color-night);
     --color: var(--color-text-percentage-night);
-    --outline-color: var(--color-menu-button-night)
+    --outline-color: var(--color-menu-button-night);
     /* --icon-color: var(--border-icon-color-night); */
 }
 

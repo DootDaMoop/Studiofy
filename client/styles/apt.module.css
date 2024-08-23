@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metrophobic&family=Sora:wght@100..800&display=swap');
 
 /* START OF MENU BUTTON & DROPDOWN STYLING */
+
 .button {
     position: absolute;
     align-items: center;
@@ -33,7 +34,6 @@
     border-radius: 10px;
     box-shadow: var(--shadow);
     padding: 0.5rem 0 0.5rem 1rem;
-    background-color: white;
     cursor: pointer;
     background-color: #FFFFFF;
     border-style: solid;
@@ -64,12 +64,11 @@
 }
 
 .main {
-    /* background-color: #F6F3E0; */
+    display: flex;
     width: 100%;
     justify-content: center;
     align-items: center; 
     flex-direction: column;
-    display: flex;
 }
 
 
@@ -715,7 +714,6 @@
     border-radius: 50px;
     height: 3.4vw;
     width: 3.4vw;
-    /* background-color: #FFFFFF; */
     border-style: solid;
     position: absolute;
     margin-bottom: 7.5vw;
@@ -726,7 +724,6 @@
     height: 7vw;
     width: 65vw;
     margin-bottom: 2vw;
-    /* background-color: red; */
     z-index: 0;
     display: flex;
     align-items: center;
@@ -791,7 +788,7 @@
     align-items: center;
     justify-content: center;
     /* background-color: #F6F3E0; */
-    bottom: 15%;
+    /* bottom: 15%; */
     margin-top: 2%;
     width: 100vw;
     flex-direction: row;
@@ -824,7 +821,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 /* TODO: */
@@ -837,7 +833,7 @@
     width: 3.2vw;
 }
 
-.circleDownFooter {
+.circleUpFooter {
     right: 12%;
     display: flex;
     justify-content: center;
@@ -948,7 +944,7 @@
         display: none;
     }
 
-    .circleDownFooter {
+    .circleUpFooter {
         height: 3vh;
         width: 6vw;
         bottom: 3%;

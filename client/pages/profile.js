@@ -453,7 +453,7 @@ function profile() {
                                     <p className={styles.shareFont} >SHARE OUR SITE!</p>
                                 </button>
                         </div>
-                            <i className={styles.circleDownFooter}><FontAwesomeIcon icon={faAngleUp} style={{ fontSize: '2vw' }} /></i>
+                            <i className={styles.circleUpFooter}><FontAwesomeIcon icon={faAngleUp} style={{ fontSize: '2vw' }} /></i>
                     </div>
                 </main>
             </body>

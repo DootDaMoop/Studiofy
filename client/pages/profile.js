@@ -25,6 +25,15 @@ function profile() {
     const widthSpeech = `${parseFloat(featureAverages.speechiness) * 100}%`;
     const widthValence = `${parseFloat(featureAverages.valence) * 100}%`;
 
+       // Truncate string function ?. is optional chaining = checks for ex. length of str even if its null or Undefined
+       const truncateString = (str, num) => {
+        if (str?.length > num) {
+            return str.slice(0, num) + "...";
+        } else {
+            return str;
+        }
+    };
+
     useEffect(() => {
         fetch('http://localhost:8080/profile', {
             credentials: 'include'
@@ -140,7 +149,9 @@ function profile() {
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}} > SONG CLOSEST TO YOUR ACOUSTICNESS SCORE:</p>
 
-                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}> {closestTracks.acousticness?.track_name} By: {closestTracks.acousticness?.artist_names?.join(', ')}    </p>
+                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}> 
+                                            {truncateString(closestTracks.acousticness?.track_name, 23)} By: {truncateString(closestTracks.acousticness?.artist_names?.join(', '), 18)} 
+                                        </p>
                                         <img className={styles.albumArt} src={closestTracks.acousticness?.album_art}></img>
                                     </div>
 
@@ -184,7 +195,9 @@ function profile() {
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR SPEECHINESS SCORE: </p>
 
-                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.speechiness?.track_name} By: {closestTracks.speechiness?.artist_names?.join(', ')}    </p>
+                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}> 
+                                            {truncateString(closestTracks.speechiness?.track_name, 23)} By: {truncateString(closestTracks.speechiness?.artist_names?.join(', '), 18)} 
+                                        </p> 
                                         <img className={styles.albumArt} src={closestTracks.speechiness?.album_art}></img>
                                     </div>
                                         <div className={styles.spotifyButton}>
@@ -226,7 +239,9 @@ function profile() {
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR INSTURMENTALNESS SCORE: </p>
 
-                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.instrumentalness?.track_name} By: {closestTracks.instrumentalness?.artist_names?.join(', ')}    </p>
+                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>
+                                            {truncateString(closestTracks.instrumentalness?.track_name, 23)} By: {truncateString(closestTracks.instrumentalness?.artist_names?.join(', '), 18)} 
+                                        </p>
                                         <img className={styles.albumArt} src={closestTracks.instrumentalness?.album_art}></img>
                                     </div>
 
@@ -269,7 +284,10 @@ function profile() {
 
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR LIVENESS SCORE: </p>
-                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.liveness?.track_name} By: {closestTracks.liveness?.artist_names?.join(', ')}    </p>
+                                        
+                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>
+                                            {truncateString(closestTracks.liveness?.track_name, 23)} By: {truncateString(closestTracks.liveness?.artist_names?.join(', '), 18)} 
+                                        </p>
                                         <img className={styles.albumArt} src={closestTracks.liveness?.album_art}></img>
                                     </div>
 
@@ -312,7 +330,10 @@ function profile() {
 
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR DANCEABILITY SCORE: </p>
-                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.danceability?.track_name} By: {closestTracks.danceability?.artist_names?.join(', ')}    </p>
+                                        
+                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>
+                                            {truncateString(closestTracks.danceability?.track_name, 23)} By: {truncateString(closestTracks.danceability?.artist_names?.join(', '), 18)} 
+                                        </p>
                                         <img className={styles.albumArt} src={closestTracks.danceability?.album_art}></img>
                                     </div>
 
@@ -357,7 +378,10 @@ function profile() {
                                 
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR VALENCE SCORE: </p>
-                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.valence?.track_name} By: {closestTracks.valence?.artist_names?.join(', ')}    </p>
+                                        
+                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>
+                                            {truncateString(closestTracks.valence?.track_name, 23)} By: {truncateString(closestTracks.valence?.artist_names?.join(', '), 18)} 
+                                        </p>
                                         <img className={styles.albumArt} src={closestTracks.valence?.album_art}></img>
                                     </div>
                                     
@@ -400,7 +424,10 @@ function profile() {
 
                                     <div className={styles.closeSongContainer}>
                                         <p className={styles.songCloseTitle} style={{color: stylesList.textColor}}> SONG CLOSEST TO YOUR ENERGY SCORE: </p>
-                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>{closestTracks.energy?.track_name} By: {closestTracks.energy?.artist_names?.join(', ')}</p>
+                                        
+                                        <p className={styles.songCloseDetails} style={{color: stylesList.textColor}}>
+                                            {truncateString(closestTracks.energy?.track_name, 23)} By: {truncateString(closestTracks.energy?.artist_names?.join(', '), 18)} 
+                                        </p>
                                         <img className={styles.albumArt} src={closestTracks.energy?.album_art}></img> 
                                     </div>
 

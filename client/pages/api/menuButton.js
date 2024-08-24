@@ -107,8 +107,6 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
                                         className={styles.menuFont}
                                         onClick={item.onClick}
                                         style={{
-                                        // TODO: Ben, add some css here to make the hover over background more fuller and takes up more of the <a></a> tag.
-                                        //       Copy them to the other one too.
                                         // Style for Logout
                                             color: isItemHovered ? hoverTextColor : 'textColor',
                                             textDecoration: 'none',

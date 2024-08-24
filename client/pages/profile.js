@@ -96,7 +96,7 @@ function profile() {
             {mode === 'day' ? 
                 <MenuButton textColor='black' backgroundColor='white' borderColor='black' hoverBackgroundColor='gray' hoverTextColor='black'/>
                 :
-                <MenuButton textColor='white' backgroundColor='#1a2c3d' borderColor='white' hoverBackgroundColor='gray' hoverTextColor='white'></MenuButton>
+                <MenuButton textColor='white' backgroundColor='#1a2c3d' borderColor='white' hoverBackgroundColor='black' hoverTextColor='white'></MenuButton>
             }
 
             <body className={styles.main} style={{ backgroundColor: stylesList.backgroundColor}}>
@@ -323,7 +323,14 @@ function profile() {
                                         </div>
                                     </div>
 
-                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents How Suitable Your Music Is For Dancing </p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents How Suitable Your Music Is For Dancing and Movement
+
+
+
+
+
+
+</p>
 
                                     {/* decorBar only used in mobile */}
                                     <div className={styles.decorBar}></div>
@@ -371,7 +378,7 @@ function profile() {
                                         </div>
                                     </div>
 
-                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average positivity in your music </p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents the average level of positivity and upbeat vibes in your music </p>
 
                                     {/* decorBar only used in mobile */}
                                     <div className={styles.decorBar}></div>

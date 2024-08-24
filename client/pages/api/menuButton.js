@@ -109,7 +109,8 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
                                         style={{
                                         // TODO: Ben, add some css here to make the hover over background more fuller and takes up more of the <a></a> tag.
                                         //       Copy them to the other one too.
-                                            color: isItemHovered ? hoverTextColor : textColor,
+                                        // Style for Logout
+                                            color: isItemHovered ? hoverTextColor : 'textColor',
                                             textDecoration: 'none',
                                             }}>
                                             <p>{item.label}</p>
@@ -120,6 +121,7 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
                                             className={styles.menuFont}
                                             href={item.path}
                                             style={{
+                                            // Style for Privacy & About
                                                 color: isItemHovered ? hoverTextColor : textColor,
                                                 textDecoration: 'none',
                                                 }}>

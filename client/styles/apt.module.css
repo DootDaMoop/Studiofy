@@ -28,18 +28,34 @@
 
 .buttonDropDown {
     position: absolute;
-    top: 9.5%;
-    width: 130px;
+    align-items: center;
+    top: 4.5%;
+    height: 145px;
+    width: 106px;
     right: 5%;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    padding: 0.5rem 0 0.5rem 1rem;
+    border-radius: 20px 20px 40px 40px;
+    margin-top: 15px;
     cursor: pointer;
     background-color: #FFFFFF;
     border-style: solid;
+    border-width: 2px; /* This sets the thickness of the border to 5px */
     list-style-type: none;
-    z-index: 3;
-    font-size: large
+    z-index: 2;
+    font-size: large;
+    overflow: hidden;
+}
+
+/* To MODIFY SIZING FOR EVERY List Item OF BUTTON DROPDOWN CHANGE: height/size/margin-left, To change color of hover, go to MenuButton.js */
+.buttonDropDown li {
+    display:flex;
+    width: 95px; 
+    height: 35px;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: -15px; 
+    
 }
 
 .profileimg {
@@ -53,9 +69,9 @@
     font-family: "Sora", sans-serif;
     font-weight: 500;
     font-style: bold;
-    font: size 100px;
     text-decoration: none;
 }
+
 /* END OF BUTTON STYLING */
 
 /* BODY <-MAIN */
@@ -400,16 +416,21 @@
   .averageDescription {
     font-size: 1rem;
     color: black;
-    margin-bottom: 35px;
-    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-top: 15px;
     text-align: center;
     /* font-weight: 500; */
     font-family: "Inter", sans-serif;
+    /* background-color: yellowgreen;
+    opacity: 50%; */
   }
 
   /*Container for Song Closest to Category */
   .closeSongContainer {
     margin-bottom: 20px;
+    /* background-color: red;
+    opacity: 50%; */
+
   }
 
   /* EXAMPLE OF TEXT: "SONG CLOSEST TO YOUR VALENCE SCORE:" */
@@ -419,6 +440,9 @@
     color: #333;
     margin-bottom: 5px;
     text-align: center;
+    /* background-color: blue;
+    opacity: 50%; */
+
   }
 
  /* EXAMPLE OF TEXT: "{SONG} By: {ARTIST}" */
@@ -428,7 +452,10 @@
     color: black;
     text-align: center;
     flex-grow: 1;
-    min-height: 2.em;
+    min-height: 1em;
+    /* background-color: green;
+    opacity: 50%; */
+
   }
 
   .albumArt {

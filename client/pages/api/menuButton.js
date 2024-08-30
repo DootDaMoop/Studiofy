@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import styles from '../../styles/apt.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faBorderStyle } from '@fortawesome/free-solid-svg-icons';
@@ -90,8 +89,8 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
                     borderColor: borderColor
                 }} 
                 >
-                    {menuItems.map(
-                        (item) => 
+                    {menuItems.filter(item => item.show && item.path !== router.pathname)
+                    .map((item, index) =>
                             item.show && (
                                 <li 
                                 key={item.path}
@@ -99,7 +98,8 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
                                 onMouseLeave={() => setIsItemHovered(null)}
                                 style={{
                                     backgroundColor: isItemHovered === item.path ? hoverBackgroundColor : backgroundColor,
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    marginTop: index === 0 ? '35px' : '0' // Margin to the first button so it doesn't hide behind menu button
                                 }}
                                 >
                                     {item.onClick ? (
@@ -108,7 +108,7 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
                                         onClick={item.onClick}
                                         style={{
                                         // Style for Logout
-                                            color: isItemHovered ? hoverTextColor : 'textColor',
+                                            color: isItemHovered ? hoverTextColor : textColor,
                                             textDecoration: 'none',
                                             }}>
                                             <p>{item.label}</p>

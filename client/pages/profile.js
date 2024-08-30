@@ -2,7 +2,7 @@ import React, { useContext, useEffect,useRef,useState } from 'react'
 import styles from "../styles/apt.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faAngleDown, faAngleUp, faImages, faExclamation, faEllipsis, faDownload, faShare,faShareFromSquare} from '@fortawesome/free-solid-svg-icons'
-import html2canvas from 'html2canvas';
+import * as modernScreenshot from 'modern-screenshot';
 import MenuButton from './api/menuButton';
 import { DayNightContext } from './api/DayNightMode';
 import DayNightToggleButton from './api/DayNightToggleButton';
@@ -76,11 +76,10 @@ function profile() {
 
     const downloadApartmentHandler = () => {
         if(aptRef.current) {
-            html2canvas(aptRef.current).then((canvas) => {
+            modernScreenshot.domToPng(aptRef.current).then((dataUrl) => {
                 const link = window.document.createElement('a');
-                link.backgroundColor = null;
                 link.download = `${profile.display_name}_studiofy_apartment`;
-                link.href = canvas.toDataURL();
+                link.href = dataUrl;
                 link.click();
             });
         }
@@ -318,19 +317,12 @@ function profile() {
                                     <p className={styles.categoryName} style={{color: stylesList.textColor}}> DANCEABILITY </p>
 
                                     <div className={styles.barContainer}>
-                                        <div className={styles.averageBar} style={{ width: widthLiveness , backgroundColor: stylesList.borderColor}}>
-                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthLiveness).toFixed(0)}% </p>
+                                        <div className={styles.averageBar} style={{ width: widthDance , backgroundColor: stylesList.borderColor}}>
+                                            <p className={styles.averagePercentage} style={{color: stylesList.percentColor,  WebkitTextStrokeColor: stylesList.textColor}}> {parseFloat(widthDance).toFixed(0)}% </p>
                                         </div>
                                     </div>
 
-                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents How Suitable Your Music Is For Dancing and Movement
-
-
-
-
-
-
-</p>
+                                    <p className={styles.averageDescription} style={{color: stylesList.textColor}}> Represents How Suitable Your Music Is For Dancing and Movement</p>
 
                                     {/* decorBar only used in mobile */}
                                     <div className={styles.decorBar}></div>
@@ -458,14 +450,14 @@ function profile() {
                                 <i className={styles.exclamationCircle} style={{ color: stylesList.iconColor, backgroundColor: stylesList.backgroundColor}}><FontAwesomeIcon icon={faExclamation} style={{ fontSize: '2.5vw' }}/></i>
                         </div>
                         
-                        <div className={styles.pixelContainer}>
+                        <div className={styles.pixelContainer} ref={aptRef}>
                             <div className={styles.pixelWindow} style={{ color: stylesList.borderColor}}>
                                 <i><FontAwesomeIcon icon={faImages} className={styles.iconsFormater} style={{ color: stylesList.borderColor}}/></i>
                                 <p className={styles.menuFont}> {profile.display_name} Studio - STUDIOIFY</p>
                                 <i> <FontAwesomeIcon icon={faEllipsis} className={styles.iconsFormater}> style={{ color: stylesList.borderColor}}</FontAwesomeIcon></i>
                             </div>
 
-                            <div className={styles.pixelBorder} style={{ color: stylesList.borderColor}} ref={aptRef}>
+                            <div className={styles.pixelBorder} style={{ color: stylesList.borderColor}}>
                                 <img className={styles.pixelFinal} src={selectedImages.valence} alt={`wallfloor`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.danceability} alt={`livingroom`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.acousticness} alt={`bedroom`}></img>
@@ -473,8 +465,8 @@ function profile() {
                                 <img className={styles.pixelFinal} src={selectedImages.instrumentalness} alt={`entrance`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.speechiness} alt={`office`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.energy} style={{mixBlendMode: 'multiply'}} alt={`lighting`}></img>
-                            </div>          
-                        </div> 
+                            </div>
+                        </div>
 
                         <div className={styles.interactContainer}>
                                 <button onClick={downloadApartmentHandler} style={{cursor: 'pointer'}} className={styles.downloadAPT}>

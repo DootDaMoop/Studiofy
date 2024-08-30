@@ -53,8 +53,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin-left: -15px; 
-    
+    margin-left: -15px;
 }
 
 .profileimg {
@@ -759,6 +758,7 @@
 
 /* CONTAINER FOR FINAL RESULT PIXEL ROOM */
 .pixelContainer {
+    position:relative;
     flex-direction: column;
     display: flex;
     align-items: center;

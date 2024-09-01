@@ -509,9 +509,7 @@
     overflow: hidden;
   }
 
-  /*pixelWallFloor HAS THE SAME CSS FOR THE WALLPAPER AND THE LIGHTING. temporary until angela makes the icons*/
-
-  .pixelBedroom, .pixelOffice, .pixelEntrance, .pixelKitchen, .pixelLivingRoom, .pixelWallFloor {
+  .pixelBedroom, .pixelOffice, .pixelEntrance, .pixelKitchen, .pixelLivingRoom, .pixelWallFloor, .pixelLighting {
     max-width: none;
     max-height: none;
     transform-origin: center center;
@@ -551,7 +549,12 @@
 
   .pixelWallFloor { 
     transform: scale(1);
- }
+  }
+
+  .pixelLighting {
+    top: 2.5%;
+    transform: scale(0.7);
+  }
 
   /* MEDIA LAYOUT OF RESULT BOXES FOR MOBILE PHONES */
   @media (max-width: 650px){

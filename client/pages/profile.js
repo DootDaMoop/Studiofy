@@ -16,7 +16,11 @@ function profile() {
     const [featureAverages, setFeatureAverages] = useState({});
     const [closestTracks, setClosestTracks] = useState({});
     const [selectedImages, setSelectedImages] = useState({});
+    const [energyIcon, setEnergyIcon] = useState('');
+    const [energyOpacity, setEnergyOpacity] = useState(1);
+
     const aptRef = useRef(null);
+    const statsRef = useRef(null);
     const widthDance = `${parseFloat(featureAverages.danceability) * 100}%`;
     const widthAcoustic = `${parseFloat(featureAverages.acousticness) * 100}%`;
     const widthEnergy = `${parseFloat(featureAverages.energy) * 100}%`;
@@ -74,6 +78,41 @@ function profile() {
         })
     }, []);
 
+    // this is very ugly I know, but I'm too lazy to be a never-nester - Jason
+    useEffect(() => {
+        if(selectedImages) {
+            if(selectedImages.energy == "/images/apt_images/lighting/lighting-0.00-0.34.png") { //night
+                if(mode === 'day') {
+                    setEnergyIcon("/images/energy_icons/night-icon(dark).png");
+                } else {
+                    setEnergyIcon("/images/energy_icons/night-icon.png");
+                }
+                setEnergyOpacity(0.5);
+            } else if(selectedImages.energy == "/images/apt_images/lighting/lighting-0.35-0.49.png") { //twilight
+                if(mode === 'day') {
+                    setEnergyIcon("/images/energy_icons/twilight-icon(dark).png");
+                } else {
+                    setEnergyIcon("/images/energy_icons/twilight-icon.png");
+                }
+                setEnergyOpacity(0.7);
+            } else if(selectedImages.energy == "/images/apt_images/lighting/lighting-0.50-0.64.png") { // sunset
+                if(mode === 'day') {
+                    setEnergyIcon("/images/energy_icons/sunset-icon(dark).png");
+                } else {
+                    setEnergyIcon("/images/energy_icons/sunset-icon.png");
+                }
+                setEnergyOpacity(0.7);
+            } else if(selectedImages.energy == "/images/apt_images/lighting/lighting-0.65-1.00.png") { // day
+                if(mode === 'day') {
+                    setEnergyIcon("/images/energy_icons/day-icon(dark).png");
+                } else {
+                    setEnergyIcon("/images/energy_icons/day-icon.png");
+                }
+                setEnergyOpacity(0);
+            }
+        }
+    });
+
     const downloadApartmentHandler = () => {
         if(aptRef.current) {
             modernScreenshot.domToPng(aptRef.current).then((dataUrl) => {
@@ -84,6 +123,14 @@ function profile() {
             });
         }
     }
+
+    const scrollToTargetHandler = () => {
+        if(statsRef.current) {
+            statsRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    
 
     if(!profile || !topTracks || !audioFeatures || !featureAverages || !closestTracks || !selectedImages) {
         return <h1>Loading...</h1>;
@@ -108,16 +155,16 @@ function profile() {
                             <div className={styles.innerTitleContainer}>
                                 <p className={styles.titleText} style={{ color: stylesList.textColor}}>WELCOME TO STUDIOFY</p>
 
-                                <div className={styles.titleDescription} style={{color: stylesList.borderColor}}>
+                                <div className={styles.titleDescription} style={{color: stylesList.borderColor, backgroundColor: mode === 'day' ? '#FFFCED' : '#0F212E'}}>
                                     <p className={styles.titleDescriptionFont} style={{ color: stylesList.textColor}}> LET'S GO ON A ROOM TOUR...</p>
-                                    <i className={styles.circleDown} style={{ fontSize: '2vw', color: stylesList.iconColor, backgroundColor: stylesList.backgroundColor }}><FontAwesomeIcon icon={faAngleDown} /></i>
+                                    <i className={styles.circleDown} onClick={scrollToTargetHandler} style={{ fontSize: '2vw', cursor: 'pointer', color: stylesList.iconColor, backgroundColor: mode === 'day' ? '#FFFCED' : '#0F212E' }}><FontAwesomeIcon icon={faAngleDown} /></i>
                                 </div>
                             </div>
                         </div> 
                 </div>
             
             {/* MAIN CONTENT SECTION */}
-                <main>
+                <main ref={statsRef}>
                     <section className={styles.itemsContainer}>
                     
                         {/* BEDROOM - ACOUSTICNESS*/}
@@ -435,7 +482,7 @@ function profile() {
                                     </div>
 
                                     <div className={styles.artContent}>
-                                                <img className={styles.pixelWallFloor} src={selectedImages.energy} alt='apt_image'></img> 
+                                                <img className={styles.pixelLighting} src={energyIcon} alt='apt_image'></img> 
                                     </div>
                                 </div>
                             </div>
@@ -445,26 +492,26 @@ function profile() {
 
                     {/* BOTTOM OF THE PG CONTAINING RESULTS PIXELROOM && DOWNLOAD/SHARE BUTTONS */}
                     <div className={styles.resultContainer}>
-                        <div className={styles.finalDescription} style={{ color: stylesList.borderColor}}>
+                        <div className={styles.finalDescription} style={{ color: stylesList.borderColor, backgroundColor: mode === 'day' ? '#FFFCED' : '#0F212E'}}>
                                 <p className={styles.finalDescriptionFont} style={{color: stylesList.textColor}} >THE FINAL RESULT</p>
-                                <i className={styles.exclamationCircle} style={{ color: stylesList.iconColor, backgroundColor: stylesList.backgroundColor}}><FontAwesomeIcon icon={faExclamation} style={{ fontSize: '2.5vw' }}/></i>
+                                <i className={styles.exclamationCircle} style={{ color: stylesList.iconColor, backgroundColor: mode === 'day' ? '#FFFCED' : '#0F212E'}}><FontAwesomeIcon icon={faExclamation} style={{ fontSize: '2.5vw' }}/></i>
                         </div>
                         
                         <div className={styles.pixelContainer} ref={aptRef}>
-                            <div className={styles.pixelWindow} style={{ color: stylesList.borderColor}}>
+                            <div className={styles.pixelWindow} style={{ color: stylesList.borderColor, backgroundColor: mode === 'day' ? '#FFFCED' : '#0F212E'}}>
                                 <i><FontAwesomeIcon icon={faImages} className={styles.iconsFormater} style={{ color: stylesList.borderColor}}/></i>
                                 <p className={styles.menuFont}> {profile.display_name} Studio - STUDIOIFY</p>
                                 <i> <FontAwesomeIcon icon={faEllipsis} className={styles.iconsFormater}> style={{ color: stylesList.borderColor}}</FontAwesomeIcon></i>
                             </div>
 
-                            <div className={styles.pixelBorder} style={{ color: stylesList.borderColor}}>
+                            <div className={styles.pixelBorder} style={{ color: stylesList.borderColor, backgroundColor: mode === 'day' ? '#FFFCED' : '#0F212E'}}>
                                 <img className={styles.pixelFinal} src={selectedImages.valence} alt={`wallfloor`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.danceability} alt={`livingroom`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.acousticness} alt={`bedroom`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.liveness} alt={`kitchen`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.instrumentalness} alt={`entrance`}></img>
                                 <img className={styles.pixelFinal} src={selectedImages.speechiness} alt={`office`}></img>
-                                <img className={styles.pixelFinal} src={selectedImages.energy} style={{mixBlendMode: 'multiply'}} alt={`lighting`}></img>
+                                <img className={styles.pixelFinal} src={selectedImages.energy} style={{mixBlendMode: 'multiply', opacity: energyOpacity}} alt={`lighting`}></img>
                             </div>
                         </div>
 
@@ -479,7 +526,7 @@ function profile() {
                                     <p className={styles.shareFont} >SHARE OUR SITE!</p>
                                 </button>
                         </div>
-                            <i className={styles.circleUpFooter}><FontAwesomeIcon icon={faAngleUp} style={{ fontSize: '2vw' }} /></i>
+                            <i className={styles.circleUpFooter} onClick={scrollToTargetHandler} style={{color: stylesList.borderColor, backgroundColor: mode === 'day' ? '#FFFCED' : '#0F212E'}}><FontAwesomeIcon icon={faAngleUp} style={{ fontSize: '2vw', cursor: 'pointer', color: stylesList.borderColor}} /></i>
                     </div>
                 </main>
             </body>

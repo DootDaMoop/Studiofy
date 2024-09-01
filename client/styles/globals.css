@@ -7,8 +7,8 @@ html, body {
 }
 
 :root {
-    --background-color-day: #F6F3E0;
-    --background-color-night: #031521;
+    --background-color-day: #FFFADC;
+    --background-color-night: #031520;
     --border-color-day: #000000;
     --border-color-night: #FFFFFF;
     --border-text-color-day: #000000;

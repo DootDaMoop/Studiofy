@@ -4,7 +4,7 @@ import DayNightMode from "./api/DayNightMode";
 export default function App({ Component, pageProps }) {
   return(
     <DayNightMode>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </DayNightMode>
   );
 }

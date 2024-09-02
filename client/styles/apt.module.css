@@ -520,8 +520,8 @@
 
   /* Adjust Positioning As Art Is Installed */
   .pixelBedroom { 
-    transform: scale(2);
-    left: -48%; 
+    transform: scale(2.1);
+    left: -51%; 
     top: -5%;
     }
 
@@ -531,20 +531,20 @@
     }
 
   .pixelEntrance {
-    transform: scale(2.5);
-    top: -40%; 
-    left: 36%;
+    transform: scale(2.6);
+    top: -35%; 
+    left: 38%;
     }
 
   .pixelKitchen { 
-    transform: scale(2.5); 
-    top: -30%; 
-    left: 60%;
+    transform: scale(2); 
+    top: 3%; 
+    left: 55%;
 }
 
   .pixelLivingRoom { 
-    transform: scale(2);
-    top:15%;
+    transform: scale(1.9);
+    top:20%;
     }
 
   .pixelWallFloor { 
@@ -686,7 +686,7 @@
         height: 160px;
         width: 230px;
         left: 0%;
-        top: -35%;
+        top: -36%;
     }
 
     .pixelEntrance {
@@ -699,17 +699,17 @@
 
     .pixelKitchen { 
         position: absolute;
-        height: 180px;
-        width: 250px;
-        left: 60%; 
-        top: -35%;
+        height: 147px;
+        width: 205px;
+        left: 55%; 
+        top: 10%;
     }
 
     .pixelLivingRoom {
         position: absolute;
-        top: 20%;
-        height: 160px;
-        width: 230px;
+        top: 32%;
+        height: 140px;
+        width: 205px;
 
     }
 
@@ -776,7 +776,7 @@
     z-index: 0;
     height: 47px;
     width: 45vw;
-    border-radius:40px 40px 0px 0px;
+    border-radius:30px 30px 0px 0px;
     border-style: solid; 
     border-bottom: 5px;
     text-align: center;
@@ -827,8 +827,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 40px;
-    width: 30vw;
-    height: 5vh;
+    width: 28vw;
+    height: 5.5vh;
     background-color: white;
     font-family: "Inter", sans-serif;
     font-size: 1.2em;
@@ -838,8 +838,8 @@
 
 .shareLink {
     border-radius: 40px;
-    width: 30vw;
-    height: 5vh;
+    width: 28vw;
+    height: 5.5vh;
     background-color: white;
     font-family: "Inter", sans-serif;
     font-size: 1.2em;
@@ -851,9 +851,9 @@
 }
 
 /* TODO: */
-/* .shareFont {
-    font-size: 5em;
-} */
+.shareFont {
+    font-size: x-large;
+}
 
 .iconsFormater {
     height: 3.2vh;
@@ -890,8 +890,13 @@
         gap: 5vw;
         width: 680px;
     }
+    .iconsFormater {
+        height: 35px;
+        width: 35px;
+    }
 }
 
+/* ADJUSTORS FOR FINAL RESULTS TEXT/ICONS/BUTTONS AT THE FINAL RESULTS PG */
 @media (max-width: 992px) {
     .finalDescription {
         width: 90vw;
@@ -903,11 +908,29 @@
     .finalDescriptionFont {
         font-size: 4.5vw;
     }
+    .interactContainer {
+        flex-direction: column;
+        gap: 1vh;
+    }
+    .downloadAPT {
+        width: 450px;
+        gap: 1vw;
+    }
+    .downloadAPT .shareFont {
+        font-size: xx-large;
+    }
+    .shareLink {
+        width: 380px;
+        height: 5.2vh;
+    }
+    .shareLink .shareFont {
+        font-size: 28px;
+    }
 }
 
 @media (max-width: 680px) {
     .pixelBorder {
-        width: 349px;
+        width: 350px;
         height: 273.5px;
     }
     .pixelFinal {
@@ -916,17 +939,36 @@
     }
     .pixelWindow {
         width: 350px;
+        border-radius: 30px 30px 0px 0px;
     }
-    .shareFont {
-        font-size: 0.8em;
+    /*ADJUSTORS FOR FONT/GAP/ICONs FOR THE TWO BUTTONS BELOW FINAL PIXEL ROOM */
+    .downloadAPT .shareFont {
+        font-size: 3.9vw;
+    }
+    .downloadAPT .iconsFormater {
+        height: 4.4vh;
+        width: 4.4vw;
+    }
+
+    .shareLink .shareFont {
+        padding-left: 1vw;
+        font-size: 3.1vw;
+    }
+    .shareLink .iconsFormater {
+        height: 3.8vh;
+        width: 3.8vw;
+    }
+    /*END OF ADJUSTORS */
+    .shareLink {
+        height: 5vh;
     }
     .interactContainer {
         flex-direction: column;
         gap: 1vh;
     }
     .iconsFormater {
-        height: 3vh;
-        width: 3vw;
+        height: 25px;
+        width: 25px;
     }
     .pixelWindow {
         gap: 1vw;
@@ -955,22 +997,45 @@
 }
 
 @media (max-width: 500px) {
+    .finalDescriptionFont {
+        font-size: 5.5vw;
+    }
     .exclamationCircle {
         margin-bottom: 13.5vw;
         height: 15px;
         width: 15px;
     }
+
+    /* ADJUSTORS FOR SAVE APT && SHARE LINK BUTTONS */
+    .shareFont {
+        font-size: 4vw;
+    }
+    .downloadAPT {
+        width: 65%;
+    }
+    .shareLink {
+        width: 50%;
+        height: 5.2vh;
+    }
+    .downloadAPT .shareFont {
+        font-size: 5.2vw;
+        padding-left: 1vw;
+    }
+    .downloadAPT .iconsFormater {
+        height: 5.5vh;
+        width: 5.5vw;
+    }
+    .shareLink .shareFont{
+        font-size: 4.5vw;
+    }
+    .shareLink .iconsFormater {
+        height: 5.5vh;
+        width: 5.5vw;
+    }
+  
 }
 
 @media (max-width: 420px) {
-    .shareFont {
-        font-size: 0.8em;
-    }
-
-    .iconsFormater {
-        display: none;
-    }
-
     .circleUpFooter {
         height: 3vh;
         width: 6vw;
@@ -987,8 +1052,15 @@
         height: 10px ;
         width: 10px ;
     }
+    
+    .finalDescription {
+        width: 95%;
+    }
+}
 
-    .finalDescriptionFont {
-        font-size: 1.2em;
+/* ADJUSTOR TO FIX ShareLink Font at LOWER RESOLTUIONS */
+@media (max-width: 380px) {
+    .shareLink .shareFont {
+        font-size: 4.5vw;
     }
 }

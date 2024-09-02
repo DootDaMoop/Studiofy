@@ -1,29 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metrophobic&family=Sora:wght@100..800&display=swap');
 
-.titleContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-    min-height: 100vh;
-    flex-direction: column;
-    max-width: 60rem;
-}
-
-.titleText {
-    /* background-color: blue; */
-    font-size: 5vw;
-    width: 55vw;
-    text-align: center;
-    align-items:center;    
-    justify-content: center;
-    display: flex;
-    letter-spacing: 0.4em;
-    font-family: "Inter", sans-serif;
-    font-style:bold;
-    font-weight: 750;
-}
-
+/* START OF MENU BUTTON & DROPDOWN STYLING */
 .button {
     position: absolute;
     align-items: center;
@@ -39,7 +17,6 @@
     font-size: 1.1rem;
     user-select: none;
     transition: background-color 0.3s;
-    background-color:#FFFFFF;
     border-style: solid;
     z-index: 3;
 }
@@ -50,19 +27,33 @@
 
 .buttonDropDown {
     position: absolute;
-    top: 9.5%;
-    width: 130px;
+    align-items: center;
+    top: 4.5%;
+    height: 145px;
+    width: 106px;
     right: 5%;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    padding: 0.5rem 0 0.5rem 1rem;
-    background-color: white;
+    border-radius: 20px 20px 40px 40px;
+    margin-top: 15px;
     cursor: pointer;
     background-color: #FFFFFF;
     border-style: solid;
+    border-width: 2px; 
     list-style-type: none;
-    z-index: 3;
-    font-size: large
+    z-index: 2;
+    font-size: large;
+    overflow: hidden;
+}
+
+/* To MODIFY SIZING FOR EVERY List Item OF BUTTON DROPDOWN CHANGE: height/size/margin-left, To change color of hover, go to MenuButton.js */
+.buttonDropDown li {
+    display:flex;
+    width: 95px; 
+    height: 35px;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: -15px;
 }
 
 .profileimg {
@@ -76,436 +67,662 @@
     font-family: "Sora", sans-serif;
     font-weight: 500;
     font-style: bold;
-    font: size 100px;
     text-decoration: none;
+}
+/* END OF BUTTON STYLING */
+
+/* BODY <-MAIN */
+.body{
+    min-width: 420px;
 }
 
 .main {
-    background-color: #F6F3E0;
+    display: flex;
     width: 100%;
     justify-content: center;
     align-items: center; 
     flex-direction: column;
-    display: flex;
 }
 
-.pixelContainer {
-
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    background-color: #F6F3E0;
-}
-
-.pixelFinal {
+.cloudLeft {
     position: absolute;
     z-index: 0;
-    width: 50%;
-    object-fit: cover;
+    left: -5vw;
+    top: 10vh;
+    opacity: 1; 
+    width: 340px;
+    height: 280px;
+    animation: floatLeft 2.3s infinite alternate-reverse ease-in-out;
 }
 
-.pixelRoom {
-    top: 3%;
-    left: 7.5%;
-    width: 824px;
-    height: 522px;
-    z-index: 0;
-}
-
-.pixelWindow {
-    /* position: absolute; */
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
-    height: 47px;
-    width: 50vw;
-    border-radius:50px 50px 0px 0px;
-    border-style: solid; 
-    border-bottom: 5px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    justify-content: space-evenly;
-    gap: 10vw;
-}
-.pixelBorder {
-    /* position: absolute; */
-    align-items: center;
-    justify-content: center;
-    background-color: #FFFFFF;
-    /* top: 10vh; */
-    height: auto;
-    width: 50vw;
-    border-radius: 0px 0px 30px 30px;
-    /* margin-bottom: 10vh; */
-    z-index: 0;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-}
-
-.titleDescription {
-    margin-top: 10%;
-    height: 8vw;
-    width: 70vw;
-    margin-bottom: 50px;
-    bottom: 5%;
-    /* background-color: blue; */
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 80px;
-    border-style: solid;
-    overflow: hidden;
-}
-
-.circleDown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    height: 3.5vw;
-    width: 3.5vw;
-    background-color: #FFFFFF;
-    border-style: solid;
+.cloudRight {
     position: absolute;
-    margin-bottom: 8.5vw;
+    z-index: 0;
+    right: 0vw;
+    top: 30vh;
+    width: 350px;
+    height: 300px;
+    animation: floatRight 2.3s infinite alternate-reverse ease-in-out;
 }
 
-.item {
-    /* background-color: black; */
-    margin: 1%;
-    margin-bottom: 2.5%;
+/* FLOAT ANIMATION FOR CLOUDS */
+
+@keyframes floatLeft {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50px); }
 }
 
-.itemBodyTitle {
-    font-family: "Inter", sans-serif;
-    font-weight: 490;
-    font-size: 1em;
-    margin: 5%;
+@keyframes floatRight {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50px); }
 }
 
+/* CLOUD SIZING FOR DIFFERENT DEVICES 
+1400 Desktops & Laptops
+992 Tablets
+767 & 600 & 400 Mobile
+*/
+
+@media (max-width: 1399px) {
+    .cloudLeft {
+        width: 280px;
+        height: 230px;
+    }
+    .cloudRight {
+        width: 300px;
+        height: 250px;
+        top: 40vh;
+    }
+}
+
+@media (max-width: 992px) {
+    .cloudLeft {
+        width: 240px;
+        height: 190px;
+    }
+    .cloudRight {
+        width: 250px;
+        height: 210px;
+        top: 45vh;
+    }
+}
+
+@media (max-width: 767px) {
+    .cloudLeft {
+        width: 210px;
+        height: 160px;
+    }
+    .cloudRight {
+        width: 250px;
+        height: 190px;
+        top: 65vh;
+    }
+}
+
+@media (max-width: 650px) {
+    .cloudLeft {
+        width: 180px;
+        height: 140px;
+        left:-6vh;
+        top: 5vh;
+    }
+    .cloudRight {
+        width: 210px;
+        height: 170px;
+        top: 68vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .cloudLeft {
+        width: 150px;
+        height: 110px;
+        left:-6vh;
+        top: 5vh;
+    }
+    .cloudRight {
+        width: 170px;
+        height: 100px;
+        /* right: -6vh; */
+        top: 68vh;
+    }
+}
+
+/* START OF HERO SECTION*/
+/* HERO SECTION: Hooks the User w/ Welcome Msg || Call to Action Button */
+
+    .titleContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+        min-height: 100vh;
+        flex-direction: column;
+        max-width: 60rem;
+        z-index: 1;
+    }
+
+    .innerTitleContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .titleText {
+        /* background-color: blue; */
+        font-size: 5vw;
+        width: 55vw;
+        text-align: center;
+        align-items:center;    
+        justify-content: center;
+        display: flex;
+        letter-spacing: 0.4em;
+        font-family: "Inter", sans-serif;
+        font-style:bold;
+        font-weight: 750;
+        z-index: 1;
+        
+    }
+
+    /* MEDIA TAG FOR TITLE  */
+    @media (max-width: 1200px) {
+        .titleText {
+        font-size: 7vw;
+        letter-spacing: none;
+        }
+    }
+    @media (max-width: 608px) {
+        .titleText {
+        font-size: 10vw;
+        }
+    }
+
+    .titleDescription {
+        height: 8vw;
+        width: 70vw;
+        margin-bottom: 50px;
+        bottom: 5%;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 80px;
+        border-style: solid;
+        overflow: hidden;
+    }
+
+    .titleDescriptionFont {
+        font-size: 3vw;
+        /* color: red; */
+        font-style: bold;
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+        letter-spacing: 0.2em;
+    }
+
+    /* titleDescription FONT ex. Lets go on a Room Tour*/
+    .finalDescriptionFont {
+        font-size: 3vw;
+        /* color: red; */
+        font-style: bold;
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+        letter-spacing: 0.2em;
+    }
+
+    /* CIRCLE W/ DOWN ARROW COMPONENT */
+    .circleDown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        height: 3.4vw;
+        width: 3.4vw;
+        /* background-color: #FFFFFF; */
+        border-style: solid;
+        position: absolute;
+        margin-bottom: 7.5vw;
+    }
+
+/******* END OF HERO SECTION *******/
+
+
+/* CONTAINS ALL STUDIO CARDS */
 .itemsContainer {
-    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    margin-bottom: 5vw;
 }
 
-.itemsHeader {
-    background-color: white;
-    width: 45vw;
-    height: 46px;
-    border-style: solid;
-    border-bottom: none;
-    border-radius: 40px 40px 0px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 90%;
-    /* margin: 8% 5% 0% 0%; */
-}
-
-.itemHeaderFont {
-    font-family: "Inter", sans-serif;
-    font-size: 1em;
-    letter-spacing: 0.2em;
-}
-
-.itemsBody {
-    /* flex-wrap: wrap; */
-    background-color: white;
-    /* max-width: 700px; */
-    /* height: 60%; */
-    border-radius: 0px 0px 40px 40px;
-    border-style: solid;
-    overflow: hidden;
-    opacity: 90%;
-    /* margin: 0% 5% 5% 0%; */
-    /* align-items: center;
-    justify-content: center; */
-
-}
-
-.alignment {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-.itemsContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
-    text-align: center;
-    height: auto;
-    flex-wrap: wrap;
-    /* background-color: blue; */
-    width:20vw;
-}
-
-.imgSection {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: yellow; */
-    width: 20vw;
-}
-
-.itemFrame {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-style: dashed;
-    border-radius: 50px;
-    height: 20vh;
-    width: 80%;
-    z-index: 0;
-    margin: 5%;
-
-    /* margin-top: 10%;
-    height: 8vw;
-    width: 70vw;
-    margin-bottom: 50px;
-    bottom: 5%;
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 80px;
-    border-style: solid;
-    overflow: hidden; */
-    
-}
-
-/* ADJUSTMENT FOR IMGS INSIDE THE BODY ITEMS */
-.pixelBedroom {
-    /* background-color: #F6F3E0; */
+/* INDIVIDUAL STUDIO CARDS */
+.statsBox {
     position: relative;
-    right: 35%;
-    width: 155%;
-    /* top: 140%; */
-}
-
-.pixelEntrance {
-    position: relative;
-    right: -55%;
-    width: 155%;
-    bottom: 75%;
-}
-.pixelKitchen {
-    position:relative;
-    right: -45%;
-    width: 155%;
-}
-.pixelLiving {
-    position:relative;
-    right: 1%;
-    width: 155%;
-    top: 3vh;
-}
-
-.pixelOffice {
-    position:relative;
-    right: 5%;
-    width: 230%;
-    align-items: center;
-    top: -12vh;
-}
-
-/*  */
-
-
-.itemPlayButton {
-    display: flex;
-    height: 4vh;
-    width: 20vw;
-    border-radius: 50px;
-    background-color: white;
-    border-style: solid;
-    justify-content: center;
-    align-items: center;
-    margin: 5%;
-}
-
-.bar {
-    background-color: black;
-    height: 0.3vh;
-    width: 20vw;
-    border-radius: 50px;
-}
-
-.songCloseFont {
-    font-size: 0.9em;
-    font-weight: 550;
-    font-family: "Inter", sans-serif;
-
-}
-.closestByFont {
-    font-size: 0.8em;
-    font-family: "Inter", sans-serif;   
-}
-
-.playButtonFont {
-    font-size: 0.8em;
-    font-family: "Inter", sans-serif;
-    color: black;
-    text-decoration: none;
-    font-weight: 550;
-    padding: 5%;
-
-}
-
-.progresscontainer {
-    /* margin-top: 5%; */
-    display: flex;
-    width: 95%;
-    /* background-color: #F6F3E0; */
-    border-style: solid;
-    border-radius: 40px;
-    height: 3vh;
-  }
-  
-.progressbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    width: 0%; /* Initial width set to 0% */
-    background-color: black;
-    border-radius: 40px;
-    overflow: hidden;
-    padding-left: 0.8vw;
-    padding-right: 0.8vw;
-  }
-  
-.progressPer {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 1.1em; /* Adjust font size as needed */
-    z-index: 1001; /* Ensure text appears above the progress bar */
-    color: white;
-}
-
-.trackImg {
-    width: 50%;  /* Make the image's width scale with the container */
-    height: auto; /* Maintain the aspect ratio according to parent */
-    border-style: solid;
-}
-
-.header1 {
-    display: absolute;
-    top: 0%;
-    margin-left: 10%;
-    margin-top: 12%;
-}
-
-.description {
-    font-size: 60px;
-    color: #F6F3E0;
-    font-style: bold;
-    font-weight: 550;
-    margin-top: 5%;
-    margin-bottom: 0%;
-    padding: 0;
-}
-
-.fontTest {
-    font-family: "Inter", sans-serif;
-    font-size: 0.5em;
-    font-weight: 500;
-}
-
-/* .description1 {
-    font-size: 18px;
-    color: white;
-    font-style: bold;
-    padding: 0;
-    font-weight: 500;
-    margin-top: 1%;
-} */
-
-.fixedButtonContainer {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.interactContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: #F6F3E0; */
-    bottom: 15%;
-    margin-top: 2%;;
-    width: 100vw;
-    flex-direction: row;
-    gap: 1%;
-}
-
-.downloadAPT {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 40px;
-    width: 30vw;
-    height: 5vh;
-    background-color: white;
-    font-family: "Inter", sans-serif;
-    font-size: 1.2em;
-    font-weight: 550;
-    border-style: solid;
-}
-
-
-.shareLink {
-    border-radius: 40px;
-    width: 30vw;
-    height: 5vh;
-    background-color: white;
-    font-family: "Inter", sans-serif;
-    font-size: 1.2em;
-    font-weight: 550;
-    border-style: solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-/* .footer {
-    background-color: black;
-    height: 18vh;
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: "Inter",Arial, sans-serif;
+    margin-top: 5%;
+}
+
+/*BASE IMAGE */
+.statsBoxImage {
+    width: 100%;
+    height: auto;
+}
+
+/*Lena's Implementation*/
+
+  /*CONTAINER OF ONLY ROOM SECTION TITLE */
+  .statsBoxHeader {
     position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
-  } */
+    justify-content: center; */
+  }
 
-.itemPercDescription {
+  /*EX OF TEXT: STUDIO - LIGHTING*/
+  .roomSectionTitle {
+    font-size: 14px;
     font-family: "Inter", sans-serif;
-    font-size: 0.8em;
-    
-}
+    /* font-weight: 500; */
+    letter-spacing: 0.5vw;
+    color: #333;
+    margin: 0;
 
-.centerize {
-    display:flex;
+  }
+
+  /*Container that includes all the data including art content */
+  .statsBody {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+  }
+
+  /*Includes All API Data Except Pixel Art Content (basically only left side in desktop version)*/ 
+  .statsContent {
+    position: absolute;
+    left: 8px;
+    width: 45%;
+    height: 100%;
+    max-width: 250px;
+  }
+
+  /*EX OF TEXT: ENERGY */
+  .categoryName {
+    font-size: 1rem;
+    /* font-weight: 600; */
+    color: #333;
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: "Inter", sans-serif;
+    margin: 10px 10px 5px 10px;
+  }
+
+  /*OUTER LINE OF BAR */
+  .barContainer {
+    height: 30px;
+    width: 70%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-style: solid;
+    margin-left: 12%;
+    position: relative;
+  }
+
+  /* INSIDE COLOR OF BAR */
+  .averageBar {
+    background-color: black;
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease;
+    display: flex;
     align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+  }
+
+  /*PERCENTAGES EX: 50% */
+  .averagePercentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin: 0;
+    z-index: 1;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    font-family: "Inter", sans-serif;
+  }
+
+/* EXAMPLE OF TEXT: "Represents the average positivity in your music" */
+  .averageDescription {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    text-align: center;
+    /* font-weight: 500; */
+    font-family: "Inter", sans-serif;
+    /* background-color: yellowgreen;
+    opacity: 50%; */
+  }
+
+  /*Container for Song Closest to Category */
+  .closeSongContainer {
+    margin-bottom: 20px;
+    /* background-color: red;
+    opacity: 50%; */
+
+  }
+
+  /* EXAMPLE OF TEXT: "SONG CLOSEST TO YOUR VALENCE SCORE:" */
+  .songCloseTitle {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: center;
+    /* background-color: blue;
+    opacity: 50%; */
+
+  }
+
+ /* EXAMPLE OF TEXT: "{SONG} By: {ARTIST}" */
+  .songCloseDetails {
+    font-size: 0.9rem;
+    font-weight: 350;
+    color: black;
+    text-align: center;
+    flex-grow: 1;
+    min-height: 1em;
+    /* background-color: green;
+    opacity: 50%; */
+
+  }
+
+  .albumArt {
+    width: 125px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-left: 25%;
+    border-style: solid;
+  }
+
+  /*Button of Play On Spotify */
+  .spotifyButton {
+    position: absolute;
+    display: flex;
+    height: 45px;
+    width: 100px;
+    border-radius: 50px;
+    background-color: white;
+    border-style: solid;
     justify-content: center;
-    margin-bottom: -5%;
+    align-items: center;
+    left: 28.5%;
+    bottom: -3.5%;
+    text-align: center;
+ 
+  }
+
+  .spotifyButton:hover{
+    cursor: pointer;
+    background-color: black;
+  }
+
+  /* Text of Play On Spotify Button */
+  .spotifyButtonText{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+  }
+
+  .spotifyButtonText:hover{
+    color: white;
+  }
+
+  /*Container For Pixel Furniture */
+  .artContent {
+    position: absolute;
+    top: 20%;
+    right: -120%;
+    width: 275px;
+    height: 255px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .pixelBedroom, .pixelOffice, .pixelEntrance, .pixelKitchen, .pixelLivingRoom, .pixelWallFloor, .pixelLighting {
+    max-width: none;
+    max-height: none;
+    transform-origin: center center;
+    height: auto;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Adjust Positioning As Art Is Installed */
+  .pixelBedroom { 
+    transform: scale(2.1);
+    left: -51%; 
+    top: -5%;
+    }
+
+  .pixelOffice { transform: scale(2.2);
+    top: -40%; 
+    right: 4%;
+    }
+
+  .pixelEntrance {
+    transform: scale(2.6);
+    top: -35%; 
+    left: 38%;
+    }
+
+  .pixelKitchen { 
+    transform: scale(2); 
+    top: 3%; 
+    left: 55%;
 }
 
+  .pixelLivingRoom { 
+    transform: scale(1.9);
+    top:20%;
+    }
+
+  .pixelWallFloor { 
+    transform: scale(1);
+  }
+
+  .pixelLighting {
+    top: 2.5%;
+    transform: scale(0.7);
+  }
+
+  /* MEDIA LAYOUT OF RESULT BOXES FOR MOBILE PHONES */
+  @media (max-width: 650px){
+    /* .itemsContainer {
+        align-items: center;
+    } */
+
+    .statsBox {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 15px;
+    }
+
+    .statsBoxImage {
+        max-width: 600px;
+        width: 360px; /*Changed to fixed (90% width messes w/ text*/
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10%;
+    }
+    .statsBoxHeader {
+        top: 12px;
+    }
+  
+    .roomSectionTitle{
+        font-size: 1.3rem;
+    }
+    
+    .statsContent {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px; 
+        max-width: 300px;
+        position: relative;
+    }
+
+    .categoryName{
+        font-size: 1.5rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .barContainer{
+        width: 90%;
+        height: 30px;
+        border-radius: 25px;
+        margin-left: 12px;
+        margin-top: -5px;
+    }
+
+    .averagePercentage{
+        font-size: 1.5rem;
+    }
+
+    .averageDescription{
+        font-size: 1.1rem;
+        font-weight: 350;
+        margin-top: -5px;
+    }
+
+    .decorBar{
+        background-color: black;
+        border-top: 4px solid;
+        border-radius: 25px;
+        margin-top: -8%;
+        width: 100%;
+        margin-left: 2%;
+    }
+
+    .songCloseTitle{
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+    .songCloseDetails{
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 20px;
+        min-height: 4rem;
+        /* padding-bottom: 20px; */
+    }
+    
+    .albumArt{
+        margin-left: 25%;
+        margin-right: auto;
+        margin-top: -10%;
+        height: 19%;
+        width: auto;
+        position: absolute;
+    }
+
+    .spotifyButton{
+        bottom: 35.5%;
+        left: 18%;
+        width: 65%;
+        height: 5%;
+        max-height: 50px;
+        position: absolute;
+    }
+    
+    .spotifyButtonText{
+        font-size: 1.2rem;
+    }
+
+    .artContent{
+        position: absolute;
+        left: 8%;
+        width: 250px; 
+        height: 23%; 
+        top: 69%; 
+        /* background-color: yellow; */
+        /* opacity: 10%; */
+    }
+
+    .pixelBedroom {
+        position: absolute;
+        height: 150px;
+        width: 230px;
+        left: -40%;
+        top: 5%;
+    }
+
+    .pixelOffice { 
+        position: absolute;
+        height: 160px;
+        width: 230px;
+        left: 0%;
+        top: -36%;
+    }
+
+    .pixelEntrance {
+        position: absolute;
+        height: 160px;
+        width: 230px;
+        left: 40%;
+        top: -35%;
+    }
+
+    .pixelKitchen { 
+        position: absolute;
+        height: 147px;
+        width: 205px;
+        left: 55%; 
+        top: 10%;
+    }
+
+    .pixelLivingRoom {
+        position: absolute;
+        top: 32%;
+        height: 140px;
+        width: 205px;
+
+    }
+
+    .pixelWallFloor {
+        height: 160px;
+        width: 230px;
+    }
+
+  }
+
+  /******End of Lena's Implementation ********/
+
+/* CONTAINS ALL RESULTS INFO */
 .resultContainer {
     /* background-color: blue; */
     height: 100vh;
@@ -516,12 +733,23 @@
     justify-content: center;
 }
 
-.FooterDescription {
-    /* margin-top: 5vh; */
-    height: 8vw;
-    width: 70vw;
-    margin-bottom: 5vh;
-    /* background-color: red; */
+.exclamationCircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 3.4vw;
+    width: 3.4vw;
+    border-style: solid;
+    position: absolute;
+    margin-bottom: 7.5vw;
+}
+
+.finalDescription {
+    margin-top: 2vh;
+    height: 7vw;
+    width: 65vw;
+    margin-bottom: 2vw;
     z-index: 0;
     display: flex;
     align-items: center;
@@ -531,16 +759,108 @@
     overflow: hidden;
 }
 
-.pixelFooterFont {
-    font-size: 3vw;
-    color: black;
-    font-style: bold;
-    font-weight: 700;
-    font-family: "Inter", sans-serif;
-    letter-spacing: 0.2em;
+/* CONTAINER FOR FINAL RESULT PIXEL ROOM */
+.pixelContainer {
+    position:relative;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 
-.circleDownFooter {
+/* Top Window holding (username) Studio - STUDIOFY */
+.pixelWindow {
+    /* position: absolute; */
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    height: 47px;
+    width: 45vw;
+    border-radius:30px 30px 0px 0px;
+    border-style: solid; 
+    border-bottom: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    gap: 10vw;
+}
+
+/* Main Window Holding Final Pixel Room Art */
+.pixelBorder {
+    align-items: center;
+    justify-content: center;
+    /* background-color: #FFFFFF; */
+    height: 55vh;
+    width: 45vw;
+    border-radius: 0px 0px 30px 30px;
+    z-index: 0;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    /* background-color: yellow; */
+}
+
+/* STYLING FOR EACH INDIVIDUAL FURNITURE PIECE, CREATING THE CONCLUDING PIXEL ROOM ART */
+.pixelFinal {
+    position: absolute;
+    z-index: 0;
+    width: 38vw;
+    /* object-fit: cover; */
+}
+
+.interactContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #F6F3E0; */
+    /* bottom: 15%; */
+    margin-top: 2%;
+    width: 100vw;
+    flex-direction: row;
+    gap: 1%;
+}
+
+.downloadAPT {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    width: 28vw;
+    height: 5.5vh;
+    background-color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 1.2em;
+    font-weight: 550;
+    border-style: solid;
+}
+
+.shareLink {
+    border-radius: 40px;
+    width: 28vw;
+    height: 5.5vh;
+    background-color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 1.2em;
+    font-weight: 550;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TODO: */
+.shareFont {
+    font-size: x-large;
+}
+
+.iconsFormater {
+    height: 3.2vh;
+    width: 3.2vw;
+}
+
+.circleUpFooter {
     right: 12%;
     display: flex;
     justify-content: center;
@@ -554,311 +874,193 @@
     bottom: 1vw;
 }
 
-.iconsFormater {
-    height: 3.2vh;
-    width: 3.2vw;
-}
+/* RESPONSIVENESS FOR RESULTS SECTION ELEMENTS */
+/* 1400, 992, 768 + Mobile px*/
 
-/* MEDIA TAG FOR TITLE  */
-
-@media (max-width: 908px) {
-    .titleText {
-    font-size: 7vw;
-    letter-spacing: none;
-    }
-}
-@media (max-width: 608px) {
-    .titleText {
-    font-size: 10vw;
-    }
-}
-
-/* MEDIA TAG FOR RESULTS PG */
-@media (max-height: 830px){
-    .pixelBedroom {
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: 20%;
-    }
-    .pixelLiving{
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: -1%;
-    }
-    .pixelOffice {
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: 20%;
-    }
-    .pixelKitchen {
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: -25%;
-    }
-    .pixelEntrance {
-        height: 150px;
-        width: 200px;
-        position: relative;
-        right: 20%;
-    }
-    .trackImg {
-        width: 100px;
-        height: 100px;
-    }
-    .progressbar {
-        width: 10%;
-    }
-    .itemPlayButton {
-        width: 250px;
-    }
-}
-
-@media (max-width: 1450px) {
-    .progressbar {
-        padding-left: 1vw;
-        padding-right: 1vw;
-    }
-    /* .progressPer {
-        font-size: 1.2em;
-    } */
-}
-/* MEDIA TAGS FOR PIXEL ROOM */
-
-@media (max-width: 1350px) {
-    .pixelRoom {
+@media (max-width: 1400px) {
+    .pixelFinal {
         width: 624px;
         height: 422px;
     }
-    .pixelEntrance {
-        top: -60%;
+    .pixelBorder {
+        width: 680px;
+        height: 480px;
     }
-    .pixelOffice {
-        top: -45%;
-    }
-    /* .iconsFormater {
-        height: 2vh;
-        width: 2vw;
-    } */
     .pixelWindow {
         gap: 5vw;
-    }
-}
-
-@media (max-width: 1150px) {
-    .pixelRoom {
-        width: 580px;
-        height: 380px;
-    }
-    .pixelEntrance {
-        top: -40%;
-    }
-    .pixelOffice {
-        top: -35%;
-    }
-}
-
-@media (max-width: 950px) {
-    .pixelRoom {
-        width: 480px;
-        height: 280px;
-    }
-    .pixelWindow {
-        gap: 1vw;
-    }
-}
-
-@media (max-width: 750px) {
-    .pixelRoom {
-        width: 380px;
-        height: 240px;
-    }
-}
-
-/* @media (max-width: 650px) {
-    .pixelRoom {
-        width: 280px;
-        height: 200px;
-    }
-} */
-
-@media (max-width: 649px) {
-    /* .FooterDescription {
-        margin-top: 18vh;
-    } */
-    .pixelRoom {
-        width: 400px;
-        height: 280px;
-    }
-    .FooterDescription {
-        height: 8vh;
-        width: 90vw;
-    }
-    .pixelBorder {
-        width: 90vw;
-        height: 50vh;
-    }
-    .pixelWindow {
-        width: 90vw;
-        gap: 8vw;
+        width: 680px;
     }
     .iconsFormater {
-        height: 3vh;
-        width: 5vw;
+        height: 35px;
+        width: 35px;
     }
-    /* .shareFont {
-        font-size:0.8em;
-    } */
 }
 
-
-
-/* Play on Spotify Edit */
-
-@media (min-width: 768px) {
-    .itemPlayButton {
-        width: 10vw;
-    }
-    
-}
-
-/* SMALL ADJUSTMENTS FOR TRANSITION TO MOBILE */
-
-@media (max-width: 767px) {
-    .alignment {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-    }
-    .progressbar {
-        padding-left: 0.1vw;
-        padding-right: 0.1vw;
-    }
-
-    /* .progressPer {
-        font-size: 2.5vw;
-    } */
-
-    .shareFont {
-        font-size: 2vw;
-    }
-    .itemsContainer {
-        flex-direction: column;
-    }
-
-    .itemsContent {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: auto;
-        text-align: center;
-        height: auto;
-        flex-wrap: wrap;
-        /* background-color: blue; */
-        width:300px;
-    }
-    .imgSection {
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        width: 300px;
-    }
-    .itemsHeader {
-        width: 300px;
-    }
-    .itemFrame {
-        width: 80%;
-        height: auto;
-    }
-    .itemsBody {
-        height: 90vh;
-    }
-    .titleDescription {
+/* ADJUSTORS FOR FINAL RESULTS TEXT/ICONS/BUTTONS AT THE FINAL RESULTS PG */
+@media (max-width: 992px) {
+    .finalDescription {
+        width: 90vw;
         height: 10vh;
     }
-    .circleDown {
-        width:5vw;
-        height: 5vh;
-        margin-bottom: 9.5vh;
+    .exclamationCircle {
+        margin-bottom: 10vh;
     }
-    .pixelOffice {
-        top: -7vh;
-        height: 25vh;
-        width: 270%;
-        right: -0.1vw;
-    }
-    .pixelEntrance {
-        top: -5vh;
-        right: -12vw;
-        height: 25vh;
-    }
-}
-
-@media (max-width: 672px) {
-    .shareFont {
-        font-size: 2.5vw;
+    .finalDescriptionFont {
+        font-size: 4.5vw;
     }
     .interactContainer {
-        gap: 8%;
+        flex-direction: column;
+        gap: 1vh;
+    }
+    .downloadAPT {
+        width: 450px;
+        gap: 1vw;
+    }
+    .downloadAPT .shareFont {
+        font-size: xx-large;
+    }
+    .shareLink {
+        width: 380px;
+        height: 5.2vh;
+    }
+    .shareLink .shareFont {
+        font-size: 28px;
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 680px) {
+    .pixelBorder {
+        width: 350px;
+        height: 273.5px;
+    }
+    .pixelFinal {
+        width: 350px;
+        height: 250px;
+    }
+    .pixelWindow {
+        width: 350px;
+        border-radius: 30px 30px 0px 0px;
+    }
+    /*ADJUSTORS FOR FONT/GAP/ICONs FOR THE TWO BUTTONS BELOW FINAL PIXEL ROOM */
+    .downloadAPT .shareFont {
+        font-size: 3.9vw;
+    }
+    .downloadAPT .iconsFormater {
+        height: 4.4vh;
+        width: 4.4vw;
+    }
+
+    .shareLink .shareFont {
+        padding-left: 1vw;
+        font-size: 3.1vw;
+    }
+    .shareLink .iconsFormater {
+        height: 3.8vh;
+        width: 3.8vw;
+    }
+    /*END OF ADJUSTORS */
+    .shareLink {
+        height: 5vh;
+    }
+    .interactContainer {
+        flex-direction: column;
+        gap: 1vh;
+    }
     .iconsFormater {
-        height: 4vh;
-        width: 4vh;
+        height: 25px;
+        width: 25px;
     }
     .pixelWindow {
         gap: 1vw;
     }
-   
-/* FIX THIS MF LINE SO LOW %%%% APPEAR CORRECTLY ON MOBILE */
-    /* .progressbar {
-        padding-right: 3vw;
-        padding-left: 3vw;
-    } */
+    .shareLink {
+        width: 40vw;
+    }
+    .downloadAPT {
+        width: 50vw;
+    }
+    .finalDescription {
+        width: 80vw;
+        height: 7vh;
+    }
+    .circleDown {
+        /* margin-bottom: 8vh; */
+        width: 30px auto;
+        height: 30px auto;
+    }
+    .finalDescriptionFont {
+        font-size: 4vw;
+    }
+    .exclamationCircle {
+        margin-bottom: 10.5vw;
+    }
 }
 
-@media (max-width:420px) {
-    .pixelRoom {
-        width: 95vw;
-        height: 35vh;
+@media (max-width: 500px) {
+    .finalDescriptionFont {
+        font-size: 5.5vw;
     }
-    .circleDownFooter {
+    .exclamationCircle {
+        margin-bottom: 13.5vw;
+        height: 15px;
+        width: 15px;
+    }
+
+    /* ADJUSTORS FOR SAVE APT && SHARE LINK BUTTONS */
+    .shareFont {
+        font-size: 4vw;
+    }
+    .downloadAPT {
+        width: 65%;
+    }
+    .shareLink {
+        width: 50%;
+        height: 5.2vh;
+    }
+    .downloadAPT .shareFont {
+        font-size: 5.2vw;
+        padding-left: 1vw;
+    }
+    .downloadAPT .iconsFormater {
+        height: 5.5vh;
+        width: 5.5vw;
+    }
+    .shareLink .shareFont{
+        font-size: 4.5vw;
+    }
+    .shareLink .iconsFormater {
+        height: 5.5vh;
+        width: 5.5vw;
+    }
+  
+}
+
+@media (max-width: 420px) {
+    .circleUpFooter {
         height: 3vh;
         width: 6vw;
         bottom: 3%;
     }
-    .iconsFormater {
-        height: 3vh;
-        width: 4vh;
+
+    .finalDescription {
+        width: 90vw;
+        height: 50px;
     }
-    .pixelWindow {
-        gap: 0%;
+
+    .circleDown {
+        /* margin-bottom: 10.5vw; */
+        height: 10px ;
+        width: 10px ;
+    }
+    
+    .finalDescription {
+        width: 95%;
     }
 }
 
+/* ADJUSTOR TO FIX ShareLink Font at LOWER RESOLTUIONS */
 @media (max-width: 380px) {
-    .iconsFormater {
-        display: none;
+    .shareLink .shareFont {
+        font-size: 4.5vw;
     }
 }
-.hardCode {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    height: 3.5vw;
-    width: 3.5vw;
-    background-color: #FFFFFF;
-    border-style: dashed;
-    position: absolute;
-    margin-bottom: 13vw;
-}
-/*  */

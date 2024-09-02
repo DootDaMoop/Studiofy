@@ -30,6 +30,14 @@ def profile():
     user_profile = get('https://api.spotify.com/v1/me',headers=headers).json()
     return jsonify(user_profile)
 
+@app.get('/logout')
+def logout():
+    session.clear()
+    response = jsonify(message="Logged out successfully")
+    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    return response
+
 @app.get('/top-tracks')
 def get_user_top_tracks():
     token = session['token']
@@ -93,12 +101,16 @@ def get_user_top_tracks():
             (0.65, 1, '/images/apt_images/lighting/lighting-0.65-1.00.png')
         ],
         'speechiness': [
-            (0, 0.34, '/images/apt_images/office/office-0.00-0.34.png'),
-            (0.35, 0.49, '/images/apt_images/office/office-0.35-0.49.png')
+            (0.0, 0.34, '/images/apt_images/office/office-0.00-0.34.png'),
+            (0.35, 0.49, '/images/apt_images/office/office-0.35-0.49.png'),
+            (0.5, 0.64, '/images/apt_images/office/office-0.50-0.64.png'),
+            (0.65, 1, '/images/apt_images/office/office-0.65-1.00.png')
         ],
         'instrumentalness': [
-            (0.65, 1, '/images/apt_images/entrance/entrance-0.65-1.00.png'),
-            (0.0, 0.34, '/images/apt_images/entrance/entrance-0.00-0.34.png')
+            (0.0, 0.34, '/images/apt_images/entrance/entrance-0.00-0.34.png'),
+            (0.35, 0.49, '/images/apt_images/entrance/entrance-0.35-0.49.png'),
+            (0.5, 0.64, '/images/apt_images/entrance/entrance-0.50-0.64.png'),
+            (0.65, 1, '/images/apt_images/entrance/entrance-0.65-1.00.png')
         ],
         'liveness': [
             (0, 0.34, '/images/apt_images/kitchen/kitchen-0.00-0.34.png'),
@@ -108,11 +120,15 @@ def get_user_top_tracks():
         ],
         'acousticness': [
             (0.0, 0.34, '/images/apt_images/bedroom/bedroom-0.00-0.34.png'),
+            (0.35, 0.49, '/images/apt_images/bedroom/bedroom-0.35-0.49.png'),
             (0.5, 0.64, '/images/apt_images/bedroom/bedroom-0.50-0.64.png'),
             (0.65, 1, '/images/apt_images/bedroom/bedroom-0.65-1.00.png')
         ],
         'danceability': [
-            (0.5, 0.64, '/images/apt_images/livingroom/living-0.50-0.64.png')
+            (0.0, 0.34, '/images/apt_images/livingroom/living-0.00-0.34.png'),
+            (0.35, 0.49, '/images/apt_images/livingroom/living-0.35-0.49.png'),
+            (0.5, 0.64, '/images/apt_images/livingroom/living-0.50-0.64.png'),
+            (0.65, 1, '/images/apt_images/livingroom/living-0.65-1.00.png')
         ],
         'valence': [
             (0, 0.34, '/images/apt_images/wallfloor/wallfloor-0.00-0.34.png'),

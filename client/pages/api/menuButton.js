@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import styles from '../../styles/apt.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faBorderStyle } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/router';
 
-const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverTextColor}) => {
+const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverTextColor, borderColor}) => {
     const [profile, setProfile] = useState(null);
     const [toggle, setToggle] = useState(false);
-    const [isHovered, setIsHovered] = useState(false); 
+    const [isButtonHovered, setIsButtonHovered] = useState(false);
+    const [isItemHovered, setIsItemHovered] = useState(false);
+    const router = useRouter();
 
 
     useEffect(() => {
@@ -28,60 +30,110 @@ const MenuButton = ({textColor, backgroundColor, hoverBackgroundColor, hoverText
         });
     }, []);
 
-    if (!profile) {
-        return null;
-    }
+    const handleLogout = async () => {
+        try {
+            const response = await fetch('http://localhost:8080/logout', {
+                method: 'GET',
+                credentials: 'include'
+            });
+            if (!response.ok) {
+                throw new Error('Logout failed');
+            }
+            console.log('Logout successful');
+            window.location.href = 'https://www.spotify.com/logout/';
+
+            setTimeout(function() {
+                window.location.href = 'http://localhost:3000/';
+            }, 500);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+
+    const menuItems = [
+        {path: '/profile', label: 'Profile', show: !!profile},
+        {path: '/privacy', label: 'Privacy', show: true},
+        {path: '/about', label: 'About', show: true},
+        {path: '/', label: 'Logout', show: !!profile, onClick: handleLogout},
+        {path: '/', label: 'Login', show: !profile}
+    ];
 
     return (
         <header>
-        <button onClick={() => setToggle(!toggle)} className={styles.button} 
-        style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
-            onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
+            <button onClick={() => setToggle(!toggle)} className={styles.button} 
+            style={{ 
+                backgroundColor: isButtonHovered ? hoverBackgroundColor : backgroundColor,
+                textColor: isButtonHovered ? hoverTextColor : textColor,
+                borderColor: borderColor,
+                cursor: 'pointer'
+            }}
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
+            >
                 
-            <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
-            <p className={styles.font}  style={{ color: isHovered ? hoverTextColor : textColor }}>Menu</p>  
-            <i><FontAwesomeIcon icon={faAngleDown} style={{ color: isHovered ? hoverTextColor : textColor }}/></i>
-        </button>
+                {profile && (
+                    <div className={styles.profileimg} style={{ backgroundImage: `url(${profile.images[0].url})` }}></div>
+                )}
+                
+                <p className={styles.menuFont}  style={{ color: isButtonHovered ? hoverTextColor : textColor }}>Menu</p>  
+                <i><FontAwesomeIcon icon={faAngleDown} style={{ color: isButtonHovered ? hoverTextColor : textColor }}/></i>
+            </button>
         
-        {toggle && 
-                <ul className={styles.buttonDropDown} style={{ backgroundColor: isHovered ? hoverBackgroundColor : backgroundColor, textColor: isHovered ? hoverTextColor : textColor}} 
-                    onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-
-                    <li>
-                        <a className={styles.menuFont}  href='/privacy' style={{ color: isHovered ? hoverTextColor : textColor }}>
-                            <p>Privacy </p>     
-                        </a>
-                    </li>
-
-                    <li >
-                        <a className={styles.menuFont}  href='/about' style={{ color: isHovered ? hoverTextColor : textColor }}>
-                            <p>About</p>
-                        </a>
-                    </li>
-
-                    <li >
-                        <a className={styles.menuFont}  href='http://localhost:3000/' style={{ color: isHovered ? hoverTextColor : textColor }}>
-                            <p>Logout</p>
-                        </a>  
-                    </li>
-                </ul> }
+            {toggle && 
+                <ul 
+                className={styles.buttonDropDown} 
+                style={{
+                    backgroundColor: backgroundColor,
+                    textColor: textColor,
+                    borderColor: borderColor
+                }} 
+                >
+                    {menuItems.filter(item => item.show && item.path !== router.pathname)
+                    .map((item, index) =>
+                            item.show && (
+                                <li 
+                                key={item.path}
+                                onMouseEnter={() => setIsItemHovered(item.path)}
+                                onMouseLeave={() => setIsItemHovered(null)}
+                                style={{
+                                    backgroundColor: isItemHovered === item.path ? hoverBackgroundColor : backgroundColor,
+                                    cursor: 'pointer',
+                                    marginTop: index === 0 ? '35px' : '0' // Margin to the first button so it doesn't hide behind menu button
+                                }}
+                                >
+                                    {item.onClick ? (
+                                        <a
+                                        className={styles.menuFont}
+                                        onClick={item.onClick}
+                                        style={{
+                                        // Style for Logout
+                                            color: isItemHovered ? hoverTextColor : textColor,
+                                            textDecoration: 'none',
+                                            }}>
+                                            <p>{item.label}</p>
+                                        </a>
+                                    ) : (
+                                        item.path !== router.pathname && (
+                                            <a
+                                            className={styles.menuFont}
+                                            href={item.path}
+                                            style={{
+                                            // Style for Privacy & About
+                                                color: isItemHovered ? hoverTextColor : textColor,
+                                                textDecoration: 'none',
+                                                }}>
+                                                <p>{item.label}</p>
+                                            </a>
+                                        )
+                                    )}
+                                </li>
+                            )
+                    )}
+                </ul>
+            }
         </header>
     );
 };
-
-MenuButton.propTypes = {
-    textColor: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    hoverBackgroundColor: PropTypes.string, 
-    hoverTextColor: PropTypes.string, 
-};
-
-MenuButton.defaultProps = {
-    textColor: '#000', 
-    backgroundColor: '#F6F3E0', 
-    hoverBackgroundColor: 'white', 
-    hoverTextColor: "black",
-};
-
 
 export default MenuButton;
